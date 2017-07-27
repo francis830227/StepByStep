@@ -411,26 +411,37 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTb-5V-zOt">
-                                                    <rect key="frame" x="0.0" y="111" width="135" height="10"/>
+                                                    <rect key="frame" x="0.0" y="116" width="135" height="5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="10" id="Usx-YQ-Zm2"/>
+                                                        <constraint firstAttribute="height" constant="5" id="Usx-YQ-Zm2"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liV-tf-AMT">
+                                                    <rect key="frame" x="132" y="0.0" width="3" height="116"/>
+                                                    <color key="backgroundColor" red="0.99828165769999999" green="0.36729687449999998" blue="0.34767833349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="3" id="Ve6-uo-Wae"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.40647679316153468" green="0.60279936288096436" blue="0.97914892435073853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="FTb-5V-zOt" firstAttribute="top" secondItem="liV-tf-AMT" secondAttribute="bottom" id="0vK-OC-TIc"/>
                                             <constraint firstAttribute="bottom" secondItem="1y4-TH-Gxd" secondAttribute="bottom" id="7pF-QC-RiF"/>
                                             <constraint firstItem="FTb-5V-zOt" firstAttribute="leading" secondItem="yax-yu-zaF" secondAttribute="leading" id="9i3-T2-Cg8"/>
+                                            <constraint firstItem="liV-tf-AMT" firstAttribute="top" secondItem="yax-yu-zaF" secondAttribute="top" id="IZy-OU-svS"/>
                                             <constraint firstItem="1y4-TH-Gxd" firstAttribute="leading" secondItem="yax-yu-zaF" secondAttribute="leading" id="NvI-48-bUO"/>
                                             <constraint firstAttribute="trailing" secondItem="FTb-5V-zOt" secondAttribute="trailing" id="RPg-SD-qZD"/>
+                                            <constraint firstAttribute="trailing" secondItem="liV-tf-AMT" secondAttribute="trailing" id="TaD-IM-C4g"/>
                                             <constraint firstAttribute="trailing" secondItem="1y4-TH-Gxd" secondAttribute="trailing" id="Wvi-jA-gda"/>
                                             <constraint firstItem="1y4-TH-Gxd" firstAttribute="top" secondItem="yax-yu-zaF" secondAttribute="top" id="gr5-iU-4ke"/>
                                             <constraint firstAttribute="bottom" secondItem="FTb-5V-zOt" secondAttribute="bottom" id="o1h-5b-ujL"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="1y4-TH-Gxd" id="vW9-s2-7Bb"/>
+                                            <outlet property="eventDotView" destination="liV-tf-AMT" id="D3A-kZ-8rQ"/>
                                             <outlet property="selectedView" destination="FTb-5V-zOt" id="0jZ-hO-eHi"/>
                                         </connections>
                                     </collectionViewCell>
@@ -518,7 +529,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxF-L7-YEd">
-                                <rect key="frame" x="65" y="517" width="245" height="30"/>
+                                <rect key="frame" x="65" y="508" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

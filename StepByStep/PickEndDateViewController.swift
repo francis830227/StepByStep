@@ -18,6 +18,8 @@ class PickEndDateViewController: UIViewController {
     let monthColor = UIColor.white
     
     let outsideMonthColor = UIColor.green
+    
+    let todaysDate = Date()
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
@@ -28,9 +30,31 @@ class PickEndDateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //抓假資料
+        DispatchQueue.global().async {
+            let serverObjects = self.getServerEvents()
+            for (date, event) in serverObjects {
+                let stringDate = self.formatter.string(from: date)
+                self.eventsFromTheServer[stringDate] = event
+            }
+            
+            DispatchQueue.main.async {
+                self.calendarView.reloadData()
+            }
+            //抓完假資料
+            
+        }
+        
         setupCalendarView()
         
+        calendarView.scrollToDate(Date())
+        
+        calendarView.selectDates([ Date() ])
+        
     }
+    
+    
+    var eventsFromTheServer: [String : String] = [:]
     
     func setupCalendarView() {
         
@@ -45,30 +69,53 @@ class PickEndDateViewController: UIViewController {
             self.setupViewOfCalendar(from: visibleDates)
             
         }
+        
     }
 
     func handleCelltextColor(view: JTAppleCell?, cellState: CellState) {
         
         guard let validCell = view as? CalendarCell else { return }
-
-        if cellState.isSelected {
-            
-            validCell.selectedView.layer.backgroundColor = selectedMonthColor.cgColor
-            
-            validCell.dateLabel.textColor = selectedMonthColor
         
+        formatter.dateFormat = "yyyy MM dd"
+        
+        let todaysDateString = formatter.string(from: todaysDate)
+        
+        let monthDateString = formatter.string(from: cellState.date)
+        
+        if todaysDateString == monthDateString {
+            
+            validCell.dateLabel.textColor = .blue
+            
         } else {
             
-            if cellState.dateBelongsTo == .thisMonth {
+            if cellState.isSelected {
                 
-                validCell.dateLabel.textColor = monthColor
+                validCell.dateLabel.textColor = selectedMonthColor
                 
             } else {
                 
-                validCell.dateLabel.textColor = outsideMonthColor
+                if cellState.dateBelongsTo == .thisMonth {
+                    
+                    validCell.dateLabel.textColor = monthColor
+                    
+                } else {
+                    
+                    validCell.dateLabel.textColor = outsideMonthColor
+                    
+                }
+                
             }
+            
         }
         
+    }
+    
+    func handleCellEvents(view: JTAppleCell?, cellState: CellState) {
+        
+        guard let validCell = view as? CalendarCell else { return }
+        
+        validCell.eventDotView.isHidden = !eventsFromTheServer.contains { $0.key == formatter.string(from: cellState.date)}
+                
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
@@ -114,74 +161,22 @@ class PickEndDateViewController: UIViewController {
     
 }
 
-extension PickEndDateViewController: JTAppleCalendarViewDataSource {
+extension PickEndDateViewController {
     
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        
-        let formatter = DateFormatter()
+    func getServerEvents() -> [Date : String] {
         
         formatter.dateFormat = "yyyy MM dd"
         
-        formatter.timeZone = Calendar.current.timeZone
-        
-        formatter.locale = Calendar.current.locale
-        
-        let startDate = formatter.date(from: "2017 01 01")!
-        
-        let endDate = formatter.date(from: "2030 12 31")!
-        
-        let parameters = ConfigurationParameters(startDate: startDate,
-                                                 endDate: endDate,
-                                                 generateInDates: .forAllMonths,
-                                                 generateOutDates: .tillEndOfGrid,
-                                                 hasStrictBoundaries: false)
-        
-        return parameters
-        
-    }
-    
-}
-
-extension PickEndDateViewController: JTAppleCalendarViewDelegate {
-    
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell",
-                                                       for: indexPath) as! CalendarCell
-        
-        cell.dateLabel.text = cellState.text
-        
-        handleCellSelected(view: cell, cellState: cellState)
-        
-        handleCelltextColor(view: cell, cellState: cellState)
-        
-        return cell
-        
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        
-        handleCellSelected(view: cell, cellState: cellState)
-        
-        handleCelltextColor(view: cell, cellState: cellState)
-        
-        print(date)
-        
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        
-        handleCellSelected(view: cell, cellState: cellState)
-        
-        handleCelltextColor(view: cell, cellState: cellState)
-        
-    }
-    
-
-    
-    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-    
-        setupViewOfCalendar(from: visibleDates)
+        return [
+            
+            formatter.date(from: "2017 07 26")!: "1",
+            formatter.date(from: "2017 07 19")!: "1",
+            formatter.date(from: "2017 07 22")!: "1",
+            formatter.date(from: "2017 07 29")!: "1",
+            formatter.date(from: "2017 07 27")!: "1",
+            formatter.date(from: "2017 07 15")!: "1"
+            
+        ]
         
     }
     

@@ -17,6 +17,8 @@
 		152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E731F277F11004E6E8C /* SignupViewController.swift */; };
 		152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E751F278117004E6E8C /* GoogleService-Info.plist */; };
 		152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */; };
+		15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8BFF51F2A102B00458733 /* JTAppleCalendarViewDataSource.swift */; };
+		15E8BFF81F2A106E00458733 /* JTAppleCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8BFF71F2A106E00458733 /* JTAppleCalendarViewDelegate.swift */; };
 		15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC4331F289C3D001DF19A /* MainViewController.swift */; };
 		15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45C1F28D272001DF19A /* CalendarCell.swift */; };
 		15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */; };
@@ -35,6 +37,8 @@
 		152C7E731F277F11004E6E8C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		152C7E751F278117004E6E8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = StepByStep/MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		15E8BFF51F2A102B00458733 /* JTAppleCalendarViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTAppleCalendarViewDataSource.swift; sourceTree = "<group>"; };
+		15E8BFF71F2A106E00458733 /* JTAppleCalendarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTAppleCalendarViewDelegate.swift; sourceTree = "<group>"; };
 		15EDC4331F289C3D001DF19A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = StepByStep/MainViewController.swift; sourceTree = "<group>"; };
 		15EDC45C1F28D272001DF19A /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickEndDateViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,15 @@
 			path = StepByStep;
 			sourceTree = "<group>";
 		};
+		15E8BFF91F2A109B00458733 /* JTAppleCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				15E8BFF51F2A102B00458733 /* JTAppleCalendarViewDataSource.swift */,
+				15E8BFF71F2A106E00458733 /* JTAppleCalendarViewDelegate.swift */,
+			);
+			name = JTAppleCalendar;
+			sourceTree = "<group>";
+		};
 		15EDC4381F28BAAE001DF19A /* Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +143,9 @@
 		15EDC4601F28DACB001DF19A /* PickEndDateView */ = {
 			isa = PBXGroup;
 			children = (
-				15EDC45C1F28D272001DF19A /* CalendarCell.swift */,
+				15E8BFF91F2A109B00458733 /* JTAppleCalendar */,
 				15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */,
+				15EDC45C1F28D272001DF19A /* CalendarCell.swift */,
 			);
 			name = PickEndDateView;
 			sourceTree = "<group>";
@@ -272,6 +286,8 @@
 				15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */,
 				15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */,
 				152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */,
+				15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */,
+				15E8BFF81F2A106E00458733 /* JTAppleCalendarViewDelegate.swift in Sources */,
 				152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */,
 				152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */,
 				15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */,

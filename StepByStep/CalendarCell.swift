@@ -14,4 +14,7 @@ class CalendarCell: JTAppleCell {
     @IBOutlet weak var dateLabel: UILabel!
 
     @IBOutlet weak var selectedView: UIView!
+    
+    @IBOutlet weak var eventDotView: UIView!
+    
 }
