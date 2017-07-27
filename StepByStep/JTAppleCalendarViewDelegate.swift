@@ -35,7 +35,10 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         handleCelltextColor(view: cell, cellState: cellState)
         
         handleCellEvents(view: cell, cellState: cellState)
-
+        
+        guard let validCell = cell as? CalendarCell else { return }
+        
+        validCell.bounce()
         //print(date)
         
     }
@@ -57,4 +60,14 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         
     }
     
+}
+
+extension UIView {
+    func bounce() {
+        self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+            self.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+    }
 }
