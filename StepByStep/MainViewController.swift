@@ -32,6 +32,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
+    @IBAction func todayListButtonPressed(_ sender: Any) {
+    }
 
 }
 

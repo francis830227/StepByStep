@@ -13,6 +13,8 @@ target 'StepByStep' do
 
   pod 'JTAppleCalendar', '~> 7.0'
 
+  pod 'IQKeyboardManagerSwift'
+
   # Pods for StepByStep
 
 end

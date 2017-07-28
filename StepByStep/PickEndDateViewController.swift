@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import IQKeyboardManagerSwift
 
 class PickEndDateViewController: UIViewController {
     
@@ -20,6 +21,9 @@ class PickEndDateViewController: UIViewController {
     let outsideMonthColor = UIColor.green
     
     let todaysDate = Date()
+    
+    
+    @IBOutlet weak var eventTextField: UITextField!
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
