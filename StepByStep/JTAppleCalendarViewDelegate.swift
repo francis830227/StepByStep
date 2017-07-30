@@ -38,7 +38,9 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         
         guard let validCell = cell as? CalendarCell else { return }
         
-        validCell.bounce()
+        validCell.bind()
+        
+        validCell.selectedView.bounce()
         //print(date)
         
         

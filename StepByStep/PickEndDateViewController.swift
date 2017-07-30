@@ -30,11 +30,11 @@ class PickEndDateViewController: UIViewController {
     
     let formatter = DateFormatter()
     
-    let selectedMonthColor = UIColor.darkGray
+    let selectedMonthColor = UIColor.white
     
     let monthColor = UIColor.white
     
-    let outsideMonthColor = UIColor.green
+    let outsideMonthColor = UIColor.darkGray
     
     let todaysDate = Date()
     
@@ -72,11 +72,11 @@ class PickEndDateViewController: UIViewController {
 //            
 //        }
         
+        gradientNavi()
+        
         setupCalendarView()
         
-        calendarView.scrollToDate(Date())
         
-        calendarView.selectDates([ Date() ])
         
     }
     
@@ -103,6 +103,20 @@ class PickEndDateViewController: UIViewController {
         
         calendarView.minimumInteritemSpacing = 0
         
+        calendarView.layer.shadowColor = UIColor.black.cgColor
+        
+        calendarView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        
+        calendarView.layer.masksToBounds = false
+        
+        calendarView.layer.shadowOpacity = 1
+        
+        calendarView.layer.shadowRadius = 2
+        
+        calendarView.scrollToDate(Date())
+        
+        calendarView.selectDates([ Date() ])
+        
         //Setup labels
         calendarView.visibleDates { (visibleDates) in
             
@@ -124,7 +138,7 @@ class PickEndDateViewController: UIViewController {
         
         if todaysDateString == monthDateString {
             
-            validCell.dateLabel.textColor = .blue
+            validCell.dateLabel.textColor = UIColor(red: 2/255.0, green: 158/255.0, blue: 183/255.0, alpha: 1)
             
         } else {
             
@@ -229,3 +243,7 @@ extension PickEndDateViewController {
     }
     
 }
+
+
+
+

@@ -12,6 +12,7 @@
 		152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */; };
 		152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */; };
 		152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */; };
+		152B3A391F2DAF51004FAC2D /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A381F2DAF51004FAC2D /* Gradient.swift */; };
 		152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */; };
 		152C7E621F2779C7004E6E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E601F2779C7004E6E8C /* Main.storyboard */; };
 		152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 		152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventTableView.swift; sourceTree = "<group>"; };
 		152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
+		152B3A381F2DAF51004FAC2D /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		152C7E591F2779C7004E6E8C /* StepByStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepByStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C7E611F2779C7004E6E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				15E8BFF91F2A109B00458733 /* JTAppleCalendar */,
 				152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */,
 				15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */,
+				152B3A381F2DAF51004FAC2D /* Gradient.swift */,
 				15EDC45C1F28D272001DF19A /* CalendarCell.swift */,
 			);
 			name = PickEndDateView;
@@ -336,6 +339,7 @@
 				152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */,
 				152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */,
 				15F8CCCB1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift in Sources */,
+				152B3A391F2DAF51004FAC2D /* Gradient.swift in Sources */,
 				15F8CCC31F2B376C004F1A0A /* EverydayEventViewController.swift in Sources */,
 				152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */,
 				15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */,

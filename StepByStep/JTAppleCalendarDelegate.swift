@@ -17,7 +17,7 @@ extension EverydayEventViewController: JTAppleCalendarViewDelegate {
                                                        for: indexPath) as! EventCalendarCell
         
         cell.dateLabel.text = cellState.text
-        
+                
         handleCellSelected(view: cell, cellState: cellState)
         
         handleCelltextColor(view: cell, cellState: cellState)
