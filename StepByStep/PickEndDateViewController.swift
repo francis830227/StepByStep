@@ -10,6 +10,22 @@ import UIKit
 import JTAppleCalendar
 import IQKeyboardManagerSwift
 
+protocol EndDateDelegate {
+    
+    func manager(_ data: [EndDate])
+    
+}
+
+struct EndDate {
+    
+    var year: String
+    
+    var month: String
+    
+    var day: String
+    
+}
+
 class PickEndDateViewController: UIViewController {
     
     let formatter = DateFormatter()
@@ -22,6 +38,13 @@ class PickEndDateViewController: UIViewController {
     
     let todaysDate = Date()
     
+    var delegate: EndDateDelegate?
+    
+    var yearForDelegate = ""
+    
+    var monthForDelegate = ""
+    
+    var day = ""
     
     @IBOutlet weak var eventTextField: UITextField!
 
@@ -33,21 +56,21 @@ class PickEndDateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //抓假資料
-        DispatchQueue.global().async {
-            let serverObjects = self.getServerEvents()
-            for (date, event) in serverObjects {
-                let stringDate = self.formatter.string(from: date)
-                self.eventsFromTheServer[stringDate] = event
-            }
-            
-            DispatchQueue.main.async {
-                self.calendarView.reloadData()
-            }
-            //抓完假資料
-            
-        }
+        
+//        //抓假資料
+//        DispatchQueue.global().async {
+//            let serverObjects = self.getServerEvents()
+//            for (date, event) in serverObjects {
+//                let stringDate = self.formatter.string(from: date)
+//                self.eventsFromTheServer[stringDate] = event
+//            }
+//            
+//            DispatchQueue.main.async {
+//                self.calendarView.reloadData()
+//            }
+//        //抓完假資料
+//            
+//        }
         
         setupCalendarView()
         
@@ -57,6 +80,19 @@ class PickEndDateViewController: UIViewController {
         
     }
     
+    @IBAction func donePickEndButtonPressed(_ sender: Any) {
+        
+    }
+    
+    func requestData() {
+        
+        var dates = [EndDate]()
+        
+        dates.append( EndDate(year: yearForDelegate, month: monthForDelegate, day: day) )
+        
+        delegate?.manager(dates)
+        
+    }
     
     var eventsFromTheServer: [String : String] = [:]
     
@@ -143,12 +179,20 @@ class PickEndDateViewController: UIViewController {
         let date = visibleDates.monthDates.first!.date
         
         self.formatter.dateFormat = "yyyy"
-        
+
         self.year.text = self.formatter.string(from: date)
+        
+        yearForDelegate = self.year.text ?? ""
         
         self.formatter.dateFormat = "MMMM"
         
         self.month.text = self.formatter.string(from: date)
+        
+        monthForDelegate = self.month.text ?? ""
+        
+        self.formatter.dateFormat = "dddd"
+        
+        self.day = self.formatter.string(from: date)
         
     }
     

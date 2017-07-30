@@ -54,4 +54,13 @@ extension EverydayEventViewController: JTAppleCalendarViewDelegate {
         
     }
     
+    func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
+        let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "eventHeader", for: indexPath) as! CalendarHeader
+        return header
+    }
+    
+    func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
+        return MonthSize(defaultSize: 50)
+    }
+    
 }

@@ -15,6 +15,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     let animator = LinearCardAttributesAnimator()
     
+    var dates = [EndDate]()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -30,6 +32,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         }
         
+        let dataManager = PickEndDateViewController()
+        
+        dataManager.delegate = self
+        
+        dataManager.requestData()
+        
     }
     
     @IBAction func todayListButtonPressed(_ sender: Any) {
@@ -41,7 +49,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 5
+        return dates.count
         
     }
     
@@ -49,9 +57,44 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
         
+        let year = dates[indexPath.row].year
+        
+        let month = dates[indexPath.row].month
+        
+        let day = dates[indexPath.row].day
+        
         cell.bind()
         
-        cell.clipsToBounds = false
+        if year == "" || month == "" || day == "" {
+            
+            cell.countDownLabel.text = ""
+            
+            cell.finishDateLabel.text = ""
+            
+            cell.totalGoingLabel.text = ""
+            
+            cell.todayGoingLabel.text = ""
+            
+            cell.clipsToBounds = false
+            
+            
+            
+        } else {
+            
+            cell.addCardLabel.isHidden = true
+            
+            //        cell.countDownLabel.text = dates[indexPath.row].
+            cell.countDownLabel.text = "\(arc4random_uniform(100))天"
+            
+            cell.finishDateLabel.text = "完成日：\(year)/\(month)/\(day)"
+            
+            cell.totalGoingLabel.text = "\(arc4random_uniform(99))%"
+            
+            cell.todayGoingLabel.text = "總進度\(arc4random_uniform(99))%"
+            
+            cell.clipsToBounds = false
+        }
+        
         
         return cell
     }
@@ -76,5 +119,16 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         return 0
         
     }
+    
+}
+
+extension MainViewController: EndDateDelegate {
+    
+    func manager(_ data: [EndDate]) {
+        
+        dates = data
+        
+    }
+    
     
 }

@@ -10,6 +10,7 @@ import UIKit
 import JTAppleCalendar
 import IQKeyboardManagerSwift
 
+
 class EverydayEventViewController: UIViewController {
 
     let formatter = DateFormatter()
@@ -28,6 +29,9 @@ class EverydayEventViewController: UIViewController {
     
     @IBOutlet weak var year: UILabel!
     
+    @IBOutlet weak var eventTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +42,8 @@ class EverydayEventViewController: UIViewController {
         eventCalendarView.selectDates([ Date() ])
     
     }
+    
+    
 
     var eventsFromTheServer: [String : String] = [:]
     
@@ -136,22 +142,22 @@ class EverydayEventViewController: UIViewController {
 
 extension EverydayEventViewController {
     
-    func getServerEvents() -> [Date : String] {
-        
-        formatter.dateFormat = "yyyy MM dd"
-        
-        return [
-            
-            formatter.date(from: "2017 07 26")!: "1",
-            formatter.date(from: "2017 07 19")!: "1",
-            formatter.date(from: "2017 07 22")!: "1",
-            formatter.date(from: "2017 07 29")!: "1",
-            formatter.date(from: "2017 07 27")!: "1",
-            formatter.date(from: "2017 07 15")!: "1"
-            
-        ]
-        
-    }
+//    func getServerEvents() -> [Date : String] {
+//        
+//        formatter.dateFormat = "yyyy MM dd"
+//        
+//        return [
+//            
+//            formatter.date(from: "2017 07 26")!: "1",
+//            formatter.date(from: "2017 07 19")!: "1",
+//            formatter.date(from: "2017 07 22")!: "1",
+//            formatter.date(from: "2017 07 29")!: "1",
+//            formatter.date(from: "2017 07 27")!: "1",
+//            formatter.date(from: "2017 07 15")!: "1"
+//            
+//        ]
+//        
+//    }
     
 }
 

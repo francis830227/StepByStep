@@ -11,17 +11,30 @@ import AnimatedCollectionViewLayout
 
 class MainCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var countDownLabel: UILabel!
+    
+    @IBOutlet weak var finishDateLabel: UILabel!
+    
+    @IBOutlet weak var eventLabel: UILabel!
+    
+    @IBOutlet weak var totalGoingLabel: UILabel!
+    
+    @IBOutlet weak var todayGoingLabel: UILabel!
+    
+    @IBOutlet weak var addCardLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         backgroundColor = .clear
+        
     }
     
     func bind() {
+        
         contentView.backgroundColor = UIColor.lightGray
-        testLabel.text = "\(arc4random_uniform(1000))"
 
     }
+    
 }
 

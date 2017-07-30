@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0AEB5E429B685426A514C200 /* Pods_StepByStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */; };
+		152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */; };
+		152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */; };
+		152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */; };
+		152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */; };
 		152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */; };
 		152C7E621F2779C7004E6E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E601F2779C7004E6E8C /* Main.storyboard */; };
 		152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */; };
@@ -30,6 +34,10 @@
 
 /* Begin PBXFileReference section */
 		013C5C7BAA191E40B9F76C83 /* Pods-StepByStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.debug.xcconfig"; sourceTree = "<group>"; };
+		152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventTableViewCell.swift; sourceTree = "<group>"; };
+		152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventTableView.swift; sourceTree = "<group>"; };
+		152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		152C7E591F2779C7004E6E8C /* StepByStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepByStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C7E611F2779C7004E6E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +83,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		152B3A311F2C2E33004FAC2D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */,
+				152C7E6B1F2779C7004E6E8C /* Info.plist */,
+				152C7E751F278117004E6E8C /* GoogleService-Info.plist */,
+				152C7E661F2779C7004E6E8C /* Assets.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		152C7E501F2779C6004E6E8C = {
 			isa = PBXGroup;
 			children = (
@@ -103,11 +122,8 @@
 				15EDC4601F28DACB001DF19A /* PickEndDateView */,
 				15F8CCC41F2B3777004F1A0A /* EverydayEventView */,
 				152C7E601F2779C7004E6E8C /* Main.storyboard */,
-				152C7E661F2779C7004E6E8C /* Assets.xcassets */,
 				152C7E681F2779C7004E6E8C /* LaunchScreen.storyboard */,
-				152C7E6B1F2779C7004E6E8C /* Info.plist */,
-				152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */,
-				152C7E751F278117004E6E8C /* GoogleService-Info.plist */,
+				152B3A311F2C2E33004FAC2D /* Resource */,
 			);
 			path = StepByStep;
 			sourceTree = "<group>";
@@ -153,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				15E8BFF91F2A109B00458733 /* JTAppleCalendar */,
+				152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */,
 				15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */,
 				15EDC45C1F28D272001DF19A /* CalendarCell.swift */,
 			);
@@ -163,8 +180,11 @@
 			isa = PBXGroup;
 			children = (
 				15F8CCC71F2B658E004F1A0A /* JTAppleCalendar */,
-				15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */,
+				152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */,
 				15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */,
+				152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */,
+				152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */,
+				15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */,
 			);
 			name = EverydayEventView;
 			sourceTree = "<group>";
@@ -313,11 +333,15 @@
 			files = (
 				15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */,
 				15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */,
+				152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */,
 				152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */,
 				15F8CCCB1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift in Sources */,
 				15F8CCC31F2B376C004F1A0A /* EverydayEventViewController.swift in Sources */,
+				152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */,
 				15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */,
 				15E8BFF81F2A106E00458733 /* JTAppleCalendarViewDelegate.swift in Sources */,
+				152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */,
+				152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */,
 				15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */,
 				152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */,
 				152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */,
