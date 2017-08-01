@@ -57,20 +57,20 @@ class PickEndDateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        //抓假資料
-//        DispatchQueue.global().async {
-//            let serverObjects = self.getServerEvents()
-//            for (date, event) in serverObjects {
-//                let stringDate = self.formatter.string(from: date)
-//                self.eventsFromTheServer[stringDate] = event
-//            }
-//            
-//            DispatchQueue.main.async {
-//                self.calendarView.reloadData()
-//            }
-//        //抓完假資料
-//            
-//        }
+        //抓假資料
+        DispatchQueue.global().async {
+            let serverObjects = self.getServerEvents()
+            for (date, event) in serverObjects {
+                let stringDate = self.formatter.string(from: date)
+                self.eventsFromTheServer[stringDate] = event
+            }
+            
+            DispatchQueue.main.async {
+                self.calendarView.reloadData()
+            }
+        //抓完假資料
+            
+        }
         
         gradientNavi()
         

@@ -15,7 +15,7 @@ class CalendarCell: JTAppleCell {
 
     @IBOutlet weak var selectedView: UIView!
     
-    @IBOutlet weak var eventDotView: UIView!
+    @IBOutlet weak var eventDotView: UIImageView!
     
     func bind() {
         
