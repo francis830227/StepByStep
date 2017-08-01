@@ -9,6 +9,7 @@
 import UIKit
 import AnimatedCollectionViewLayout
 import Firebase
+import NVActivityIndicatorView
 
 class MainViewController: UIViewController {
     

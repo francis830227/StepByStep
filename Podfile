@@ -17,6 +17,7 @@ target 'StepByStep' do
 
   pod 'NVActivityIndicatorView'
 
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
   # Pods for StepByStep
 

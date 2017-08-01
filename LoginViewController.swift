@@ -9,12 +9,13 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextFieldWithIcon!
     
     @IBOutlet weak var errorLabel: UILabel!
     
