@@ -9,22 +9,7 @@
 import UIKit
 import JTAppleCalendar
 import IQKeyboardManagerSwift
-
-protocol EndDateDelegate {
-    
-    func manager(_ data: [EndDate])
-    
-}
-
-struct EndDate {
-    
-    var year: String
-    
-    var month: String
-    
-    var day: String
-    
-}
+import Firebase
 
 class PickEndDateViewController: UIViewController {
     
@@ -37,14 +22,14 @@ class PickEndDateViewController: UIViewController {
     let outsideMonthColor = UIColor.darkGray
     
     let todaysDate = Date()
+        
+    var yearString = ""
     
-    var delegate: EndDateDelegate?
+    var monthString = ""
     
-    var yearForDelegate = ""
+    var dayString = ""
     
-    var monthForDelegate = ""
-    
-    var day = ""
+    var eventText = ""
     
     @IBOutlet weak var eventTextField: UITextField!
 
@@ -57,6 +42,7 @@ class PickEndDateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
         //抓假資料
         DispatchQueue.global().async {
             let serverObjects = self.getServerEvents()
@@ -71,26 +57,48 @@ class PickEndDateViewController: UIViewController {
         //抓完假資料
             
         }
+=======
+        hideKeyboardWhenTappedAround()
+                
+//        //抓假資料
+//        DispatchQueue.global().async {
+//            let serverObjects = self.getServerEvents()
+//            for (date, event) in serverObjects {
+//                let stringDate = self.formatter.string(from: date)
+//                self.eventsFromTheServer[stringDate] = event
+//            }
+//            
+//            DispatchQueue.main.async {
+//                self.calendarView.reloadData()
+//            }
+//        //抓完假資料
+//
+//        }
+>>>>>>> mainViewLabelSetting
         
         gradientNavi()
         
         setupCalendarView()
         
-        
-        
     }
     
     @IBAction func donePickEndButtonPressed(_ sender: Any) {
         
-    }
-    
-    func requestData() {
+        let uid = Auth.auth().currentUser?.uid
         
-        var dates = [EndDate]()
+        let ref = Database.database().reference().child("title").child(uid!).childByAutoId()
         
-        dates.append( EndDate(year: yearForDelegate, month: monthForDelegate, day: day) )
+        yearString = self.year.text ?? ""
         
-        delegate?.manager(dates)
+        monthString = self.month.text ?? ""
+        
+        eventText = eventTextField.text ?? ""
+        
+        let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
+        
+        ref.updateChildValues(values)
+        
+        dismiss(animated: true, completion: nil)
         
     }
     
@@ -130,7 +138,7 @@ class PickEndDateViewController: UIViewController {
         
         guard let validCell = view as? CalendarCell else { return }
         
-        formatter.dateFormat = "yyyy MM dd"
+        formatter.dateFormat = "yyyy MMM dd"
         
         let todaysDateString = formatter.string(from: todaysDate)
         
@@ -168,7 +176,7 @@ class PickEndDateViewController: UIViewController {
         
         guard let validCell = view as? CalendarCell else { return }
         
-        validCell.eventDotView.isHidden = !eventsFromTheServer.contains { $0.key == formatter.string(from: cellState.date)}
+        validCell.dotImageView.isHidden = !eventsFromTheServer.contains { $0.key == formatter.string(from: cellState.date)}
                 
     }
     
@@ -188,6 +196,14 @@ class PickEndDateViewController: UIViewController {
 
     }
     
+    func handleCellVisibility(view: JTAppleCell?, cellState: CellState) {
+    
+        guard let validCell = view as? CalendarCell else { return }
+
+        validCell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
+    
+    }
+    
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo) {
         
         let date = visibleDates.monthDates.first!.date
@@ -196,17 +212,9 @@ class PickEndDateViewController: UIViewController {
 
         self.year.text = self.formatter.string(from: date)
         
-        yearForDelegate = self.year.text ?? ""
-        
-        self.formatter.dateFormat = "MMMM"
+        self.formatter.dateFormat = "MM"
         
         self.month.text = self.formatter.string(from: date)
-        
-        monthForDelegate = self.month.text ?? ""
-        
-        self.formatter.dateFormat = "dddd"
-        
-        self.day = self.formatter.string(from: date)
         
     }
     
@@ -222,28 +230,3 @@ class PickEndDateViewController: UIViewController {
     }
     
 }
-
-extension PickEndDateViewController {
-    
-    func getServerEvents() -> [Date : String] {
-        
-        formatter.dateFormat = "yyyy MM dd"
-        
-        return [
-            
-            formatter.date(from: "2017 07 26")!: "1",
-            formatter.date(from: "2017 07 19")!: "1",
-            formatter.date(from: "2017 07 22")!: "1",
-            formatter.date(from: "2017 07 29")!: "1",
-            formatter.date(from: "2017 07 27")!: "1",
-            formatter.date(from: "2017 07 15")!: "1"
-            
-        ]
-        
-    }
-    
-}
-
-
-
-

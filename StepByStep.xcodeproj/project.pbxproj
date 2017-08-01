@@ -13,6 +13,10 @@
 		152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */; };
 		152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */; };
 		152B3A391F2DAF51004FAC2D /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A381F2DAF51004FAC2D /* Gradient.swift */; };
+		152B3A3B1F2DF338004FAC2D /* hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A3A1F2DF338004FAC2D /* hideKeyboard.swift */; };
+		152B3A3D1F2E0081004FAC2D /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */; };
+		152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */; };
+		152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A641F2F335F004FAC2D /* fetchManager.swift */; };
 		152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */; };
 		152C7E621F2779C7004E6E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E601F2779C7004E6E8C /* Main.storyboard */; };
 		152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */; };
@@ -40,6 +44,11 @@
 		152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		152B3A381F2DAF51004FAC2D /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		152B3A3A1F2DF338004FAC2D /* hideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hideKeyboard.swift; sourceTree = "<group>"; };
+		152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepByStep.entitlements; sourceTree = "<group>"; };
+		152B3A421F2EF881004FAC2D /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
+		152B3A641F2F335F004FAC2D /* fetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fetchManager.swift; sourceTree = "<group>"; };
 		152C7E591F2779C7004E6E8C /* StepByStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepByStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C7E611F2779C7004E6E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,7 +126,10 @@
 		152C7E5B1F2779C7004E6E8C /* StepByStep */ = {
 			isa = PBXGroup;
 			children = (
+				152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */,
+				152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */,
 				152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */,
+				152B3A3A1F2DF338004FAC2D /* hideKeyboard.swift */,
 				15EDC4381F28BAAE001DF19A /* Signup */,
 				15EDC4391F28BABE001DF19A /* Login */,
 				15EDC43B1F28BB04001DF19A /* MainView */,
@@ -162,6 +174,7 @@
 			children = (
 				152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */,
 				15EDC4331F289C3D001DF19A /* MainViewController.swift */,
+				152B3A641F2F335F004FAC2D /* fetchManager.swift */,
 			);
 			name = MainView;
 			path = ..;
@@ -185,6 +198,7 @@
 				15F8CCC71F2B658E004F1A0A /* JTAppleCalendar */,
 				152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */,
 				15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */,
+				152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */,
 				152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */,
 				152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */,
 				15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */,
@@ -244,8 +258,16 @@
 				TargetAttributes = {
 					152C7E581F2779C6004E6E8C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = CJRP4MFDT9;
+						DevelopmentTeam = 78Y9MSJT25;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -334,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				152B3A3B1F2DF338004FAC2D /* hideKeyboard.swift in Sources */,
 				15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */,
 				15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */,
 				152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */,
@@ -345,11 +368,14 @@
 				15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */,
 				15E8BFF81F2A106E00458733 /* JTAppleCalendarViewDelegate.swift in Sources */,
 				152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */,
+				152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */,
+				152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */,
 				152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */,
 				15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */,
 				152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */,
 				152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */,
 				15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */,
+				152B3A3D1F2E0081004FAC2D /* TextFieldDelegate.swift in Sources */,
 				152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */,
 				152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */,
 				15F8CCC91F2B6610004F1A0A /* JTAppleCalendarDelegate.swift in Sources */,
@@ -478,7 +504,8 @@
 			baseConfigurationReference = 013C5C7BAA191E40B9F76C83 /* Pods-StepByStep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CJRP4MFDT9;
+				CODE_SIGN_ENTITLEMENTS = StepByStep/StepByStep.entitlements;
+				DEVELOPMENT_TEAM = 78Y9MSJT25;
 				INFOPLIST_FILE = StepByStep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = francis.StepByStep;
@@ -492,7 +519,8 @@
 			baseConfigurationReference = BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CJRP4MFDT9;
+				CODE_SIGN_ENTITLEMENTS = StepByStep/StepByStep.entitlements;
+				DEVELOPMENT_TEAM = 78Y9MSJT25;
 				INFOPLIST_FILE = StepByStep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = francis.StepByStep;
@@ -525,6 +553,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				152B3A421F2EF881004FAC2D /* Task.xcdatamodel */,
+			);
+			currentVersion = 152B3A421F2EF881004FAC2D /* Task.xcdatamodel */;
+			path = Task.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
