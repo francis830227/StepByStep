@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SkyFloatingLabelTextField
+import NVActivityIndicatorView
 
 class LoginViewController: UIViewController {
 
@@ -35,10 +36,15 @@ class LoginViewController: UIViewController {
             errorLabel.isHidden = false
             
         } else {
+            
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
 
+                    let activityData = ActivityData()
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+                    
                     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
                     
                     let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "homeVC") as! MainViewController

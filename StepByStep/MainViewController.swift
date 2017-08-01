@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     
     let fetchManager = FetchManager()
     
+    let formatter = DateFormatter()
+    
     var dates = [EndDate]()
     
     @IBOutlet weak var addLabel: UILabel!
@@ -31,9 +33,18 @@ class MainViewController: UIViewController {
         
         fetchManager.requestData()
         
+        let todayDate = Date()
+        
+        formatter.dateFormat = "yyyy MM dd"
+        
+        let date = formatter.string(from: todayDate)
+        
+        todayTime.text = date
+        
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
     }
+    
     
     @IBAction func todayListButtonPressed(_ sender: Any) {
     }
@@ -57,9 +68,13 @@ func collectionViewLayout(collectionView: UICollectionView, animator: LinearCard
 extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         if dates.count > 0 {
+        
             addLabel.isHidden = true
+        
         }
+        
         return dates.count
         
     }
@@ -92,16 +107,15 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             let formatter = DateFormatter()
             
+            let today = NSDate()
+            
             formatter.dateFormat = "yyyy MM dd"
             
-            let today = NSDate()
-
             let targetDay = "\(dates[indexPath.row].year) \(dates[indexPath.row].month) \(dates[indexPath.row].day)"
 
             let date = formatter.date(from: targetDay)
             
             let targetDayNS = date! as NSDate
-            
             
             let targetDayInt = Int(targetDayNS.timeIntervalSinceReferenceDate)
             

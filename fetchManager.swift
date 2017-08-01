@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import NVActivityIndicatorView
 
 struct EndDate {
     
@@ -52,6 +53,8 @@ class FetchManager {
                     self.dataInFM.append(EndDate(year: year, month: month, day: day, titleName: titleName))
                     
                     print(self.dataInFM)
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     
                     self.delegate?.manager(didGet: self.dataInFM)
 
