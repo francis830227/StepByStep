@@ -771,7 +771,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dPv-LA-Noe">
                                 <rect key="frame" x="0.0" y="93" width="375" height="458"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.2072882325" green="0.2520395024" blue="0.24731064189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3TT-cj-oHa" customClass="AnimatedCollectionViewLayout" customModule="AnimatedCollectionViewLayout">
                                     <size key="itemSize" width="295" height="455"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -796,7 +796,7 @@
                                                                 <constraint firstAttribute="width" constant="104" id="MEp-Eb-eHU"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.38577133382174156" green="0.39143404130358223" blue="0.40842216374910423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總進度80％" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzJ-Js-rEU">
@@ -806,7 +806,7 @@
                                                                 <constraint firstAttribute="width" constant="140" id="JcT-QO-nck"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.38577133382174156" green="0.39143404130358223" blue="0.40842216374910423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xh1-8o-gkT">
@@ -814,22 +814,24 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpI-ao-Ccc">
                                                                     <rect key="frame" x="8" y="14" width="100" height="30"/>
+                                                                    <color key="tintColor" red="0.88937494066939526" green="0.99469504385739715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="D4Z-bQ-tj7"/>
                                                                         <constraint firstAttribute="width" constant="100" id="VQh-kJ-67o"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="0.81346767070000003" green="1" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日進度80%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAB-xv-HrX">
                                                                     <rect key="frame" x="8" y="49" width="110" height="21"/>
+                                                                    <color key="tintColor" red="0.88937494066939526" green="0.99469504385739715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="UZI-Gk-S9B"/>
                                                                         <constraint firstAttribute="width" constant="110" id="bHh-Nh-0Zf"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="0.81346767070000003" green="1" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkF-8u-EyC">
@@ -838,6 +840,7 @@
                                                                         <constraint firstAttribute="width" constant="46" id="9qw-7M-2ME"/>
                                                                         <constraint firstAttribute="height" constant="30" id="Dep-89-Vp2"/>
                                                                     </constraints>
+                                                                    <color key="tintColor" red="0.88937494066939526" green="0.99469504385739715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Button"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMe-MT-NRk">
@@ -846,10 +849,11 @@
                                                                         <constraint firstAttribute="width" constant="177" id="GtG-3X-99a"/>
                                                                         <constraint firstAttribute="height" constant="30" id="kwZ-ii-dXR"/>
                                                                     </constraints>
+                                                                    <color key="tintColor" red="0.88937494066939526" green="0.99469504385739715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Don't know where to go?"/>
                                                                 </button>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="0.30519377139151072" green="0.78335944975168448" blue="0.8556862670152926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="BkF-8u-EyC" secondAttribute="trailing" constant="8" id="2F2-tb-zwK"/>
                                                                 <constraint firstItem="BkF-8u-EyC" firstAttribute="top" secondItem="xh1-8o-gkT" secondAttribute="top" constant="14" id="5kT-82-bkF"/>
@@ -869,11 +873,11 @@
                                                                 <constraint firstAttribute="height" constant="21" id="l1v-P7-KL4"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.38577133382174156" green="0.39143404130358223" blue="0.40842216374910423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.97255899999999995" green="0.91855399999999998" blue="0.78856099999999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.85066464828212185" green="0.95780636490620064" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="xh1-8o-gkT" secondAttribute="bottom" id="6t8-cq-vGL"/>
                                                         <constraint firstAttribute="trailing" secondItem="xh1-8o-gkT" secondAttribute="trailing" id="8lr-8I-hOj"/>
@@ -885,6 +889,9 @@
                                                         <constraint firstItem="xh1-8o-gkT" firstAttribute="top" secondItem="ZzJ-Js-rEU" secondAttribute="bottom" constant="8" id="jQ0-Fp-qPW"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZzJ-Js-rEU" secondAttribute="trailing" constant="8" id="vrk-DK-ikg"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                         </view>
@@ -895,6 +902,7 @@
                                             <constraint firstAttribute="bottom" secondItem="67t-HY-PU7" secondAttribute="bottom" id="hY8-JA-S5T"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="cardView" destination="67t-HY-PU7" id="RqG-dx-zH8"/>
                                             <outlet property="countDownLabel" destination="Bt8-nF-94e" id="8Fw-x1-uue"/>
                                             <outlet property="eventLabel" destination="RpI-ao-Ccc" id="81L-ih-dxM"/>
                                             <outlet property="finishDateLabel" destination="9r2-Pf-e8l" id="35y-uI-R8m"/>
@@ -909,10 +917,12 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加入新卡片吧！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aa4-zI-JcS">
-                                <rect key="frame" x="126" y="323" width="121.5" height="21"/>
+                                <rect key="frame" x="125.5" y="323" width="122.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.1708571253" green="0.95396834779999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XI-wn-bGa">
                                 <rect key="frame" x="43" y="591" width="133" height="30"/>
@@ -920,7 +930,9 @@
                                     <constraint firstAttribute="height" constant="30" id="2qX-1x-Um8"/>
                                     <constraint firstAttribute="width" constant="133" id="yXT-Ar-HKM"/>
                                 </constraints>
-                                <state key="normal" title="Check today's list"/>
+                                <state key="normal" title="Check today's list">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="todayListButtonPressed:" destination="tMY-pn-IJn" eventType="touchUpInside" id="Dxd-TQ-S9y"/>
                                 </connections>
@@ -932,44 +944,53 @@
                                     <constraint firstAttribute="width" constant="46" id="L9t-3Q-dWx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal" title="+"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="so8-0G-xlU" kind="show" id="cJv-qU-Y9F"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxf-eX-Zim">
-                                <rect key="frame" x="124" y="28" width="127" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017 10 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxf-eX-Zim">
+                                <rect key="frame" x="121" y="28" width="133.5" height="35.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                <color key="textColor" red="0.17085712526227925" green="0.95396834778386275" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.18029672290000001" green="0.20286437560000001" blue="0.076434403499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xId-hr-4Yf">
                                 <rect key="frame" x="301" y="28" width="58" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Setting"/>
+                                <state key="normal" title="Setting">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4T-ky-nfV">
                                 <rect key="frame" x="16" y="28" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Favorite"/>
+                                <state key="normal" title="Favorite">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.2072882325" green="0.2520395024" blue="0.24731064189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dPv-LA-Noe" secondAttribute="trailing" id="34q-2R-O0j"/>
                             <constraint firstItem="4XI-wn-bGa" firstAttribute="leading" secondItem="shz-D6-PUL" secondAttribute="leadingMargin" constant="27" id="BgU-4J-kpz"/>
                             <constraint firstItem="Aa4-zI-JcS" firstAttribute="centerY" secondItem="shz-D6-PUL" secondAttribute="centerY" id="HUe-Hx-k4D"/>
                             <constraint firstItem="Aa4-zI-JcS" firstAttribute="centerX" secondItem="shz-D6-PUL" secondAttribute="centerX" id="R7d-Eq-6wU"/>
+                            <constraint firstItem="xxf-eX-Zim" firstAttribute="centerX" secondItem="shz-D6-PUL" secondAttribute="centerX" id="Ram-jf-oK2"/>
                             <constraint firstItem="1my-wA-2I0" firstAttribute="top" secondItem="4XI-wn-bGa" secondAttribute="bottom" constant="46" id="SkJ-wo-oQH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="he9-wh-DXw" secondAttribute="trailing" constant="30" id="Uy6-p6-rnG"/>
+                            <constraint firstItem="xxf-eX-Zim" firstAttribute="top" secondItem="wAs-hC-O9k" secondAttribute="bottom" constant="8" id="d73-gh-jyb"/>
                             <constraint firstItem="1my-wA-2I0" firstAttribute="top" secondItem="dPv-LA-Noe" secondAttribute="bottom" constant="116" id="g1p-zK-PO8"/>
                             <constraint firstItem="1my-wA-2I0" firstAttribute="top" secondItem="he9-wh-DXw" secondAttribute="bottom" constant="46" id="hQd-te-9Ad"/>
                             <constraint firstItem="dPv-LA-Noe" firstAttribute="top" secondItem="wAs-hC-O9k" secondAttribute="bottom" constant="73" id="ib9-pp-Bua"/>
                             <constraint firstItem="dPv-LA-Noe" firstAttribute="leading" secondItem="shz-D6-PUL" secondAttribute="leading" id="pwN-O2-kAv"/>
                         </constraints>
                     </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="addLabel" destination="Aa4-zI-JcS" id="zQt-DK-wfe"/>
                         <outlet property="collectionView" destination="dPv-LA-Noe" id="sxR-WU-R4E"/>

@@ -21,6 +21,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var todayGoingLabel: UILabel!
         
+    @IBOutlet weak var cardView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -31,6 +33,10 @@ class MainCollectionViewCell: UICollectionViewCell {
     func bind() {
         
         contentView.backgroundColor = UIColor.lightGray
+        
+        cardView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        cardView.layer.shadowRadius = 3
+        cardView.layer.shadowOpacity = 1
 
     }
     
