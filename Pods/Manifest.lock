@@ -36,6 +36,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - IQKeyboardManagerSwift (4.0.10)
   - JTAppleCalendar (7.0.4)
+  - NVActivityIndicatorView (3.6.1)
 
 DEPENDENCIES:
   - AnimatedCollectionViewLayout
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - Firebase/Database
   - IQKeyboardManagerSwift
   - JTAppleCalendar (~> 7.0)
+  - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
   AnimatedCollectionViewLayout: 504b992a4258eb39d2dd2b2b48e84b4b95860fd7
@@ -57,7 +59,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
+  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
 
-PODFILE CHECKSUM: 7dd995292ea6a1c8df784630c244b1fc6b146b6a
+PODFILE CHECKSUM: bd56c846ba1d8a810ecce984412bb1698826c5a7
 
 COCOAPODS: 1.2.1

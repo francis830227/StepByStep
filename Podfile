@@ -15,6 +15,9 @@ target 'StepByStep' do
 
   pod 'IQKeyboardManagerSwift'
 
+  pod 'NVActivityIndicatorView'
+
+
   # Pods for StepByStep
 
 end
