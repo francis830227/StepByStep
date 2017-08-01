@@ -15,11 +15,7 @@ class CalendarCell: JTAppleCell {
 
     @IBOutlet weak var selectedView: UIView!
     
-<<<<<<< HEAD
-    @IBOutlet weak var eventDotView: UIImageView!
-=======
     @IBOutlet weak var dotImageView: UIImageView!
->>>>>>> mainViewLabelSetting
     
     func selectedViewLayout() {
         

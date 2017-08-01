@@ -716,11 +716,7 @@
                                                                     <rect key="frame" x="34" y="24.5" width="67.5" height="72.5"/>
                                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
-<<<<<<< HEAD
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reddot" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-lh-bbD">
-=======
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reddot" translatesAutoresizingMaskIntoConstraints="NO" id="TQG-Yo-rRJ">
->>>>>>> mainViewLabelSetting
                                                                     <rect key="frame" x="0.0" y="109" width="135" height="12"/>
                                                                 </imageView>
                                                             </subviews>
@@ -728,23 +724,6 @@
                                                         <color key="backgroundColor" red="0.2072882325" green="0.2520395024" blue="0.24731064189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="1y4-TH-Gxd" secondAttribute="bottom" id="7pF-QC-RiF"/>
-<<<<<<< HEAD
-                                                            <constraint firstAttribute="trailing" secondItem="cIB-lh-bbD" secondAttribute="trailing" id="8yu-aa-A37"/>
-                                                            <constraint firstItem="cIB-lh-bbD" firstAttribute="leading" secondItem="yax-yu-zaF" secondAttribute="leading" id="9QL-fb-NEK"/>
-                                                            <constraint firstItem="cIB-lh-bbD" firstAttribute="height" secondItem="yax-yu-zaF" secondAttribute="height" multiplier="0.1" id="Bv2-LJ-OXH"/>
-                                                            <constraint firstItem="FTb-5V-zOt" firstAttribute="leading" secondItem="yax-yu-zaF" secondAttribute="leading" constant="13" id="D9F-8f-puP"/>
-                                                            <constraint firstItem="1y4-TH-Gxd" firstAttribute="leading" secondItem="yax-yu-zaF" secondAttribute="leading" id="NvI-48-bUO"/>
-                                                            <constraint firstAttribute="bottom" secondItem="FTb-5V-zOt" secondAttribute="bottom" constant="8" id="R8c-UP-Ujt"/>
-                                                            <constraint firstAttribute="trailing" secondItem="1y4-TH-Gxd" secondAttribute="trailing" id="Wvi-jA-gda"/>
-                                                            <constraint firstItem="1y4-TH-Gxd" firstAttribute="top" secondItem="yax-yu-zaF" secondAttribute="top" id="gr5-iU-4ke"/>
-                                                            <constraint firstItem="FTb-5V-zOt" firstAttribute="top" secondItem="yax-yu-zaF" secondAttribute="top" constant="5" id="vUN-fa-wZb"/>
-                                                            <constraint firstAttribute="bottom" secondItem="cIB-lh-bbD" secondAttribute="bottom" id="vXK-tJ-FK2"/>
-                                                            <constraint firstAttribute="trailing" secondItem="FTb-5V-zOt" secondAttribute="trailing" constant="13" id="z9Q-uB-0sL"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="dateLabel" destination="1y4-TH-Gxd" id="vW9-s2-7Bb"/>
-                                                            <outlet property="eventDotView" destination="cIB-lh-bbD" id="9fM-D5-mYH"/>
-=======
                                                             <constraint firstAttribute="bottom" secondItem="TQG-Yo-rRJ" secondAttribute="bottom" id="8as-tc-xrT"/>
                                                             <constraint firstItem="TQG-Yo-rRJ" firstAttribute="height" secondItem="yax-yu-zaF" secondAttribute="height" multiplier="0.1" id="976-w5-UJB"/>
                                                             <constraint firstAttribute="trailing" secondItem="TQG-Yo-rRJ" secondAttribute="trailing" id="A3h-0y-I3M"/>
@@ -760,7 +739,6 @@
                                                         <connections>
                                                             <outlet property="dateLabel" destination="1y4-TH-Gxd" id="vW9-s2-7Bb"/>
                                                             <outlet property="dotImageView" destination="TQG-Yo-rRJ" id="Tgx-4i-hVP"/>
->>>>>>> mainViewLabelSetting
                                                             <outlet property="selectedView" destination="FTb-5V-zOt" id="0jZ-hO-eHi"/>
                                                         </connections>
                                                     </collectionViewCell>
