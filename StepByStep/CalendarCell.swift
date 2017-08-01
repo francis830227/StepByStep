@@ -15,9 +15,9 @@ class CalendarCell: JTAppleCell {
 
     @IBOutlet weak var selectedView: UIView!
     
-    @IBOutlet weak var eventDotView: UIView!
+    @IBOutlet weak var dotImageView: UIImageView!
     
-    func bind() {
+    func selectedViewLayout() {
         
         selectedView.layer.cornerRadius = selectedView.frame.size.width/2
         
@@ -26,6 +26,27 @@ class CalendarCell: JTAppleCell {
         selectedView.layer.borderColor = UIColor.white.cgColor
         selectedView.layer.borderWidth = 1.0
         
+        selectedView.bounce()
+        
     }
 
 }
+
+//bounce animation
+extension UIView {
+    
+    func bounce() {
+        
+        self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.beginFromCurrentState, animations:
+            {
+                
+                self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                
+        })
+        
+    }
+    
+}
+

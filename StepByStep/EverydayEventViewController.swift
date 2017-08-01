@@ -35,6 +35,10 @@ class EverydayEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        hideKeyboardWhenTappedAround()
+        
+        eventTextField.returnKeyType = .done
+        
         setupCalendarView()
         
         eventCalendarView.scrollToDate(Date())

@@ -24,6 +24,8 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         
         handleCellEvents(view: cell, cellState: cellState)
         
+        handleCellVisibility(view: cell, cellState: cellState)
+        
         return cell
         
     }
@@ -36,13 +38,25 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         
         handleCellEvents(view: cell, cellState: cellState)
         
+        handleCellVisibility(view: cell, cellState: cellState)
+        
         guard let validCell = cell as? CalendarCell else { return }
         
-        validCell.bind()
+        validCell.selectedViewLayout()
         
-        validCell.selectedView.bounce()
-        //print(date)
+        formatter.dateFormat = "yyyy"
         
+        yearString = self.formatter.string(from: date)
+        
+        formatter.dateFormat = "MM"
+        
+        monthString = self.formatter.string(from: date)
+        
+        formatter.dateFormat = "dd"
+        
+        dayString = self.formatter.string(from: date)
+        
+        print(yearString, monthString, dayString)
         
     }
     
@@ -53,6 +67,8 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         handleCelltextColor(view: cell, cellState: cellState)
         
         handleCellEvents(view: cell, cellState: cellState)
+        
+        handleCellVisibility(view: cell, cellState: cellState)
 
     }
     
@@ -74,20 +90,3 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
     
 }
 
-//bounce animation
-extension UIView {
-    
-    func bounce() {
-        
-        self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.beginFromCurrentState, animations:
-            {
-                
-                self.transform = CGAffineTransform(scaleX: 1, y: 1)
-                
-        })
-        
-    }
-    
-}

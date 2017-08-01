@@ -8,47 +8,57 @@
 
 import UIKit
 import AnimatedCollectionViewLayout
+import Firebase
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
-    override var prefersStatusBarHidden: Bool { return true }
+class MainViewController: UIViewController {
     
     let animator = LinearCardAttributesAnimator()
     
+    let fetchManager = FetchManager()
+    
     var dates = [EndDate]()
     
+    @IBOutlet weak var addLabel: UILabel!
+    
+    @IBOutlet weak var todayTime: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.isPagingEnabled = true
+        fetchManager.delegate = self
         
-        if let layout = collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
-            
-            layout.scrollDirection = .horizontal
-            
-            layout.animator = animator
+        fetchManager.requestData()
         
-        }
-        
-        let dataManager = PickEndDateViewController()
-        
-        dataManager.delegate = self
-        
-        dataManager.requestData()
+        collectionViewLayout(collectionView: collectionView, animator: animator)
         
     }
     
     @IBAction func todayListButtonPressed(_ sender: Any) {
     }
-
+    
 }
 
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
+    
+        collectionView.isPagingEnabled = true
+        
+        if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
+            
+            layout.scrollDirection = .horizontal
+            
+            layout.animator = animator
+            
+        }
+        
+    }
+
+extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        if dates.count > 0 {
+            addLabel.isHidden = true
+        }
         return dates.count
         
     }
@@ -77,14 +87,43 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
             
             cell.clipsToBounds = false
             
-            
-            
         } else {
             
-            cell.addCardLabel.isHidden = true
+            let formatter = DateFormatter()
             
-            //        cell.countDownLabel.text = dates[indexPath.row].
-            cell.countDownLabel.text = "\(arc4random_uniform(100))天"
+            formatter.dateFormat = "yyyy MM dd"
+            
+            let today = NSDate()
+
+            let targetDay = "\(dates[indexPath.row].year) \(dates[indexPath.row].month) \(dates[indexPath.row].day)"
+
+            let date = formatter.date(from: targetDay)
+            
+            let targetDayNS = date! as NSDate
+            
+            
+            let targetDayInt = Int(targetDayNS.timeIntervalSinceReferenceDate)
+            
+            let todayInt = Int(today.timeIntervalSinceReferenceDate)
+            
+            print(targetDayInt, todayInt)
+            
+            let minus = Int((targetDayInt - todayInt) / 86400)
+            
+            if minus < 0 {
+
+                cell.countDownLabel.text = "\(Int(today.timeIntervalSinceReferenceDate - targetDayNS.timeIntervalSinceReferenceDate)/86400)天前"
+                
+            } else if minus == 0 {
+                
+                cell.countDownLabel.text = "今天"
+                
+            } else {
+
+                cell.countDownLabel.text = "剩\(Int(targetDayNS.timeIntervalSinceReferenceDate - today.timeIntervalSinceReferenceDate)/86400)天"
+
+            }
+            //cell.countDownLabel.text = "\(arc4random_uniform(100))天"
             
             cell.finishDateLabel.text = "完成日：\(year)/\(month)/\(day)"
             
@@ -95,6 +134,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
             cell.clipsToBounds = false
         }
         
+        cell.eventLabel.text = dates[indexPath.row].titleName
         
         return cell
     }
@@ -122,13 +162,15 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension MainViewController: EndDateDelegate {
+extension MainViewController: FetchManagerDelegate {
     
-    func manager(_ data: [EndDate]) {
+    func manager(didGet data: [EndDate]) {
         
-        dates = data
-        
+        self.dates = data
+        print(self.dates)
+        collectionView.reloadData()
+
+    
     }
-    
     
 }

@@ -20,9 +20,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var totalGoingLabel: UILabel!
     
     @IBOutlet weak var todayGoingLabel: UILabel!
-    
-    @IBOutlet weak var addCardLabel: UILabel!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         
