@@ -20,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        GMSPlacesClient.provideAPIKey("AIzaSyAufGyc9ysxqNM30TSVHdPWekS_CN02KDg")
+        UIApplication.shared.statusBarStyle = .lightContent
         
+        GMSPlacesClient.provideAPIKey("AIzaSyAufGyc9ysxqNM30TSVHdPWekS_CN02KDg")
+                
         IQKeyboardManager.sharedManager().enable = true
         
         FirebaseApp.configure()

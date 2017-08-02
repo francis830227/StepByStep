@@ -23,74 +23,53 @@ class FavoriteViewController: UIViewController {
     
     var places = [Place]()
     
+    //  暫時
+    let vcs = [("f44336", "nature1"),
+               ("9c27b0", "nature2"),
+               ("3f51b5", "nature3"),
+               ("03a9f4", "animal1"),
+               ("009688", "animal2"),
+               ("8bc34a", "animal3"),
+               ("FFEB3B", "nature1"),
+               ("FF9800", "nature2"),
+               ("795548", "nature3"),
+               ("607D8B", "animal1")]
+    //  暫時
+    
+    @IBOutlet weak var favoriteCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gradientFavoriteNavi()
+        
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        
+        let subView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 45.0))
+        
+        subView.addSubview((searchController?.searchBar)!)
+        view.addSubview(subView)
+        searchController?.searchBar.sizeToFit()
+//        searchController?.hidesNavigationBarDuringPresentation = false
+        
+        // When UISearchController presents the results view, present it in
+        // this view controller, not one further up the chain.
+        definesPresentationContext = true
+    }
 
-            resultsViewController = GMSAutocompleteResultsViewController()
-            resultsViewController?.delegate = self
-            
-            searchController = UISearchController(searchResultsController: resultsViewController)
-            searchController?.searchResultsUpdater = resultsViewController
-            
-            let subView = UIView(frame: CGRect(x: 0, y: 65.0, width: view.frame.width, height: 45.0))
-            
-            subView.addSubview((searchController?.searchBar)!)
-            view.addSubview(subView)
-            searchController?.searchBar.sizeToFit()
-            searchController?.hidesNavigationBarDuringPresentation = false
-            
-            // When UISearchController presents the results view, present it in
-            // this view controller, not one further up the chain.
-            definesPresentationContext = true
-        }
-}
-
-extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                                 numberOfItemsInSection section: Int) -> Int {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        return places.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell",
-                                                      for: indexPath)
-        
-        
-        cell.backgroundColor = UIColor.black
-
-        return cell
-    }
-    
-}
-
-extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-                           didAutocompleteWith place: GMSPlace) {
-        searchController?.isActive = false
-        // Do something with the selected place.
-        print("Place name: \(place.name)")
-        print("Place address: \(String(describing: place.formattedAddress))")
-        print("Place attributions: \(String(describing: place.attributions))")
-        
-        places.append(Place(name: place.name, address: String(describing: place.formattedAddress)))
+        favoriteCollectionView.reloadData()
         
     }
     
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-                           didFailAutocompleteWithError error: Error){
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
 }

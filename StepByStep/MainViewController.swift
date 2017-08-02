@@ -49,6 +49,38 @@ class MainViewController: UIViewController {
     @IBAction func todayListButtonPressed(_ sender: Any) {
     }
     
+    @IBAction func logout(_ sender: Any) {
+        let alert = UIAlertController(title: "確定登出？？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let sureAction = UIAlertAction(title: "Sure", style: UIAlertActionStyle.default, handler: { (_: UIAlertAction) -> Void in
+            
+            try! Auth.auth().signOut()
+            
+            let defaults = UserDefaults.standard
+            
+            defaults.removeObject(forKey: "uid")
+            
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let homeController =  mainStoryboard.instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
+            
+            appDelegate?.window?.rootViewController = homeController
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_: UIAlertAction) -> Void in
+            
+            alert.dismiss(animated: true, completion: nil)
+        
+        })
+        
+        alert.addAction(sureAction)
+        
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
