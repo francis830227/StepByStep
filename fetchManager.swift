@@ -37,37 +37,49 @@ class FetchManager {
     func requestData() {
         
         let activityData = ActivityData()
-        
+
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         
         let ref = Database.database().reference()
         
         let uid = Auth.auth().currentUser!.uid
         
+        ref.child("title").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            
+            if snapshot.exists() == false {
+                
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                
+            }
+        })
         
         ref.child("title").child(uid).observe(DataEventType.childAdded, with: { snapshot in
             print(snapshot.value!)
             
-        guard let dictionary = snapshot.value as? [String: Any] else { return }
-                
-                if let year = dictionary["year"] as? String,
-                    let month = dictionary["month"] as? String,
-                    let day = dictionary["day"] as? String,
-                    let titleName = dictionary["titleName"] as? String {
+            
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            
+            if let year = dictionary["year"] as? String,
+                let month = dictionary["month"] as? String,
+                let day = dictionary["day"] as? String,
+                let titleName = dictionary["titleName"] as? String {
                     
                     self.dataInFM.append(EndDate(year: year, month: month, day: day, titleName: titleName))
                     
                     print(self.dataInFM)
                     
-                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                    
                     self.delegate?.manager(didGet: self.dataInFM)
+                
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+
 
             }
             
-            
         })
-        
+
+
+
     }
+    
     
 }

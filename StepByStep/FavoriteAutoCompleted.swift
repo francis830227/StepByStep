@@ -43,4 +43,5 @@ extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+    
 }

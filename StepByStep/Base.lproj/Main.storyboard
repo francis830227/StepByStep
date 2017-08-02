@@ -984,7 +984,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MF3-PI-oUa">
-                                                <rect key="frame" x="112" y="450" width="46" height="30"/>
+                                                <rect key="frame" x="164.5" y="450" width="46" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="46" id="0GU-uF-ZFL"/>
                                                     <constraint firstAttribute="height" constant="30" id="Gj1-AD-1XJ"/>
@@ -1165,11 +1165,11 @@
                                         <color key="backgroundColor" red="0.18334370851516724" green="0.21566951274871826" blue="0.22414049506187439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="o8Y-vn-Wob" firstAttribute="top" secondItem="prF-hD-4Fm" secondAttribute="top" constant="28" id="8Nk-Ea-bdE"/>
+                                            <constraint firstItem="MF3-PI-oUa" firstAttribute="centerX" secondItem="prF-hD-4Fm" secondAttribute="centerX" id="DSO-Hn-1Fx"/>
                                             <constraint firstItem="MF3-PI-oUa" firstAttribute="top" secondItem="kxF-L7-YEd" secondAttribute="bottom" constant="36" id="FBe-Kk-zNx"/>
                                             <constraint firstItem="dBD-kg-dCS" firstAttribute="leading" secondItem="prF-hD-4Fm" secondAttribute="leading" id="FCM-1q-76u"/>
                                             <constraint firstItem="dBD-kg-dCS" firstAttribute="top" secondItem="o8Y-vn-Wob" secondAttribute="bottom" constant="17" id="Gih-D1-U6I"/>
                                             <constraint firstAttribute="trailing" secondItem="dBD-kg-dCS" secondAttribute="trailing" id="Ix2-sJ-uUw"/>
-                                            <constraint firstItem="MF3-PI-oUa" firstAttribute="leading" secondItem="prF-hD-4Fm" secondAttribute="leading" constant="112" id="QG8-bg-GkH"/>
                                             <constraint firstItem="o8Y-vn-Wob" firstAttribute="leading" secondItem="qDk-pI-aLG" secondAttribute="trailing" constant="12" id="cSJ-ni-8mQ"/>
                                             <constraint firstItem="kxF-L7-YEd" firstAttribute="leading" secondItem="prF-hD-4Fm" secondAttribute="leading" constant="65" id="dAg-7a-nZc"/>
                                             <constraint firstItem="kxF-L7-YEd" firstAttribute="top" secondItem="dBD-kg-dCS" secondAttribute="bottom" constant="20" id="ff9-ts-SbA"/>
@@ -1232,7 +1232,7 @@
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="JC3-qo-J5V">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="JC3-qo-J5V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.2072882325" green="0.2520395024" blue="0.24731064189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1257,7 +1257,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="ZEe-Os-2oH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ZEe-Os-2oH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

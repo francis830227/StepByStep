@@ -215,3 +215,9 @@ class PickEndDateViewController: UIViewController {
     }
     
 }
+
+//extension PickEndDateViewController {
+//    func getServerEvents() -> [String] {
+//        
+//    }
+//}
