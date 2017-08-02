@@ -23,6 +23,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        hideKeyboardWhenTappedAround()
+        
+        dismissKeyboard()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,9 +45,10 @@ class LoginViewController: UIViewController {
                 
                 if error == nil {
 
-                    let activityData = ActivityData()
                     
-                    NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+                    UserDefaults.standard.setValue(Auth.auth().currentUser?.uid, forKey: "uid")
+
+                    UserDefaults.standard.synchronize()
                     
                     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
                     

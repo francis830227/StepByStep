@@ -23,6 +23,9 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+        
+        dismissKeyboard()
         //ref = Database.database().reference()
         
     }

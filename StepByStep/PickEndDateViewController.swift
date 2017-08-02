@@ -43,6 +43,8 @@ class PickEndDateViewController: UIViewController {
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
+        
+        dismissKeyboard()
                 
 //        //抓假資料
 //        DispatchQueue.global().async {

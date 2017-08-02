@@ -37,6 +37,8 @@ class EverydayEventViewController: UIViewController {
 
         hideKeyboardWhenTappedAround()
         
+        dismissKeyboard()
+        
         eventTextField.returnKeyType = .done
         
         setupCalendarView()

@@ -36,9 +36,14 @@ class FetchManager {
     
     func requestData() {
         
+        let activityData = ActivityData()
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
         let ref = Database.database().reference()
         
         let uid = Auth.auth().currentUser!.uid
+        
         
         ref.child("title").child(uid).observe(DataEventType.childAdded, with: { snapshot in
             print(snapshot.value!)

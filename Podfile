@@ -19,6 +19,12 @@ target 'StepByStep' do
 
   pod 'SkyFloatingLabelTextField', '~> 3.0'
 
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
+
+  pod 'SFFocusViewLayout', '~> 3.0'
+
   # Pods for StepByStep
 
 end

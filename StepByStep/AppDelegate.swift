@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import IQKeyboardManagerSwift
+import GooglePlaces
 
 
 @UIApplicationMain
@@ -17,12 +18,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyAufGyc9ysxqNM30TSVHdPWekS_CN02KDg")
         
         IQKeyboardManager.sharedManager().enable = true
         
         FirebaseApp.configure()
+        
+        if UserDefaults.standard.value(forKey: "uid") != nil {
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let vc = storyboard.instantiateViewController(withIdentifier: "homeVC")
+            
+            self.window?.rootViewController = vc
+            
+        } else {
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+            
+            self.window?.rootViewController = vc
+            
+        }
         
         return true
     }
