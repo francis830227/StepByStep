@@ -9,10 +9,13 @@
 import UIKit
 import GooglePlaces
 import SFFocusViewLayout
+import GooglePlacePicker
+import GoogleMaps
 
 struct Place {
     var name: String
     var address: String
+    var image: UIImage?
 }
 
 class FavoriteViewController: UIViewController {
@@ -67,9 +70,62 @@ class FavoriteViewController: UIViewController {
         favoriteCollectionView.reloadData()
         
     }
+    @IBAction func show(_ sender: Any) {
+        
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePicker(config: config)
+        
+        placePicker.pickPlace(callback: { (place, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place selected")
+                return
+            }
+            
+            //print("Place name \(place.name)")
+            //print("Place address \(place.formattedAddress!)")
+        
+            self.places.append(Place(name: place.name, address: place.formattedAddress!, image: nil))
+            
+            self.loadFirstPhotoForPlace(placeID: place.placeID, indexPathRow: self.places.count - 1)
+            
+            self.favoriteCollectionView.reloadData()
+        
+        })
+    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func loadFirstPhotoForPlace(placeID: String, indexPathRow: Int) {
+        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                if let firstPhoto = photos?.results.first {
+                    self.loadImageForMetadata(photoMetadata: firstPhoto, indexPathRow: indexPathRow)
+                }
+            }
+        }
+    }
+    
+    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, indexPathRow: Int) {
+        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
+            (photo, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                self.places[indexPathRow].image = photo
+                self.favoriteCollectionView.reloadData()
+            }
+        })
     }
     
 }

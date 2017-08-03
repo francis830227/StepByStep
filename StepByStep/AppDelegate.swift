@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import IQKeyboardManagerSwift
 import GooglePlaces
+import GoogleMaps
 
 
 @UIApplicationMain
@@ -23,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         GMSPlacesClient.provideAPIKey("AIzaSyAufGyc9ysxqNM30TSVHdPWekS_CN02KDg")
-                
+        
+        GMSServices.provideAPIKey("AIzaSyDFRbbH3fjv0U1qI232JDKgeepbmiY5Wgs")
+        
         IQKeyboardManager.sharedManager().enable = true
         
         FirebaseApp.configure()
