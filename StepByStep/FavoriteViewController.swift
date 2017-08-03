@@ -26,19 +26,6 @@ class FavoriteViewController: UIViewController {
     
     var places = [Place]()
     
-    //  暫時
-    let vcs = [("f44336", "nature1"),
-               ("9c27b0", "nature2"),
-               ("3f51b5", "nature3"),
-               ("03a9f4", "animal1"),
-               ("009688", "animal2"),
-               ("8bc34a", "animal3"),
-               ("FFEB3B", "nature1"),
-               ("FF9800", "nature2"),
-               ("795548", "nature3"),
-               ("607D8B", "animal1")]
-    //  暫時
-    
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -73,6 +60,7 @@ class FavoriteViewController: UIViewController {
     @IBAction func show(_ sender: Any) {
         
         let config = GMSPlacePickerConfig(viewport: nil)
+        
         let placePicker = GMSPlacePicker(config: config)
         
         placePicker.pickPlace(callback: { (place, error) -> Void in

@@ -21,15 +21,12 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell",
                                                       for: indexPath) as! FavoriteCollectionViewCell
-        
-        print(indexPath.row)
-        
+                
         cell.storeNameLabel.text = places[indexPath.row].name
         
         cell.storeAddressLabel.text = places[indexPath.row].address
         
         cell.storeImageView.image = places[indexPath.row].image
-        
         
         return cell
     }
