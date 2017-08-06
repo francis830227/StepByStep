@@ -8,10 +8,23 @@ target 'StepByStep' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   pod 'AnimatedCollectionViewLayout'
 
   pod 'JTAppleCalendar', '~> 7.0'
+
+  pod 'IQKeyboardManagerSwift'
+
+  pod 'NVActivityIndicatorView'
+
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
+
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
+
+  pod 'SFFocusViewLayout', '~> 3.0'
 
   # Pods for StepByStep
 

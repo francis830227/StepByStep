@@ -19,12 +19,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JTAppleCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-StepByStep.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SFFocusViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SkyFloatingLabelTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,6 +62,21 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3B6DAB1CF3F6D6E640FA50E197417FFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94AC4FA997BDBCE4687A84EC3ABF7E3E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BFED2E29E95E065400F8846E0231A970</key>
 		<dict>
 			<key>primary</key>
@@ -52,7 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C24C7D9D6041FED6AC5634B5F0CB02D5</key>
+		<key>C235F77E101E742652CCF98FFDFA5182</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDD14B56FC58DA5B766C3F356C25404B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

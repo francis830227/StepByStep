@@ -8,16 +8,30 @@
 
 import UIKit
 import JTAppleCalendar
+import IQKeyboardManagerSwift
+import Firebase
 
 class PickEndDateViewController: UIViewController {
     
     let formatter = DateFormatter()
     
-    let selectedMonthColor = UIColor.darkGray
+    let selectedMonthColor = UIColor.white
     
     let monthColor = UIColor.white
     
-    let outsideMonthColor = UIColor.green
+    let outsideMonthColor = UIColor.darkGray
+    
+    let todaysDate = Date()
+        
+    var yearString = ""
+    
+    var monthString = ""
+    
+    var dayString = ""
+    
+    var eventText = ""
+    
+    @IBOutlet weak var eventTextField: UITextField!
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
@@ -27,10 +41,52 @@ class PickEndDateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        hideKeyboardWhenTappedAround()
+        
+        dismissKeyboard()
+                
+//        //抓假資料
+//        DispatchQueue.global().async {
+//            let serverObjects = self.getServerEvents()
+//            for (date, event) in serverObjects {
+//                let stringDate = self.formatter.string(from: date)
+//                self.eventsFromTheServer[stringDate] = event
+//            }
+//            
+//            DispatchQueue.main.async {
+//                self.calendarView.reloadData()
+//            }
+//        //抓完假資料
+//
+//        }
+        
+        gradientNavi()
+        
         setupCalendarView()
         
     }
+    
+    @IBAction func donePickEndButtonPressed(_ sender: Any) {
+        
+        let uid = Auth.auth().currentUser?.uid
+        
+        let ref = Database.database().reference().child("title").child(uid!).childByAutoId()
+        
+        yearString = self.year.text ?? ""
+        
+        monthString = self.month.text ?? ""
+        
+        eventText = eventTextField.text ?? ""
+        
+        let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
+        
+        ref.updateChildValues(values)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    var eventsFromTheServer: [String : String] = [:]
     
     func setupCalendarView() {
         
@@ -39,36 +95,73 @@ class PickEndDateViewController: UIViewController {
         
         calendarView.minimumInteritemSpacing = 0
         
+        calendarView.layer.shadowColor = UIColor.black.cgColor
+        
+        calendarView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        
+        calendarView.layer.masksToBounds = false
+        
+        calendarView.layer.shadowOpacity = 1
+        
+        calendarView.layer.shadowRadius = 2
+        
+        calendarView.scrollToDate(Date())
+        
+        calendarView.selectDates([ Date() ])
+        
         //Setup labels
         calendarView.visibleDates { (visibleDates) in
             
             self.setupViewOfCalendar(from: visibleDates)
             
         }
+        
     }
 
     func handleCelltextColor(view: JTAppleCell?, cellState: CellState) {
         
         guard let validCell = view as? CalendarCell else { return }
-
-        if cellState.isSelected {
-            
-            validCell.selectedView.layer.backgroundColor = selectedMonthColor.cgColor
-            
-            validCell.dateLabel.textColor = selectedMonthColor
         
+        formatter.dateFormat = "yyyy MMM dd"
+        
+        let todaysDateString = formatter.string(from: todaysDate)
+        
+        let monthDateString = formatter.string(from: cellState.date)
+        
+        if todaysDateString == monthDateString {
+            
+            validCell.dateLabel.textColor = UIColor(red: 2/255.0, green: 158/255.0, blue: 183/255.0, alpha: 1)
+            
         } else {
             
-            if cellState.dateBelongsTo == .thisMonth {
+            if cellState.isSelected {
                 
-                validCell.dateLabel.textColor = monthColor
+                validCell.dateLabel.textColor = selectedMonthColor
                 
             } else {
                 
-                validCell.dateLabel.textColor = outsideMonthColor
+                if cellState.dateBelongsTo == .thisMonth {
+                    
+                    validCell.dateLabel.textColor = monthColor
+                    
+                } else {
+                    
+                    validCell.dateLabel.textColor = outsideMonthColor
+                    
+                }
+                
             }
+            
         }
         
+    }
+    
+    func handleCellEvents(view: JTAppleCell?, cellState: CellState) {
+        
+        guard let validCell = view as? CalendarCell else { return }
+        
+        validCell.dotImageView.isHidden = !eventsFromTheServer.contains { $0.key == formatter.string(from: cellState.date)}
+                
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
@@ -87,15 +180,23 @@ class PickEndDateViewController: UIViewController {
 
     }
     
+    func handleCellVisibility(view: JTAppleCell?, cellState: CellState) {
+    
+        guard let validCell = view as? CalendarCell else { return }
+
+        validCell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
+    
+    }
+    
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo) {
         
         let date = visibleDates.monthDates.first!.date
         
         self.formatter.dateFormat = "yyyy"
-        
+
         self.year.text = self.formatter.string(from: date)
         
-        self.formatter.dateFormat = "MMMM"
+        self.formatter.dateFormat = "MM"
         
         self.month.text = self.formatter.string(from: date)
         
@@ -114,75 +215,8 @@ class PickEndDateViewController: UIViewController {
     
 }
 
-extension PickEndDateViewController: JTAppleCalendarViewDataSource {
-    
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "yyyy MM dd"
-        
-        formatter.timeZone = Calendar.current.timeZone
-        
-        formatter.locale = Calendar.current.locale
-        
-        let startDate = formatter.date(from: "2017 01 01")!
-        
-        let endDate = formatter.date(from: "2030 12 31")!
-        
-        let parameters = ConfigurationParameters(startDate: startDate,
-                                                 endDate: endDate,
-                                                 generateInDates: .forAllMonths,
-                                                 generateOutDates: .tillEndOfGrid,
-                                                 hasStrictBoundaries: false)
-        
-        return parameters
-        
-    }
-    
-}
-
-extension PickEndDateViewController: JTAppleCalendarViewDelegate {
-    
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell",
-                                                       for: indexPath) as! CalendarCell
-        
-        cell.dateLabel.text = cellState.text
-        
-        handleCellSelected(view: cell, cellState: cellState)
-        
-        handleCelltextColor(view: cell, cellState: cellState)
-        
-        return cell
-        
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        
-        handleCellSelected(view: cell, cellState: cellState)
-        
-        handleCelltextColor(view: cell, cellState: cellState)
-        
-        print(date)
-        
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        
-        handleCellSelected(view: cell, cellState: cellState)
-        
-        handleCelltextColor(view: cell, cellState: cellState)
-        
-    }
-    
-
-    
-    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-    
-        setupViewOfCalendar(from: visibleDates)
-        
-    }
-    
-}
+//extension PickEndDateViewController {
+//    func getServerEvents() -> [String] {
+//        
+//    }
+//}

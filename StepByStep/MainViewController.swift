@@ -8,38 +8,106 @@
 
 import UIKit
 import AnimatedCollectionViewLayout
+import Firebase
+import NVActivityIndicatorView
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
-    override var prefersStatusBarHidden: Bool { return true }
+class MainViewController: UIViewController {
     
     let animator = LinearCardAttributesAnimator()
     
+    let fetchManager = FetchManager()
+    
+    let formatter = DateFormatter()
+    
+    var dates = [EndDate]()
+    
+    @IBOutlet weak var addLabel: UILabel!
+    
+    @IBOutlet weak var todayTime: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.isPagingEnabled = true
+        fetchManager.delegate = self
         
-        if let layout = collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
+        fetchManager.requestData()
+        
+        let todayDate = Date()
+        
+        formatter.dateFormat = "yyyy MM dd"
+        
+        let date = formatter.string(from: todayDate)
+        
+        todayTime.text = date
+        
+        collectionViewLayout(collectionView: collectionView, animator: animator)
+        
+    }
+    
+    
+    @IBAction func todayListButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        let alert = UIAlertController(title: "確定登出？？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let sureAction = UIAlertAction(title: "Sure", style: UIAlertActionStyle.default, handler: { (_: UIAlertAction) -> Void in
+            
+            try! Auth.auth().signOut()
+            
+            let defaults = UserDefaults.standard
+            
+            defaults.removeObject(forKey: "uid")
+            
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let homeController =  mainStoryboard.instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
+            
+            appDelegate?.window?.rootViewController = homeController
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_: UIAlertAction) -> Void in
+            
+            alert.dismiss(animated: true, completion: nil)
+        
+        })
+        
+        alert.addAction(sureAction)
+        
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
+    
+        collectionView.isPagingEnabled = true
+        
+        if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
             
             layout.scrollDirection = .horizontal
             
             layout.animator = animator
-        
+            
         }
         
     }
-    
 
-}
-
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 5
+        if dates.count > 0 {
+        
+            addLabel.isHidden = true
+        
+        }
+        
+        return dates.count
         
     }
     
@@ -47,9 +115,73 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
         
+        let year = dates[indexPath.row].year
+        
+        let month = dates[indexPath.row].month
+        
+        let day = dates[indexPath.row].day
+        
         cell.bind()
         
-        cell.clipsToBounds = false
+        if year == "" || month == "" || day == "" {
+            
+            cell.countDownLabel.text = ""
+            
+            cell.finishDateLabel.text = ""
+            
+            cell.totalGoingLabel.text = ""
+            
+            cell.todayGoingLabel.text = ""
+            
+            cell.clipsToBounds = false
+            
+        } else {
+            
+            let formatter = DateFormatter()
+            
+            let today = NSDate()
+            
+            formatter.dateFormat = "yyyy MM dd"
+            
+            let targetDay = "\(dates[indexPath.row].year) \(dates[indexPath.row].month) \(dates[indexPath.row].day)"
+
+            let date = formatter.date(from: targetDay)
+            
+            let targetDayNS = date! as NSDate
+            
+            let targetDayInt = Int(targetDayNS.timeIntervalSinceReferenceDate)
+            
+            let todayInt = Int(today.timeIntervalSinceReferenceDate)
+            
+            print(targetDayInt, todayInt)
+            
+            let minus = Int((targetDayInt - todayInt) / 86400)
+            
+            if minus < 0 {
+
+                cell.countDownLabel.text = "\(Int(today.timeIntervalSinceReferenceDate - targetDayNS.timeIntervalSinceReferenceDate)/86400)天前"
+                
+            } else if minus == 0 {
+                
+                cell.countDownLabel.text = "今天"
+                
+            } else {
+
+                cell.countDownLabel.text = "剩\(Int(targetDayNS.timeIntervalSinceReferenceDate - today.timeIntervalSinceReferenceDate)/86400)天"
+
+            }
+            //cell.countDownLabel.text = "\(arc4random_uniform(100))天"
+            
+            cell.finishDateLabel.text = "完成日：\(year)/\(month)/\(day)"
+            
+            cell.totalGoingLabel.text = "\(arc4random_uniform(99))%"
+            
+            cell.todayGoingLabel.text = "總進度\(arc4random_uniform(99))%"
+            
+            cell.clipsToBounds = false
+        }
+        
+        cell.eventLabel.text = dates[indexPath.row].titleName
         
         return cell
     }
@@ -73,6 +205,21 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         
         return 0
         
+    }
+    
+}
+
+extension MainViewController: FetchManagerDelegate {
+    
+    func manager(didGet data: [EndDate]) {
+        
+        self.dates = data
+        print(self.dates)
+        collectionView.reloadData()
+    }
+    
+    func manager(didGet data: [FavoritePlace]) {
+        return
     }
     
 }
