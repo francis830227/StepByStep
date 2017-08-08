@@ -26,6 +26,8 @@
 		152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E731F277F11004E6E8C /* SignupViewController.swift */; };
 		152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E751F278117004E6E8C /* GoogleService-Info.plist */; };
 		152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */; };
+		153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3C1F38709600804B48 /* DailyViewController.swift */; };
+		153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */; };
 		154EF1DF1F35C1B300881D69 /* key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EF1DE1F35C1B300881D69 /* key.swift */; };
 		15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */; };
 		15B9E2001F31F048004FE3B6 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E1FF1F31F048004FE3B6 /* FavoriteCollectionViewCell.swift */; };
@@ -66,6 +68,8 @@
 		152C7E731F277F11004E6E8C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		152C7E751F278117004E6E8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = StepByStep/MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		153DEB3C1F38709600804B48 /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
+		153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		154EF1DE1F35C1B300881D69 /* key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = key.swift; sourceTree = "<group>"; };
 		15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		15B9E1FF1F31F048004FE3B6 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -150,11 +154,21 @@
 				15EDC4601F28DACB001DF19A /* PickEndDateView */,
 				15B9E1F61F30C817004FE3B6 /* FavoriteView */,
 				15F8CCC41F2B3777004F1A0A /* EverydayEventView */,
+				153DEB3E1F3889E900804B48 /* DailyView */,
 				152C7E601F2779C7004E6E8C /* Main.storyboard */,
 				152C7E681F2779C7004E6E8C /* LaunchScreen.storyboard */,
 				152B3A311F2C2E33004FAC2D /* Resource */,
 			);
 			path = StepByStep;
+			sourceTree = "<group>";
+		};
+		153DEB3E1F3889E900804B48 /* DailyView */ = {
+			isa = PBXGroup;
+			children = (
+				153DEB3C1F38709600804B48 /* DailyViewController.swift */,
+				153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */,
+			);
+			name = DailyView;
 			sourceTree = "<group>";
 		};
 		15B9E1F61F30C817004FE3B6 /* FavoriteView */ = {
@@ -396,9 +410,11 @@
 				15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */,
 				154EF1DF1F35C1B300881D69 /* key.swift in Sources */,
 				15E8BFF81F2A106E00458733 /* JTAppleCalendarViewDelegate.swift in Sources */,
+				153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */,
 				152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */,
 				152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */,
 				15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */,
+				153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */,
 				152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */,
 				152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */,
 				15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */,

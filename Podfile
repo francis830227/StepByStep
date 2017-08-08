@@ -26,6 +26,8 @@ target 'StepByStep' do
 
   pod 'SFFocusViewLayout', '~> 3.0'
 
+  pod 'SwifterSwift'
+
   # Pods for StepByStep
 
 end

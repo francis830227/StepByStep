@@ -56,6 +56,7 @@ PODS:
   - NVActivityIndicatorView (3.6.1)
   - SFFocusViewLayout (3.1.0)
   - SkyFloatingLabelTextField (3.1.0)
+  - SwifterSwift (1.6.4)
 
 DEPENDENCIES:
   - AnimatedCollectionViewLayout
@@ -71,6 +72,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - SFFocusViewLayout (~> 3.0)
   - SkyFloatingLabelTextField (~> 3.0)
+  - SwifterSwift
 
 SPEC CHECKSUMS:
   AnimatedCollectionViewLayout: 504b992a4258eb39d2dd2b2b48e84b4b95860fd7
@@ -91,7 +93,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
   SFFocusViewLayout: 8524435eb57796adf3e7be1395c4e3786cd76dcc
   SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
+  SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: 3ae83e3fbc8613c7fa5d5d31d25db4fb8ac706d6
+PODFILE CHECKSUM: f01eaea888b22b85d60857a5cbbc4305ef6b7c34
 
 COCOAPODS: 1.2.1
