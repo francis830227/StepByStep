@@ -12,6 +12,8 @@ import UIKit
 
 class DailyViewController: UIViewController {
 
+    @IBOutlet weak var dailyTextField: UITextField!
+    
     let weekDays = ["Sunday",
                     "Monday",
                     "Tuesday",
@@ -28,6 +30,11 @@ class DailyViewController: UIViewController {
     
     }
 
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        
+        
+        
+    }
     
 
 
@@ -46,9 +53,31 @@ extension DailyViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.weekDayLabel.text = weekDays[indexPath.row]
         
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+    
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        
+        
+    }
+
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "dailycell", for: indexPath) as! DailyTableViewCell
+//        print("fdsa")
+//        
+//        cell.weekDayLabel.text = weekDays[indexPath.row]
+//
+//    }
     
     
 }

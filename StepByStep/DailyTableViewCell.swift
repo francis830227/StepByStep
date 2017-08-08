@@ -12,30 +12,14 @@ class DailyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var weekDayLabel: UILabel!
     
-    @IBOutlet weak var checkImageView: UIImageView!
-    
-    @IBAction func checkButtonPressed(_ sender: UIButton) {
-        
-        if checkImageView.isHidden {
-            checkImageView.isHidden = false
-        } else {
-            checkImageView.isHidden = true
-        }
-        
-    }
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        checkImageView.tintColor = .white
-        
-    }
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 146/255, green: 146/255, blue: 146/255, alpha: 0.8)
+//        selectedBackgroundView?.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 0.7)
+        selectedBackgroundView = view
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

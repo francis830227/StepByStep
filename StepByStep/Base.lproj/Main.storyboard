@@ -516,6 +516,9 @@
                                         <size key="value" width="0.0" height="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="MPi-Vn-2Nh" eventType="touchUpInside" id="szp-t4-XC8"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BwA-oa-Xb6">
                                 <rect key="frame" x="56" y="167" width="267" height="370"/>
@@ -524,7 +527,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.19214463230000001" green="0.19216534499999999" blue="0.1921273768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19214463230000001" green="0.19216534499999999" blue="0.1921273768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dailycell" rowHeight="53" id="emC-hX-ROj" customClass="DailyTableViewCell" customModule="StepByStep" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="dailycell" rowHeight="53" id="emC-hX-ROj" customClass="DailyTableViewCell" customModule="StepByStep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="267" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emC-hX-ROj" id="oWc-2C-csn">
@@ -541,36 +544,16 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Btm-3C-scn">
-                                                    <rect key="frame" x="222" y="14" width="25" height="25"/>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="0Qj-1j-Z5n"/>
-                                                        <constraint firstAttribute="width" constant="25" id="tlL-Dx-uNY"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-sg-bdk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="52.5"/>
-                                                    <connections>
-                                                        <action selector="checkButtonPressed:" destination="emC-hX-ROj" eventType="touchUpInside" id="joD-gj-OtD"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.19214463230000001" green="0.19216534499999999" blue="0.1921273768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Btm-3C-scn" secondAttribute="trailing" constant="12" id="60Q-ku-gKa"/>
                                                 <constraint firstItem="SaD-mm-hSO" firstAttribute="leading" secondItem="oWc-2C-csn" secondAttribute="leadingMargin" constant="8" id="Ipt-a1-P9D"/>
-                                                <constraint firstItem="Lx8-sg-bdk" firstAttribute="leading" secondItem="oWc-2C-csn" secondAttribute="leading" id="Rcn-qs-ILO"/>
-                                                <constraint firstItem="Btm-3C-scn" firstAttribute="centerY" secondItem="oWc-2C-csn" secondAttribute="centerY" id="bYE-AH-d7T"/>
-                                                <constraint firstAttribute="bottom" secondItem="Lx8-sg-bdk" secondAttribute="bottom" id="uvf-ll-hpY"/>
-                                                <constraint firstAttribute="trailing" secondItem="Lx8-sg-bdk" secondAttribute="trailing" id="wUX-4w-bRf"/>
-                                                <constraint firstItem="Lx8-sg-bdk" firstAttribute="top" secondItem="oWc-2C-csn" secondAttribute="top" id="yRI-Dp-E1h"/>
                                                 <constraint firstItem="SaD-mm-hSO" firstAttribute="centerY" secondItem="oWc-2C-csn" secondAttribute="centerY" id="zNX-7g-hj6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.19214463230000001" green="0.19216534499999999" blue="0.1921273768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="checkImageView" destination="Btm-3C-scn" id="iOz-el-4Zk"/>
                                             <outlet property="weekDayLabel" destination="SaD-mm-hSO" id="u4q-O1-YOF"/>
                                         </connections>
                                     </tableViewCell>
@@ -621,6 +604,9 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="dailyTextField" destination="Odw-CJ-nBi" id="Z6p-5u-qzj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpC-wt-NtX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1509,7 +1495,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="check" width="600" height="556"/>
         <image name="reddot" width="300" height="300"/>
     </resources>
 </document>
