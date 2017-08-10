@@ -31,7 +31,7 @@
 		154EF1DF1F35C1B300881D69 /* key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EF1DE1F35C1B300881D69 /* key.swift */; };
 		15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */; };
 		15B9E2031F32058D004FE3B6 /* GradientFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */; };
-		15B9E2051F32061E004FE3B6 /* FavoriteCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2041F32061E004FE3B6 /* FavoriteCollectionViewDelegate.swift */; };
+		15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */; };
 		15B9E2071F320653004FE3B6 /* FavoriteAutoCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2061F320653004FE3B6 /* FavoriteAutoCompleted.swift */; };
 		15C94E061F3C05D0003C2A97 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C94E051F3C05D0003C2A97 /* FavTableViewCell.swift */; };
 		15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8BFF51F2A102B00458733 /* JTAppleCalendarViewDataSource.swift */; };
@@ -73,7 +73,7 @@
 		154EF1DE1F35C1B300881D69 /* key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = key.swift; sourceTree = "<group>"; };
 		15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientFavorite.swift; sourceTree = "<group>"; };
-		15B9E2041F32061E004FE3B6 /* FavoriteCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewDelegate.swift; sourceTree = "<group>"; };
 		15B9E2061F320653004FE3B6 /* FavoriteAutoCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteAutoCompleted.swift; sourceTree = "<group>"; };
 		15C94E051F3C05D0003C2A97 /* FavTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 		15E8BFF51F2A102B00458733 /* JTAppleCalendarViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTAppleCalendarViewDataSource.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			children = (
 				15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */,
 				15B9E2061F320653004FE3B6 /* FavoriteAutoCompleted.swift */,
-				15B9E2041F32061E004FE3B6 /* FavoriteCollectionViewDelegate.swift */,
+				15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */,
 				15C94E051F3C05D0003C2A97 /* FavTableViewCell.swift */,
 				15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */,
 			);
@@ -423,7 +423,7 @@
 				15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */,
 				152B3A3D1F2E0081004FAC2D /* TextFieldDelegate.swift in Sources */,
 				152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */,
-				15B9E2051F32061E004FE3B6 /* FavoriteCollectionViewDelegate.swift in Sources */,
+				15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */,
 				152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */,
 				15F8CCC91F2B6610004F1A0A /* JTAppleCalendarDelegate.swift in Sources */,
 				15B9E2071F320653004FE3B6 /* FavoriteAutoCompleted.swift in Sources */,
