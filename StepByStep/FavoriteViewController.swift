@@ -34,7 +34,7 @@ class FavoriteViewController: UIViewController {
     
     var placesInfo = [FavoritePlace]()
     
-    @IBOutlet weak var favoriteCollectionView: UICollectionView!
+    @IBOutlet weak var favoriteTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class FavoriteViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        favoriteCollectionView.reloadData()
+        favoriteTableView.reloadData()
     }
     
 
@@ -171,7 +171,7 @@ extension FavoriteViewController: FetchManagerDelegate {
     func manager(didGet data: [FavoritePlace]) {
         
         self.placesInfo = data
-        favoriteCollectionView.reloadData()
+        favoriteTableView.reloadData()
     }
     
     func manager(didGet data: [EndDate]) {

@@ -53,7 +53,35 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - IQKeyboardManagerSwift (4.0.10)
   - JTAppleCalendar (7.0.4)
+  - libwebp (0.6.0):
+    - libwebp/core (= 0.6.0)
+    - libwebp/dec (= 0.6.0)
+    - libwebp/demux (= 0.6.0)
+    - libwebp/dsp (= 0.6.0)
+    - libwebp/enc (= 0.6.0)
+    - libwebp/mux (= 0.6.0)
+    - libwebp/utils (= 0.6.0)
+    - libwebp/webp (= 0.6.0)
+  - libwebp/core (0.6.0):
+    - libwebp/webp
+  - libwebp/dec (0.6.0):
+    - libwebp/core
+  - libwebp/demux (0.6.0):
+    - libwebp/core
+  - libwebp/dsp (0.6.0):
+    - libwebp/core
+  - libwebp/enc (0.6.0):
+    - libwebp/core
+  - libwebp/mux (0.6.0):
+    - libwebp/core
+  - libwebp/utils (0.6.0):
+    - libwebp/core
+  - libwebp/webp (0.6.0)
   - NVActivityIndicatorView (3.6.1)
+  - SDWebImage/Core (4.0.0)
+  - SDWebImage/WebP (4.0.0):
+    - libwebp
+    - SDWebImage/Core
   - SFFocusViewLayout (3.1.0)
   - SkyFloatingLabelTextField (3.1.0)
   - SwifterSwift (1.6.4)
@@ -70,7 +98,8 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JTAppleCalendar (~> 7.0)
   - NVActivityIndicatorView
-  - SFFocusViewLayout (~> 3.0)
+  - SDWebImage/WebP
+  - SFFocusViewLayout
   - SkyFloatingLabelTextField (~> 3.0)
   - SwifterSwift
 
@@ -90,11 +119,13 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
+  libwebp: 1d5a07c2eb97f9c31bd5f154bb82efc0ea67c6a2
   NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SFFocusViewLayout: 8524435eb57796adf3e7be1395c4e3786cd76dcc
   SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: f01eaea888b22b85d60857a5cbbc4305ef6b7c34
+PODFILE CHECKSUM: 37a8fcfc0046b0d0ba86d5c19bab4cfb8d411284
 
 COCOAPODS: 1.2.1

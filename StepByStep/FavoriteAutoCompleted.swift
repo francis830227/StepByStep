@@ -27,7 +27,7 @@ extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
         
         self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!, indexPathRow: self.places.count - 1)
         
-        favoriteCollectionView.reloadData()
+        favoriteTableView.reloadData()
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

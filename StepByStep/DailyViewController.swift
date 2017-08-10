@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+
+
 
 
 
@@ -21,21 +24,37 @@ class DailyViewController: UIViewController {
                     "Thursday",
                     "Friday",
                     "Saturday"]
+    
+    var weekDaysNumber = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
         
     
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
+        let uid = Auth.auth().currentUser?.uid
         
+        let ref = Database.database().reference().child("context").child(uid!).childByAutoId()
+        
+//        yearString = self.year.text ?? ""
+//        
+//        monthString = self.month.text ?? ""
+//        
+//        eventText = eventTextField.text ?? ""
+//        
+//        let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
+        
+        //ref.updateChildValues(values)
+
+        
+        
+        dismiss(animated: true, completion: nil)
         
     }
-    
 
 
 }
@@ -61,23 +80,26 @@ extension DailyViewController: UITableViewDelegate, UITableViewDataSource {
 
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            
+            if let index = weekDaysNumber.index(of: indexPath.row + 1) {
+                weekDaysNumber.remove(at: index)
+                print(weekDaysNumber)
+            }
     
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            
+            weekDaysNumber.append(indexPath.row + 1)
+            print(weekDaysNumber)
         }
+        
         tableView.deselectRow(at: indexPath, animated: true)
 
         
         
     }
-
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "dailycell", for: indexPath) as! DailyTableViewCell
-//        print("fdsa")
-//        
-//        cell.weekDayLabel.text = weekDays[indexPath.row]
-//
-//    }
+    
+    
     
     
 }

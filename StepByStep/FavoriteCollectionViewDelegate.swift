@@ -8,50 +8,32 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
-extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return placesInfo.count
+
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell",
-                                                      for: indexPath) as! FavoriteCollectionViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell",
+                                                      for: indexPath) as! FavTableViewCell
+        
         cell.storeImageView.image = nil
         
         cell.storeNameLabel.text = placesInfo[indexPath.row].placeName
         
         cell.storeAddressLabel.text = placesInfo[indexPath.row].placeAddress
         
-        cell.storeImageView.downloadedFrom(link: placesInfo[indexPath.row].placeImageURL)
+        //cell.storeImageView.downloadedFrom(link: placesInfo[indexPath.row].placeImageURL)
+        cell.storeImageView.sd_setShowActivityIndicatorView(true)
+        cell.storeImageView.sd_setIndicatorStyle(.white)
+        cell.storeImageView.sd_setImage(with: URL(string: placesInfo[indexPath.row].placeImageURL), completed: nil)
         
         return cell
     }
     
 }
 
-extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // DispatchQueue.main.async {() -> Void in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async {() -> Void in
-                self.image = image
-            }
-            }.resume()
-    }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFill) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
-}

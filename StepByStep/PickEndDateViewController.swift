@@ -201,12 +201,7 @@ class PickEndDateViewController: UIViewController {
         self.month.text = self.formatter.string(from: date)
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     @IBAction func backButtonPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
