@@ -10,6 +10,7 @@ import UIKit
 import AnimatedCollectionViewLayout
 import Firebase
 import NVActivityIndicatorView
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -43,10 +44,38 @@ class MainViewController: UIViewController {
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.scheduleNotification(at: todayDate)
+        
+        //prepareNotification()
+        
+    }
+    
+        
+    func prepareNotification() {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "下個事件再？天就到了！"
+        content.body = "get your ass down!!"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().add(request){(error) in
+            
+            if (error != nil) {
+                
+                print(error?.localizedDescription ?? "")
+            }
+        }
+    
     }
     
     
+
     @IBAction func todayListButtonPressed(_ sender: Any) {
+        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -69,7 +98,7 @@ class MainViewController: UIViewController {
             appDelegate?.window?.rootViewController = homeController
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_: UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_ : UIAlertAction) -> Void in
             
             alert.dismiss(animated: true, completion: nil)
         
@@ -85,17 +114,17 @@ class MainViewController: UIViewController {
 
 func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
     
-        collectionView.isPagingEnabled = true
+    collectionView.isPagingEnabled = true
+    
+    if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
         
-        if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
-            
-            layout.scrollDirection = .horizontal
-            
-            layout.animator = animator
-            
-        }
+        layout.scrollDirection = .horizontal
+        
+        layout.animator = animator
         
     }
+    
+}
 
 extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -223,3 +252,26 @@ extension MainViewController: FetchManagerDelegate {
     }
     
 }
+
+extension MainViewController:UNUserNotificationCenterDelegate{
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("Tapped in notification")
+    }
+    
+    //This is key callback to present notification while the app is in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("Notification being triggered")
+        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
+        //to distinguish between notifications
+        if notification.request.identifier == "reminder" {
+            
+            completionHandler( [.alert,.sound,.badge])
+            
+        }
+    }
+}
+

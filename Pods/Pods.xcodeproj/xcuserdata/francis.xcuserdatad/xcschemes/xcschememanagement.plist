@@ -39,12 +39,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SFFocusViewLayout.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SkyFloatingLabelTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwifterSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>libwebp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,6 +72,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>14B930E783EA9EB5461498F165AE54C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2770D91E14297A8B05AC2A9F3FC5084D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3B6DAB1CF3F6D6E640FA50E197417FFB</key>
 		<dict>
 			<key>primary</key>
@@ -72,7 +92,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>624C5A9D7E41DE757CEDA330D7C13308</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D9DFEEFD9EB6CFC8831AA6F5856D2AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>94AC4FA997BDBCE4687A84EC3ABF7E3E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EEA355D7DB942B471DCE0412D2CCAE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
