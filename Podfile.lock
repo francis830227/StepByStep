@@ -82,7 +82,6 @@ PODS:
   - SDWebImage/WebP (4.0.0):
     - libwebp
     - SDWebImage/Core
-  - SFFocusViewLayout (3.1.0)
   - SkyFloatingLabelTextField (3.1.0)
   - SwifterSwift (1.6.4)
 
@@ -99,7 +98,6 @@ DEPENDENCIES:
   - JTAppleCalendar (~> 7.0)
   - NVActivityIndicatorView
   - SDWebImage/WebP
-  - SFFocusViewLayout
   - SkyFloatingLabelTextField (~> 3.0)
   - SwifterSwift
 
@@ -122,10 +120,9 @@ SPEC CHECKSUMS:
   libwebp: 1d5a07c2eb97f9c31bd5f154bb82efc0ea67c6a2
   NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  SFFocusViewLayout: 8524435eb57796adf3e7be1395c4e3786cd76dcc
   SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: 37a8fcfc0046b0d0ba86d5c19bab4cfb8d411284
+PODFILE CHECKSUM: b472fb3ca4de3ed4db0f301d3f3d2018e07c2165
 
 COCOAPODS: 1.2.1

@@ -44,11 +44,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SFFocusViewLayout.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SkyFloatingLabelTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1BBE735189D6E09E1DFE5087B035DA08</key>
+		<key>14B930E783EA9EB5461498F165AE54C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34FE1902368001678F3A42CE50E392F8</key>
+		<key>2770D91E14297A8B05AC2A9F3FC5084D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B06A46B4FE9E09681FE0387CD7A8595</key>
+		<key>6D9DFEEFD9EB6CFC8831AA6F5856D2AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA2DEBB7F5855880F313F725DB99874B</key>
+		<key>9EEA355D7DB942B471DCE0412D2CCAE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -118,11 +113,6 @@
 			<true/>
 		</dict>
 		<key>C235F77E101E742652CCF98FFDFA5182</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EBE0BE7CF4A05E4D4DC7992279128C7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

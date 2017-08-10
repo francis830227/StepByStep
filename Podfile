@@ -24,8 +24,6 @@ target 'StepByStep' do
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
 
-  pod 'SFFocusViewLayout'
-
   pod 'SwifterSwift'
 
   pod 'SDWebImage/WebP'
