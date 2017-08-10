@@ -18,8 +18,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell",
-                                                      for: indexPath) as! FavTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as! FavTableViewCell
         
         cell.storeImageView.image = nil
         
@@ -27,12 +26,22 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.storeAddressLabel.text = placesInfo[indexPath.row].placeAddress
         
-        //cell.storeImageView.downloadedFrom(link: placesInfo[indexPath.row].placeImageURL)
         cell.storeImageView.sd_setShowActivityIndicatorView(true)
         cell.storeImageView.sd_setIndicatorStyle(.white)
         cell.storeImageView.sd_setImage(with: URL(string: placesInfo[indexPath.row].placeImageURL), completed: nil)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+
+            placesInfo.remove(at: indexPath.row)
+        }
     }
     
 }

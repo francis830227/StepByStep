@@ -8,7 +8,6 @@
 
 import UIKit
 import GooglePlaces
-import SFFocusViewLayout
 import GooglePlacePicker
 import GoogleMaps
 import Firebase
@@ -143,8 +142,8 @@ class FavoriteViewController: UIViewController {
                 if error != nil {
                     
                     print("Error: \(error!.localizedDescription)")
-                    return
                     
+                    return
                 }
                 
                 if let uploadImageUrl = data?.downloadURL()?.absoluteString {
