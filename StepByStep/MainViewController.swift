@@ -60,12 +60,17 @@ class MainViewController: UIViewController {
         
         let minute = dateMin.minute
         
-        let minus = minute - todayInt
+        let minus = Int((minute - todayInt) / 86400)
         
         let content = UNMutableNotificationContent()
-        content.title = "下個事件再\(minus)天就到了！"
-        content.body = "get your ass down!!"
-        content.sound = UNNotificationSound.default()
+        
+        if minus > 1 {
+            
+            content.title = "\(dateMin.titleName)再\(minus)天就到了！"
+            content.body = "get your ass down!!"
+            content.sound = UNNotificationSound.default()
+            
+        }
         
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
