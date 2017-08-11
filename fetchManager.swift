@@ -20,6 +20,37 @@ struct EndDate {
     
     var titleName: String
     
+    var minute: Int {
+        
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy MM dd"
+        
+        let minute = formatter.date(from: "\(year) \(month) \(day)")
+        print(year,month,day)
+        let targetDayNS = minute! as NSDate
+        
+        return  Int(targetDayNS.timeIntervalSinceReferenceDate)
+    }
+    
+}
+
+extension EndDate: Comparable {
+    static func < (lhs: EndDate, rhs: EndDate) -> Bool {
+        return lhs.minute < rhs.minute
+    }
+    static func <= (lhs: EndDate, rhs: EndDate) -> Bool {
+        return lhs.minute <= rhs.minute
+    }
+    static func > (lhs: EndDate, rhs: EndDate) -> Bool {
+        return lhs.minute > rhs.minute
+    }
+    static func >= (lhs: EndDate, rhs: EndDate) -> Bool {
+        return lhs.minute >= rhs.minute
+    }
+    static func == (lhs: EndDate, rhs: EndDate) -> Bool {
+        return lhs.minute == rhs.minute
+    }
 }
 
 struct FavoritePlace {

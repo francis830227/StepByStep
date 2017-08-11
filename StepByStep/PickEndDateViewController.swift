@@ -73,10 +73,6 @@ class PickEndDateViewController: UIViewController {
         
         let ref = Database.database().reference().child("title").child(uid!).childByAutoId()
         
-        yearString = self.year.text ?? ""
-        
-        monthString = self.month.text ?? ""
-        
         eventText = eventTextField.text ?? ""
         
         let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
@@ -87,6 +83,20 @@ class PickEndDateViewController: UIViewController {
     }
     
     var eventsFromTheServer: [String : String] = [:]
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "tosetupeventsegue" {
+            let destinationViewController = segue.destination as! DailyViewController
+            
+            destinationViewController.yearString = yearString
+            destinationViewController.monthString = monthString
+            destinationViewController.dayString = dayString
+            
+            print(destinationViewController.yearString, destinationViewController.monthString, destinationViewController.dayString)
+        }
+    }
     
     func setupCalendarView() {
         
@@ -104,7 +114,7 @@ class PickEndDateViewController: UIViewController {
         calendarView.layer.shadowOpacity = 1
         
         calendarView.layer.shadowRadius = 2
-        
+
         calendarView.scrollToDate(Date())
         
         calendarView.selectDates([ Date() ])
@@ -209,9 +219,3 @@ class PickEndDateViewController: UIViewController {
     }
     
 }
-
-//extension PickEndDateViewController {
-//    func getServerEvents() -> [String] {
-//        
-//    }
-//}

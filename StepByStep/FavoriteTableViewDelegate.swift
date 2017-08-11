@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SDWebImage
+import Firebase
 
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -40,7 +41,9 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
 
-            placesInfo.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            
         }
     }
     
