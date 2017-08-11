@@ -93,6 +93,7 @@ class PickEndDateViewController: UIViewController {
             destinationViewController.yearString = yearString
             destinationViewController.monthString = monthString
             destinationViewController.dayString = dayString
+            destinationViewController.eventText = eventText
             
             print(destinationViewController.yearString, destinationViewController.monthString, destinationViewController.dayString)
         }

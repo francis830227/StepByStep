@@ -21,9 +21,7 @@ class MainViewController: UIViewController {
     let formatter = DateFormatter()
     
     var dates = [EndDate]()
-    
-//    var datesMin: EndDate?
-    
+        
     var todayInt: Int?
     
     @IBOutlet weak var addLabel: UILabel!
@@ -66,11 +64,16 @@ class MainViewController: UIViewController {
         
         if minus > 1 {
             
-            content.title = "\(dateMin.titleName)再\(minus)天就到了！"
-            content.body = "get your ass down!!"
+            content.title = "\(dateMin.titleName)再\(minus)天就到了～"
+            content.body = "點進來看還有什麼沒完成的吧！"
             content.sound = UNNotificationSound.default()
+        } else {
             
+            content.title = "\(dateMin.titleName)今天到期！"
+            content.body = ""
+            content.sound = UNNotificationSound.default()
         }
+        
         
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
