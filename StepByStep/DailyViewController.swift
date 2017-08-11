@@ -17,6 +17,8 @@ class DailyViewController: UIViewController {
 
     @IBOutlet weak var dailyTextField: UITextField!
     
+    @IBOutlet weak var targetLabel: UILabel!
+    
     let weekDays = ["Sunday",
                     "Monday",
                     "Tuesday",
@@ -26,19 +28,36 @@ class DailyViewController: UIViewController {
                     "Saturday"]
     
     var weekDaysNumber = [Int]()
-
+    
+    var yearString = ""
+    
+    var monthString = ""
+    
+    var dayString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     
+        targetLabel.text = "目標日：\(yearString)/\(monthString)/\(dayString)"
+        
+        
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
         let uid = Auth.auth().currentUser?.uid
         
-        let ref = Database.database().reference().child("context").child(uid!).childByAutoId()
+        let ref = Database.database().reference().child("Event").child(uid!)
+
+        for number in weekDaysNumber {
+            
+//            ref.child("\(number)").childByAutoId()
+            
+            let values = ["endDate": "\(yearString)/\(monthString)/\(dayString)", "titleName": dailyTextField.text!]
+            
+            ref.child("\(number)").childByAutoId().updateChildValues(values)
+            
+        }
         
 //        yearString = self.year.text ?? ""
 //        
