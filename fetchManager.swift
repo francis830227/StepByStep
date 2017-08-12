@@ -61,6 +61,8 @@ struct FavoritePlace {
     
     var placeImageURL: String
     
+    var placeKey: String
+    
 }
 
 protocol FetchManagerDelegate: class {
@@ -138,14 +140,13 @@ class FetchManager {
 
         
         ref.child("favorite").child(uid).observe(DataEventType.childAdded, with: { [weak self] (snapshot) in
-            
             if let dictionary = snapshot.value as? [String:Any] {
                 
                 if let name = dictionary["name"] as? String,
                     let address = dictionary["address"] as? String,
                     let imageURL = dictionary["image"] as? String {
                     
-                    self?.placeInFM.append(FavoritePlace(placeName: name, placeAddress: address, placeImageURL: imageURL))
+                    self?.placeInFM.append(FavoritePlace(placeName: name, placeAddress: address, placeImageURL: imageURL, placeKey: snapshot.key))
                     
                     if self?.placeInFM != nil {
                         
@@ -156,7 +157,25 @@ class FetchManager {
             }
             }
         })
-        
+//        ref.child("favorite").child(uid).observeSingleEvent(of: DataEventType.value, with: { [weak self] (snapshot) in
+//            print(snapshot.value)
+//            if let dictionary = snapshot.value as? [String:Any] {
+//                
+//                if let name = dictionary["name"] as? String,
+//                    let address = dictionary["address"] as? String,
+//                    let imageURL = dictionary["image"] as? String {
+//                    
+//                    self?.placeInFM.append(FavoritePlace(placeName: name, placeAddress: address, placeImageURL: imageURL, placeKey: snapshot.key))
+//                    
+//                    if self?.placeInFM != nil {
+//                        
+//                        self?.delegate?.manager(didGet: (self?.placeInFM)!)
+//                        
+//                    }
+//                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+//                }
+//            }
+//        })
         
     }
     

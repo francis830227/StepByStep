@@ -40,10 +40,16 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            let uid = Auth.auth().currentUser!.uid
 
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let ref = Database.database().reference().child("favorite").child(uid)
+            
+            ref.child(placesInfo[indexPath.row].placeKey).setValue(nil)
             
             
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+    
         }
     }
     
