@@ -444,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bi6-kw-uXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3486" y="44"/>
+            <point key="canvasLocation" x="900" y="1780"/>
         </scene>
         <!--Daily View Controller-->
         <scene sceneID="7T0-2x-uHG">
@@ -611,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpC-wt-NtX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4424.8000000000002" y="852.3238380809596"/>
+            <point key="canvasLocation" x="3530" y="45"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -970,7 +970,6 @@
                                 </state>
                                 <connections>
                                     <action selector="todayListButtonPressed:" destination="tMY-pn-IJn" eventType="touchUpInside" id="Dxd-TQ-S9y"/>
-                                    <segue destination="fri-1q-h6f" kind="show" id="A5z-2p-5Bl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="he9-wh-DXw">
@@ -1186,7 +1185,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.19214463233947754" green="0.19216534495353699" blue="0.19212737679481506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="UF6-RW-DxG" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mondayCell" rowHeight="79" id="UF6-RW-DxG" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UF6-RW-DxG" id="FKT-5z-k6M">
@@ -1195,7 +1194,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.61736609679013688" blue="0.091869634127977107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="TDi-Ec-uNp" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tuesdayCell" rowHeight="79" id="TDi-Ec-uNp" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="107" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TDi-Ec-uNp" id="WDX-gM-bzL">
@@ -1204,7 +1203,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.61736609679999999" blue="0.091869634130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="Isc-Vw-Pwr" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wednesdayCell" rowHeight="79" id="Isc-Vw-Pwr" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="186" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Isc-Vw-Pwr" id="hLl-Dr-ObV">
@@ -1213,7 +1212,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.61736609679999999" blue="0.091869634130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="xgs-Yl-hIo" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="thurdayCell" rowHeight="79" id="xgs-Yl-hIo" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="265" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xgs-Yl-hIo" id="aXm-ap-ZPY">
@@ -1222,7 +1221,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.61736609679999999" blue="0.091869634130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="EQz-kI-HOB" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fridayCell" rowHeight="79" id="EQz-kI-HOB" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="344" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EQz-kI-HOB" id="Hg5-X2-7oT">
@@ -1231,7 +1230,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.61736609679999999" blue="0.091869634130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="8K5-XC-hW2" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="saturdayCell" rowHeight="79" id="8K5-XC-hW2" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="423" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8K5-XC-hW2" id="Z3P-6a-DhC">
@@ -1240,7 +1239,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.61736609679999999" blue="0.091869634130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="d0x-ca-W27" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sundayCell" rowHeight="79" id="d0x-ca-W27" customClass="TodayFoldingCell" customModule="StepByStep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="502" width="375" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d0x-ca-W27" id="cEV-Ed-Fw6">
@@ -1271,7 +1270,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1839.2" y="888.30584707646187"/>
+            <point key="canvasLocation" x="-114" y="1721"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="ZE7-2g-EF6">
@@ -1600,7 +1599,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="900" y="887.40629685157433"/>
+            <point key="canvasLocation" x="-1054" y="1720"/>
         </scene>
     </scenes>
     <resources>

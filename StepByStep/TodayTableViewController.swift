@@ -18,9 +18,36 @@ class TodayTableViewController: UITableViewController {
     
     var components: [Component] = [ .monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday ]
     
+    var everyDayList = EveryDayListType()
+    
+    let fetchManager = FetchTodayListManager()
+    
+    var monLists: [EveryDayList]?
+    
+    var tuesLists: [EveryDayList]?
+
+    var wedLists: [EveryDayList]?
+
+    var thurLists: [EveryDayList]?
+
+    var friLists: [EveryDayList]?
+
+    var satLists: [EveryDayList]?
+
+    var sonLists: [EveryDayList]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fetchManager.delegate = self
+        
+        fetchManager.requestData()
+        
+        //guard let mondayList = everyDayList["2"] else { return }
+        
+//        for monday in mondayList {
+//            monLists?.append(EveryDayList(endDate: monday["endDate"], titleName: monday["titleName"])
+//        }
         
     }
     
@@ -76,33 +103,73 @@ class TodayTableViewController: UITableViewController {
             
         case .monday:
             
-            return "Monday"
+            let mondayList = everyDayList["2"]
+            
+            if mondayList?.isEmpty == true {
+                return 0
+            }
+            
+            return (mondayList?.count)!
             
         case .tuesday:
             
-            return "Tuesday"
+            let tuesdayList = everyDayList["3"]
+            
+            if tuesdayList?.isEmpty == true {
+                return 0
+            }
+            
+            return (tuesdayList?.count)!
             
         case .wednesday:
             
-            return "Wednesday"
+            let wednesdayList = everyDayList["4"]
+            
+            if wednesdayList?.isEmpty == true {
+                return 0
+            }
+            
+            return (wednesdayList?.count)!
             
         case .thursday:
             
-            return "Thursday"
+            let thursdayList = everyDayList["5"]
+
+            if thursdayList?.isEmpty == true {
+                return 0
+            }
+            
+            return (thursdayList?.count)!
             
         case .friday:
             
-            return "Friday"
+            let fridayList = everyDayList["6"]
+
+            if fridayList?.isEmpty == true {
+                return 0
+            }
+            
+            return (fridayList?.count)!
             
         case .saturday:
             
-            return "Saturday"
+            let saturdayList = everyDayList["7"]
+
+            if saturdayList?.isEmpty == true {
+                return 0
+            }
+            
+            return (saturdayList?.count)!
             
         case .sunday:
             
-            return "Sunday"
+            let sundayList = everyDayList["1"]
+
+            if sundayList?.isEmpty == true {
+                return 0
+            }
             
-            
+            return (sundayList?.count)!
         }
         
     }
@@ -121,27 +188,57 @@ class TodayTableViewController: UITableViewController {
             
         case .monday:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mondayCell", for: indexPath)
             
-            let emoji = emojis[indexPath.row]
             
-            cell.textLabel?.text = emoji
+            
             
             return cell
             
         case .tuesday:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tuesdayCell", for: indexPath)
             
-            let character = charaters[indexPath.row]
             
-            cell.textLabel?.text = character
+            
             
             return cell
             
-        case .massive:
+        case .wednesday:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MassiveCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "wednesdayCell", for: indexPath)
+            
+            //            cell.contentView.addSubview(massiveViewController.view)
+            
+            return cell
+            
+        case .thursday:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "thursdayCell", for: indexPath)
+            
+            //            cell.contentView.addSubview(massiveViewController.view)
+            
+            return cell
+            
+        case .friday:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "fridayCell", for: indexPath)
+            
+            //            cell.contentView.addSubview(massiveViewController.view)
+            
+            return cell
+            
+        case .saturday:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "saturdayCell", for: indexPath)
+            
+            //            cell.contentView.addSubview(massiveViewController.view)
+            
+            return cell
+            
+        case .sunday:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sundayCell", for: indexPath)
             
             //            cell.contentView.addSubview(massiveViewController.view)
             
@@ -151,4 +248,12 @@ class TodayTableViewController: UITableViewController {
         
         
     }
+
+}
+extension TodayTableViewController: FetchTodayListManagerDelegate {
+    
+    func manager(didGet data: EveryDayListType) {
+        everyDayList = data
+    }
+    
 }
