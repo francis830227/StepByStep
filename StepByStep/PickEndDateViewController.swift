@@ -46,22 +46,7 @@ class PickEndDateViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
-                
-//        //抓假資料
-//        DispatchQueue.global().async {
-//            let serverObjects = self.getServerEvents()
-//            for (date, event) in serverObjects {
-//                let stringDate = self.formatter.string(from: date)
-//                self.eventsFromTheServer[stringDate] = event
-//            }
-//            
-//            DispatchQueue.main.async {
-//                self.calendarView.reloadData()
-//            }
-//        //抓完假資料
-//
-//        }
-        
+
         gradientNavi()
         
         setupCalendarView()
@@ -70,17 +55,37 @@ class PickEndDateViewController: UIViewController {
     
     @IBAction func donePickEndButtonPressed(_ sender: Any) {
         
-        let uid = Auth.auth().currentUser?.uid
+        if yearString == "" || monthString == "" || dayString == "" || eventTextField.text == "" {
+            
+            let alert = UIAlertController(title: "沒有事件或日期不能存哦！", message: "", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
+                
+                alert.dismiss(animated: true, completion: nil)
+                
+            })
+
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            let uid = Auth.auth().currentUser?.uid
+            
+            let ref = Database.database().reference().child("title").child(uid!).childByAutoId()
+            
+            eventText = eventTextField.text ?? ""
+            
+            let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
+            
+            ref.updateChildValues(values)
+            
+            dismiss(animated: true, completion: nil)
+            
+        }
         
-        let ref = Database.database().reference().child("title").child(uid!).childByAutoId()
         
-        eventText = eventTextField.text ?? ""
-        
-        let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
-        
-        ref.updateChildValues(values)
-        
-        dismiss(animated: true, completion: nil)
     }
     
     var eventsFromTheServer: [String : String] = [:]

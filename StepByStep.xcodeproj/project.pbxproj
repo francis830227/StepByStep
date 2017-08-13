@@ -26,6 +26,7 @@
 		152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E731F277F11004E6E8C /* SignupViewController.swift */; };
 		152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E751F278117004E6E8C /* GoogleService-Info.plist */; };
 		152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */; };
+		153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153223AE1F407FA00044B0BF /* EditEventViewController.swift */; };
 		153A45CC1F3EBC6A00636223 /* TodayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */; };
 		153A45D21F3EC99500636223 /* FetchTodayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45D11F3EC99500636223 /* FetchTodayListManager.swift */; };
 		153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3C1F38709600804B48 /* DailyViewController.swift */; };
@@ -70,6 +71,7 @@
 		152C7E731F277F11004E6E8C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		152C7E751F278117004E6E8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = StepByStep/MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		153223AE1F407FA00044B0BF /* EditEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEventViewController.swift; path = StepByStep/EditEventViewController.swift; sourceTree = "<group>"; };
 		153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayTableViewController.swift; sourceTree = "<group>"; };
 		153A45D11F3EC99500636223 /* FetchTodayListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchTodayListManager.swift; sourceTree = "<group>"; };
 		153DEB3C1F38709600804B48 /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */,
 				15EDC4331F289C3D001DF19A /* MainViewController.swift */,
+				153223AE1F407FA00044B0BF /* EditEventViewController.swift */,
 			);
 			name = MainView;
 			path = ..;
@@ -432,6 +435,7 @@
 				15C94E061F3C05D0003C2A97 /* FavTableViewCell.swift in Sources */,
 				15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */,
 				153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */,
+				153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */,
 				152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */,
 				152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */,
 				15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */,

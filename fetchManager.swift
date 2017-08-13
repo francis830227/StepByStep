@@ -144,7 +144,12 @@ class FetchManager {
             //print(snapshot.value)
             
             var placeInFM = [FavoritePlace]()
-            
+            if snapshot.childrenCount == 0 {
+                placeInFM = []
+                DispatchQueue.main.async {
+                    self?.delegate?.manager(didGet: placeInFM)
+                }
+            } else {
             for item in snapshot.children {
                 
                 guard let itemSnapshot = item as? DataSnapshot else { return }
@@ -164,6 +169,7 @@ class FetchManager {
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 }
             }
+        }
         })
         
     }

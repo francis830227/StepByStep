@@ -27,11 +27,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addLabel: UILabel!
     
     @IBOutlet weak var todayTime: UILabel!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         fetchManager.delegate = self
         
@@ -97,7 +97,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
-        let alert = UIAlertController(title: "確定登出？？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert = UIAlertController(title: "確定登出？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
         
         let sureAction = UIAlertAction(title: "Sure", style: UIAlertActionStyle.default, handler: { (_: UIAlertAction) -> Void in
             
@@ -229,25 +229,57 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         cell.deleteButton.tag = indexPath.row
         
-        cell.deleteButton.addTarget(self, action: #selector(deleteCollectionViewCell(sender:)), for: .touchUpInside)
+        cell.deleteButton.addTarget(self, action: #selector(dealWithCollectionViewCell(sender:)), for: .touchUpInside)
         
         return cell
     }
     
-    func deleteCollectionViewCell(sender: UIButton) {
+    func dealWithCollectionViewCell(sender: UIButton) {
         
-        let uid = Auth.auth().currentUser!.uid
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let ref = Database.database().reference().child("title").child(uid)
+        let editAction = UIAlertAction(title: "修改卡片", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
+            
+            let editEventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editEvent")
+            
+            self.present(editEventViewController, animated: true, completion: nil)
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        })
         
-        ref.child(dates[sender.tag].titleKey).removeValue()
-        print(sender.tag, dates[sender.tag].titleKey)
+        let deleteAction = UIAlertAction(title: "刪除卡片", style: UIAlertActionStyle.destructive, handler: { (_ : UIAlertAction) -> Void in
+            
+            //delete
+            let uid = Auth.auth().currentUser!.uid
+            
+            let ref = Database.database().reference().child("title").child(uid)
+            
+            ref.child(self.dates[sender.tag].titleKey).removeValue()
+            print(sender.tag, self.dates[sender.tag].titleKey)
+            
+            self.dates = []
+            
+            self.addLabel.isHidden = false
+            
+            self.collectionView.reloadData()
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        })
         
-        dates = []
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { (_ : UIAlertAction) -> Void in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        })
         
-        addLabel.isHidden = false
+        alert.addAction(editAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
         
-        collectionView.reloadData()
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
