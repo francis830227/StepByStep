@@ -47,7 +47,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
             
             ref.child(placesInfo[indexPath.row].placeKey).removeValue()
             
-                    }
+        }
     }
     
 }

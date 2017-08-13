@@ -19,6 +19,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cardView: UIView!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

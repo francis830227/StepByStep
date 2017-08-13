@@ -20,6 +20,8 @@ struct EndDate {
     
     var titleName: String
     
+    var titleKey: String
+    
     var minute: Int {
         
         let formatter = DateFormatter()
@@ -75,7 +77,7 @@ protocol FetchManagerDelegate: class {
 
 class FetchManager {
     
-    var dataInFM = [EndDate]()
+    
 
     weak var delegate: FetchManagerDelegate?
     
@@ -98,32 +100,32 @@ class FetchManager {
             }
         })
         
-        ref.child("title").child(uid).observe(DataEventType.childAdded, with: { [weak self] (snapshot) in
+        ref.child("title").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
             print(snapshot.value!)
             
+            var dataInFM = [EndDate]()
             
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            
-            if let year = dictionary["year"] as? String,
-                let month = dictionary["month"] as? String,
-                let day = dictionary["day"] as? String,
-                let titleName = dictionary["titleName"] as? String {
-                    
-                    self?.dataInFM.append(EndDate(year: year, month: month, day: day, titleName: titleName))
+            for item in snapshot.children {
                 
-                if self?.dataInFM != nil {
+                guard let itemSnapshot = item as? DataSnapshot else { return }
+                
+                guard let dictionary = itemSnapshot.value as? [String: String] else { return }
+                
+                if let year = dictionary["year"],
+                    let month = dictionary["month"],
+                    let day = dictionary["day"],
+                    let titleName = dictionary["titleName"] {
                     
-                    self?.delegate?.manager(didGet: (self?.dataInFM)!)
+                    dataInFM.append(EndDate(year: year, month: month, day: day, titleName: titleName, titleKey: itemSnapshot.key))
                     
+                    self?.delegate?.manager(didGet: dataInFM)
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 }
-                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                
             }
             
         })
     }
-    
-    
     
     func requestPlace() {
         
@@ -138,36 +140,17 @@ class FetchManager {
             }
         })
 
-        
-//        ref.child("favorite").child(uid).observe(DataEventType.childAdded, with: { [weak self] (snapshot) in
-//            if let dictionary = snapshot.value as? [String:Any] {
-//                print(snapshot.value)
-//                if let name = dictionary["name"] as? String,
-//                    let address = dictionary["address"] as? String,
-//                    let imageURL = dictionary["image"] as? String {
-//                    
-//                    self?.placeInFM.append(FavoritePlace(placeName: name, placeAddress: address, placeImageURL: imageURL, placeKey: snapshot.key))
-//                    
-//                    if self?.placeInFM != nil {
-//                        
-//                        self?.delegate?.manager(didGet: (self?.placeInFM)!)
-//                        
-//                    }
-//                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-//            }
-//            }
-//        })
         ref.child("favorite").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
             //print(snapshot.value)
             
             var placeInFM = [FavoritePlace]()
             
-            for item in snapshot.children{
+            for item in snapshot.children {
                 
                 guard let itemSnapshot = item as? DataSnapshot else { return }
             
                 guard let dictionary = itemSnapshot.value as? [String: String] else { return }
-                print(itemSnapshot.key)
+                
                 if let name = dictionary["name"],
                     let address = dictionary["address"],
                     let imageURL = dictionary["image"] {

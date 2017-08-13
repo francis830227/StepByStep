@@ -52,6 +52,12 @@ class MainViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
+
+    }
 
         
     func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
@@ -76,7 +82,7 @@ class MainViewController: UIViewController {
         
         
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
 
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         UNUserNotificationCenter.current().delegate = self
@@ -88,14 +94,6 @@ class MainViewController: UIViewController {
             }
         }
     
-    }
-    
-    
-
-    @IBAction func todayListButtonPressed(_ sender: Any) {
-        
-        
-        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -184,27 +182,33 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             let formatter = DateFormatter()
             
-            let today = NSDate()
+            let today = Date()
             
             formatter.dateFormat = "yyyy MM dd"
             
+            let todayString = formatter.string(from: today)
+            
+            let todayDate = formatter.date(from: todayString)
+
             let targetDay = "\(dates[indexPath.row].year) \(dates[indexPath.row].month) \(dates[indexPath.row].day)"
 
             let date = formatter.date(from: targetDay)
             
+            
             let targetDayNS = date! as NSDate
+            
+            let todayNS = todayDate! as NSDate
             
             let targetDayInt = Int(targetDayNS.timeIntervalSinceReferenceDate)
             
-            todayInt = Int(today.timeIntervalSinceReferenceDate)
-            
+            todayInt = Int(todayNS.timeIntervalSinceReferenceDate)
             print(targetDayInt, todayInt!)
             
             let minus = Int((targetDayInt - todayInt!) / 86400)
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "\(Int(today.timeIntervalSinceReferenceDate - targetDayNS.timeIntervalSinceReferenceDate)/86400)天前"
+                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400))天前"
                 
             } else if minus == 0 {
                 
@@ -212,7 +216,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
             } else {
 
-                cell.countDownLabel.text = "剩\(Int(targetDayNS.timeIntervalSinceReferenceDate - today.timeIntervalSinceReferenceDate)/86400)天"
+                cell.countDownLabel.text = "剩\(Int((targetDayInt - todayInt!) / 86400))天"
 
             }
             
@@ -223,9 +227,29 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         cell.eventLabel.text = dates[indexPath.row].titleName
         
+        cell.deleteButton.tag = indexPath.row
+        
+        cell.deleteButton.addTarget(self, action: #selector(deleteCollectionViewCell(sender:)), for: .touchUpInside)
+        
         return cell
     }
+    
+    func deleteCollectionViewCell(sender: UIButton) {
         
+        let uid = Auth.auth().currentUser!.uid
+        
+        let ref = Database.database().reference().child("title").child(uid)
+        
+        ref.child(dates[sender.tag].titleKey).removeValue()
+        print(sender.tag, dates[sender.tag].titleKey)
+        
+        dates = []
+        
+        addLabel.isHidden = false
+        
+        collectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        
         return CGSize(width: view.bounds.width, height: view.bounds.height)
