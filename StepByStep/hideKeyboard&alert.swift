@@ -20,3 +20,19 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension UIAlertController {
+    
+    func darkAlert(_ alert: UIAlertController) {
+        let firstSubview = alert.view.subviews.first
+        let alertContentView = firstSubview?.subviews.first
+        for subview in (alertContentView?.subviews)! {
+            subview.backgroundColor = .darkGray
+            subview.layer.cornerRadius = 10
+            subview.alpha = 1
+        }
+        alert.view.tintColor = .white
+        
+    }
+    
+}
