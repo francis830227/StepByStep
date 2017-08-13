@@ -23,7 +23,8 @@ class EditEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        hideKeyboardWhenTappedAround()
+        dismissKeyboard()
     }
 
     @IBAction func datePickerPop(_ sender: UITextField) {
@@ -33,24 +34,28 @@ class EditEventViewController: UIViewController {
         // 設置 UIDatePicker 格式
         datePicker.datePickerMode = .date
         
+        datePicker.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        
         datePicker.date = Date()
         
         sender.inputView = datePicker
         
         // Creates the toolbar
         let toolBar = UIToolbar()
-        toolBar.barStyle = .black
+        toolBar.barStyle = .blackOpaque
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
         toolBar.sizeToFit()
         
         // Adds the buttons
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(donePressed))
+        doneButton.tintColor = .white
         
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelClick))
-        
+        cancelButton.tintColor = .white
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
         
         toolBar.isUserInteractionEnabled = true
@@ -66,11 +71,11 @@ class EditEventViewController: UIViewController {
     
     func datePickerValueChanged(_ sender: UIDatePicker) {
         
-        let dateFormatter1 = DateFormatter()
+        let dateFormatter = DateFormatter()
         
-        dateFormatter1.dateFormat = "yyyy MM dd"
+        dateFormatter.dateFormat = "yyyy MM dd"
         
-        dateTextField.text = dateFormatter1.string(from: sender.date)
+        dateTextField.text = dateFormatter.string(from: sender.date)
         
     }
     
@@ -90,7 +95,7 @@ class EditEventViewController: UIViewController {
         
         if yearString == "" || monthString == "" || dayString == "" || dateTextField.text == "" {
             
-            let alert = UIAlertController(title: "沒有事件或日期不能存哦！", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Can't save event without date or event title.", message: "", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 

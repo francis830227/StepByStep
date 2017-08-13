@@ -84,7 +84,7 @@ class FavoriteViewController: UIViewController {
         searchController?.searchResultsUpdater = resultsViewController
         searchController?.searchBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
         searchController?.searchBar.tintColor = .white
-        
+        searchController?.searchBar.keyboardAppearance = .dark
         resultsViewController?.navigationController?.navigationBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
         resultsViewController?.navigationController?.navigationBar.tintColor = UIColor.white
         resultsViewController?.primaryTextHighlightColor = .white
@@ -117,11 +117,6 @@ class FavoriteViewController: UIViewController {
                 self.places[indexPathRow].image = photo
                 
                 self.getPhotoURL(photo, placeName, placeAddress, indexPathRow: indexPathRow)
-                
-//                let uid = Auth.auth().currentUser?.uid
-//                
-//                let ref = Database.database().reference().child("favorite").child(uid!).childByAutoId()
-                
                 
             }
         })
