@@ -69,7 +69,11 @@ class FavoriteViewController: UIViewController {
         favoriteTableView.reloadData()
     }
     
-
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        
+    }
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

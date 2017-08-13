@@ -17,6 +17,8 @@ class DailyViewController: UIViewController {
 
     @IBOutlet weak var dailyTextField: UITextField!
     
+    @IBOutlet weak var targetLabel: UILabel!
+    
     let weekDays = ["Sunday",
                     "Monday",
                     "Tuesday",
@@ -26,37 +28,43 @@ class DailyViewController: UIViewController {
                     "Saturday"]
     
     var weekDaysNumber = [Int]()
-
+    
+    var yearString = ""
+    
+    var monthString = ""
+    
+    var dayString = ""
+    
+    var eventText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     
+        targetLabel.text = "目標日：\(yearString)/\(monthString)/\(dayString)"
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
         let uid = Auth.auth().currentUser?.uid
         
-        let ref = Database.database().reference().child("context").child(uid!).childByAutoId()
-        
-//        yearString = self.year.text ?? ""
-//        
-//        monthString = self.month.text ?? ""
-//        
-//        eventText = eventTextField.text ?? ""
-//        
-//        let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
-        
-        //ref.updateChildValues(values)
+        let ref = Database.database().reference().child("Event").child(uid!)
 
+        for number in weekDaysNumber {
+                        
+            let values = ["endDate": "\(yearString)/\(monthString)/\(dayString)", "titleName": dailyTextField.text!]
+            
+            ref.child("\(number)").childByAutoId().updateChildValues(values)
+            
+        }
         
+        let refTitle = Database.database().reference().child("title").child(uid!).childByAutoId()
+        
+        let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
+        
+        refTitle.updateChildValues(values)
         
         dismiss(animated: true, completion: nil)
-        
     }
-
-
 }
 
 extension DailyViewController: UITableViewDelegate, UITableViewDataSource {

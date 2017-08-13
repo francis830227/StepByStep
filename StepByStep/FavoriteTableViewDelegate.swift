@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SDWebImage
+import Firebase
 
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -39,8 +40,13 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            let uid = Auth.auth().currentUser!.uid
 
-            placesInfo.remove(at: indexPath.row)
+            let ref = Database.database().reference().child("favorite").child(uid)
+            
+            ref.child(placesInfo[indexPath.row].placeKey).removeValue()
+            
         }
     }
     

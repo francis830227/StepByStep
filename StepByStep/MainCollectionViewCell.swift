@@ -17,11 +17,9 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var eventLabel: UILabel!
     
-    @IBOutlet weak var totalGoingLabel: UILabel!
-    
-    @IBOutlet weak var todayGoingLabel: UILabel!
-        
     @IBOutlet weak var cardView: UIView!
+    
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

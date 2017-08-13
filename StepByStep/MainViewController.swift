@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
     let formatter = DateFormatter()
     
     var dates = [EndDate]()
+        
+    var todayInt: Int?
     
     @IBOutlet weak var addLabel: UILabel!
     
@@ -29,6 +31,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         fetchManager.delegate = self
         
@@ -47,19 +50,40 @@ class MainViewController: UIViewController {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         delegate?.scheduleNotification(at: todayDate)
         
-        //prepareNotification()
-        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-    func prepareNotification() {
+        collectionView.reloadData()
+
+    }
+
+        
+    func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
+        
+        let minute = dateMin.minute
+        
+        let minus = Int((minute - todayInt) / 86400)
         
         let content = UNMutableNotificationContent()
-        content.title = "下個事件再？天就到了！"
-        content.body = "get your ass down!!"
-        content.sound = UNNotificationSound.default()
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        if minus > 1 {
+            
+            content.title = "\(dateMin.titleName)再\(minus)天就到了～"
+            content.body = "點進來看還有什麼沒完成的吧！"
+            content.sound = UNNotificationSound.default()
+        } else {
+            
+            content.title = "\(dateMin.titleName)今天到期！"
+            content.body = ""
+            content.sound = UNNotificationSound.default()
+        }
+        
+        
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
+
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().add(request){(error) in
@@ -70,12 +94,6 @@ class MainViewController: UIViewController {
             }
         }
     
-    }
-    
-    
-
-    @IBAction func todayListButtonPressed(_ sender: Any) {
-        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -158,37 +176,39 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             cell.finishDateLabel.text = ""
             
-            cell.totalGoingLabel.text = ""
-            
-            cell.todayGoingLabel.text = ""
-            
             cell.clipsToBounds = false
             
         } else {
             
             let formatter = DateFormatter()
             
-            let today = NSDate()
+            let today = Date()
             
             formatter.dateFormat = "yyyy MM dd"
             
+            let todayString = formatter.string(from: today)
+            
+            let todayDate = formatter.date(from: todayString)
+
             let targetDay = "\(dates[indexPath.row].year) \(dates[indexPath.row].month) \(dates[indexPath.row].day)"
 
             let date = formatter.date(from: targetDay)
             
+            
             let targetDayNS = date! as NSDate
+            
+            let todayNS = todayDate! as NSDate
             
             let targetDayInt = Int(targetDayNS.timeIntervalSinceReferenceDate)
             
-            let todayInt = Int(today.timeIntervalSinceReferenceDate)
+            todayInt = Int(todayNS.timeIntervalSinceReferenceDate)
+            print(targetDayInt, todayInt!)
             
-            print(targetDayInt, todayInt)
-            
-            let minus = Int((targetDayInt - todayInt) / 86400)
+            let minus = Int((targetDayInt - todayInt!) / 86400)
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "\(Int(today.timeIntervalSinceReferenceDate - targetDayNS.timeIntervalSinceReferenceDate)/86400)天前"
+                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400))天前"
                 
             } else if minus == 0 {
                 
@@ -196,23 +216,38 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
             } else {
 
-                cell.countDownLabel.text = "剩\(Int(targetDayNS.timeIntervalSinceReferenceDate - today.timeIntervalSinceReferenceDate)/86400)天"
+                cell.countDownLabel.text = "剩\(Int((targetDayInt - todayInt!) / 86400))天"
 
             }
-            //cell.countDownLabel.text = "\(arc4random_uniform(100))天"
             
             cell.finishDateLabel.text = "完成日：\(year)/\(month)/\(day)"
-            
-            cell.totalGoingLabel.text = "\(arc4random_uniform(99))%"
-            
-            cell.todayGoingLabel.text = "總進度\(arc4random_uniform(99))%"
             
             cell.clipsToBounds = false
         }
         
         cell.eventLabel.text = dates[indexPath.row].titleName
         
+        cell.deleteButton.tag = indexPath.row
+        
+        cell.deleteButton.addTarget(self, action: #selector(deleteCollectionViewCell(sender:)), for: .touchUpInside)
+        
         return cell
+    }
+    
+    func deleteCollectionViewCell(sender: UIButton) {
+        
+        let uid = Auth.auth().currentUser!.uid
+        
+        let ref = Database.database().reference().child("title").child(uid)
+        
+        ref.child(dates[sender.tag].titleKey).removeValue()
+        print(sender.tag, dates[sender.tag].titleKey)
+        
+        dates = []
+        
+        addLabel.isHidden = false
+        
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -242,8 +277,15 @@ extension MainViewController: FetchManagerDelegate {
     
     func manager(didGet data: [EndDate]) {
         
+        let today = NSDate()
+        
+        todayInt = Int(today.timeIntervalSinceReferenceDate)
+        
         self.dates = data
-        print(self.dates)
+        
+        guard let datesMin = dates.min() else { return }
+        prepareNotification(datesMin, todayInt!)
+        
         collectionView.reloadData()
     }
     
@@ -253,7 +295,7 @@ extension MainViewController: FetchManagerDelegate {
     
 }
 
-extension MainViewController:UNUserNotificationCenterDelegate{
+extension MainViewController: UNUserNotificationCenterDelegate {
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -261,12 +303,10 @@ extension MainViewController:UNUserNotificationCenterDelegate{
         print("Tapped in notification")
     }
     
-    //This is key callback to present notification while the app is in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         print("Notification being triggered")
-        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
-        //to distinguish between notifications
+
         if notification.request.identifier == "reminder" {
             
             completionHandler( [.alert,.sound,.badge])
