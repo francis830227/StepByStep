@@ -10,6 +10,7 @@ import UIKit
 import JTAppleCalendar
 import IQKeyboardManagerSwift
 import Firebase
+import SkyFloatingLabelTextField
 
 class PickEndDateViewController: UIViewController {
     
@@ -31,7 +32,7 @@ class PickEndDateViewController: UIViewController {
     
     var eventText = ""
     
-    @IBOutlet weak var eventTextField: UITextField!
+    @IBOutlet weak var eventTextField: SkyFloatingLabelTextField!
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     

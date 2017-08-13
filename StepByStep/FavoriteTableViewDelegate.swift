@@ -45,12 +45,9 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
 
             let ref = Database.database().reference().child("favorite").child(uid)
             
-            ref.child(placesInfo[indexPath.row].placeKey).setValue(nil)
+            ref.child(placesInfo[indexPath.row].placeKey).removeValue()
             
-            
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-    
-        }
+                    }
     }
     
 }

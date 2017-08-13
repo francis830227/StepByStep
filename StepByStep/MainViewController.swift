@@ -178,10 +178,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             cell.finishDateLabel.text = ""
             
-            cell.totalGoingLabel.text = ""
-            
-            cell.todayGoingLabel.text = ""
-            
             cell.clipsToBounds = false
             
         } else {
@@ -222,10 +218,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             cell.finishDateLabel.text = "完成日：\(year)/\(month)/\(day)"
             
-            cell.totalGoingLabel.text = "\(arc4random_uniform(99))%"
-            
-            cell.todayGoingLabel.text = "總進度\(arc4random_uniform(99))%"
-            
             cell.clipsToBounds = false
         }
         
@@ -233,9 +225,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         return cell
     }
-    
-    //func calculateTargetDayInt()
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        
         return CGSize(width: view.bounds.width, height: view.bounds.height)
@@ -268,9 +258,7 @@ extension MainViewController: FetchManagerDelegate {
         todayInt = Int(today.timeIntervalSinceReferenceDate)
         
         self.dates = data
-        print(self.dates)
         
-//        self.datesMin = dates.min()
         guard let datesMin = dates.min() else { return }
         prepareNotification(datesMin, todayInt!)
         
@@ -291,12 +279,10 @@ extension MainViewController: UNUserNotificationCenterDelegate {
         print("Tapped in notification")
     }
     
-    //This is key callback to present notification while the app is in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         print("Notification being triggered")
-        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
-        //to distinguish between notifications
+
         if notification.request.identifier == "reminder" {
             
             completionHandler( [.alert,.sound,.badge])

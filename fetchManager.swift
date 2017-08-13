@@ -123,7 +123,7 @@ class FetchManager {
         })
     }
     
-    var placeInFM = [FavoritePlace]()
+    
     
     func requestPlace() {
         
@@ -139,28 +139,9 @@ class FetchManager {
         })
 
         
-        ref.child("favorite").child(uid).observe(DataEventType.childAdded, with: { [weak self] (snapshot) in
-            if let dictionary = snapshot.value as? [String:Any] {
-                
-                if let name = dictionary["name"] as? String,
-                    let address = dictionary["address"] as? String,
-                    let imageURL = dictionary["image"] as? String {
-                    
-                    self?.placeInFM.append(FavoritePlace(placeName: name, placeAddress: address, placeImageURL: imageURL, placeKey: snapshot.key))
-                    
-                    if self?.placeInFM != nil {
-                        
-                        self?.delegate?.manager(didGet: (self?.placeInFM)!)
-                        
-                    }
-                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-            }
-            }
-        })
-//        ref.child("favorite").child(uid).observeSingleEvent(of: DataEventType.value, with: { [weak self] (snapshot) in
-//            print(snapshot.value)
+//        ref.child("favorite").child(uid).observe(DataEventType.childAdded, with: { [weak self] (snapshot) in
 //            if let dictionary = snapshot.value as? [String:Any] {
-//                
+//                print(snapshot.value)
 //                if let name = dictionary["name"] as? String,
 //                    let address = dictionary["address"] as? String,
 //                    let imageURL = dictionary["image"] as? String {
@@ -173,9 +154,34 @@ class FetchManager {
 //                        
 //                    }
 //                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-//                }
+//            }
 //            }
 //        })
+        ref.child("favorite").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            //print(snapshot.value)
+            
+            var placeInFM = [FavoritePlace]()
+            
+            for item in snapshot.children{
+                
+                guard let itemSnapshot = item as? DataSnapshot else { return }
+            
+                guard let dictionary = itemSnapshot.value as? [String: String] else { return }
+                print(itemSnapshot.key)
+                if let name = dictionary["name"],
+                    let address = dictionary["address"],
+                    let imageURL = dictionary["image"] {
+                    
+                    placeInFM.append(FavoritePlace(placeName: name, placeAddress: address, placeImageURL: imageURL, placeKey: itemSnapshot.key))
+                    
+                    DispatchQueue.main.async {
+                        self?.delegate?.manager(didGet: placeInFM)
+                    }
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                }
+            }
+        })
         
     }
     
