@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SkyFloatingLabelTextField
 
 class EditEventViewController: UIViewController {
 
@@ -19,7 +20,7 @@ class EditEventViewController: UIViewController {
     
     var eventText = ""
     
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var dateTextField: SkyFloatingLabelTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,7 @@ class EditEventViewController: UIViewController {
         
         dismissKeyboard()
     }
-
-    @IBAction func datePickerPop(_ sender: UITextField) {
+    @IBAction func datePickerShow(_ sender: SkyFloatingLabelTextField) {
         
         let datePicker: UIDatePicker = UIDatePicker()
         
@@ -66,6 +66,7 @@ class EditEventViewController: UIViewController {
         
         datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
     }
+
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -75,7 +76,7 @@ class EditEventViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "yyyy MM dd"
+        dateFormatter.dateFormat = "yyyy/MM/dd"
         
         dateTextField.text = dateFormatter.string(from: sender.date)
         

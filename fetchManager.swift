@@ -143,6 +143,7 @@ class FetchManager {
             //print(snapshot.value)
             
             var placeInFM = [FavoritePlace]()
+            
             if snapshot.childrenCount == 0 {
                 placeInFM = []
                 DispatchQueue.main.async {
