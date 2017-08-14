@@ -49,7 +49,6 @@ class MainViewController: UIViewController {
         
         let delegate = UIApplication.shared.delegate as? AppDelegate
         delegate?.scheduleNotification(at: todayDate)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +57,6 @@ class MainViewController: UIViewController {
         collectionView.reloadData()
 
     }
-
         
     func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
         
@@ -226,13 +224,22 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         }
         
         cell.eventLabel.text = dates[indexPath.row].titleName
-        
+
         cell.deleteButton.tag = indexPath.row
         
         cell.deleteButton.addTarget(self, action: #selector(dealWithCollectionViewCell(sender:)), for: .touchUpInside)
         
+        cell.eventImageView.contentMode = .scaleAspectFill
+        
+        cell.eventImageView.sd_setShowActivityIndicatorView(true)
+        
+        cell.eventImageView.sd_setIndicatorStyle(.white)
+        
+        cell.eventImageView.sd_setImage(with: URL(string: dates[indexPath.row].imageURL), completed: nil)
+        
         return cell
     }
+    
     
     func dealWithCollectionViewCell(sender: UIButton) {
         

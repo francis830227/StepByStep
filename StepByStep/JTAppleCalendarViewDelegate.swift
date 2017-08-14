@@ -39,6 +39,8 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         
         handleCellVisibility(view: cell, cellState: cellState)
         
+        //calendarViewHeightCons.
+        
         guard let validCell = cell as? CalendarCell else { return }
         
         validCell.selectedViewLayout()
@@ -84,7 +86,7 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
     
     func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
 
-        return MonthSize(defaultSize: 50)
+        return MonthSize(defaultSize: 30)
     }
 }
 

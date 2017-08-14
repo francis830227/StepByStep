@@ -132,9 +132,11 @@ class FavoriteViewController: UIViewController {
         
         guard let photo = image else { return }
         
+        let photoComp = UIImageJPEGRepresentation(photo, 0.1)
+        
         let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
         
-        if let uploadData = UIImagePNGRepresentation(photo) {
+        if let uploadData = photoComp {
             
             storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
                 
@@ -152,16 +154,10 @@ class FavoriteViewController: UIViewController {
                     let values = ["name": placeName, "address": placeAddress, "image": uploadImageUrl]
                     
                     ref.updateChildValues(values)
-                    
                 }
-                
             })
-            
         }
-        
     }
-    
-    
 }
 
 extension FavoriteViewController: FetchManagerDelegate {
