@@ -12,7 +12,7 @@ import IQKeyboardManagerSwift
 import Firebase
 import SkyFloatingLabelTextField
 
-class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
     
     let formatter = DateFormatter()
     
@@ -50,6 +50,8 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eventTextField.delegate = self
         
         hideKeyboardWhenTappedAround()
         
@@ -138,6 +140,13 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
         }
 
+    }
+    
+    func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
     }
     
     func setupCalendarView() {

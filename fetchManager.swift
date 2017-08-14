@@ -168,9 +168,9 @@ class FetchManager {
                     }
                     
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                    }
                 }
             }
-        }
         })
         
     }

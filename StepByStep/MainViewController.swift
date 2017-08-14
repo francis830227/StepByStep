@@ -30,6 +30,10 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var countLabel: UILabel!
+    
+    @IBOutlet weak var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +52,7 @@ class MainViewController: UIViewController {
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
         let delegate = UIApplication.shared.delegate as? AppDelegate
+        
         delegate?.scheduleNotification(at: todayDate)
     }
     
@@ -55,7 +60,6 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         collectionView.reloadData()
-
     }
         
     func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
@@ -78,8 +82,6 @@ class MainViewController: UIViewController {
             content.sound = UNNotificationSound.default()
         }
         
-        
-        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
 
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
@@ -93,6 +95,16 @@ class MainViewController: UIViewController {
         }
     
     }
+    
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        
+        sender.bounce()
+
+        let navigationVC = self.storyboard?.instantiateViewController(withIdentifier: "addNVC")
+        
+        self.present(navigationVC!, animated: true, completion: nil)
+    }
+
     
     @IBAction func logout(_ sender: Any) {
         let alert = UIAlertController(title: "確定登出？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -149,11 +161,9 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if dates.count > 0 {
         
             addLabel.isHidden = true
-        
         }
         
         return dates.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -165,7 +175,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let month = dates[indexPath.row].month
         
         let day = dates[indexPath.row].day
-        
+
         cell.bind()
         
         if year == "" || month == "" || day == "" {
@@ -200,7 +210,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             let targetDayInt = Int(targetDayNS.timeIntervalSinceReferenceDate)
             
             todayInt = Int(todayNS.timeIntervalSinceReferenceDate)
-            print(targetDayInt, todayInt!)
             
             let minus = Int((targetDayInt - todayInt!) / 86400)
             
@@ -239,7 +248,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         return cell
     }
-    
     
     func dealWithCollectionViewCell(sender: UIButton) {
         
