@@ -12,7 +12,7 @@ import IQKeyboardManagerSwift
 import Firebase
 import SkyFloatingLabelTextField
 
-class PickEndDateViewController: UIViewController {
+class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     let formatter = DateFormatter()
     
@@ -32,6 +32,9 @@ class PickEndDateViewController: UIViewController {
     
     var eventText = ""
     
+    let imagePicker = UIImagePickerController()
+    
+    
     @IBOutlet weak var eventTextField: SkyFloatingLabelTextField!
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -39,6 +42,8 @@ class PickEndDateViewController: UIViewController {
     @IBOutlet weak var year: UILabel!
     
     @IBOutlet weak var month: UILabel!
+    
+    @IBOutlet weak var eventImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +55,6 @@ class PickEndDateViewController: UIViewController {
         gradientNavi()
         
         setupCalendarView()
-        
     }
     
     @IBAction func donePickEndButtonPressed(_ sender: Any) {
@@ -82,14 +86,10 @@ class PickEndDateViewController: UIViewController {
             ref.updateChildValues(values)
             
             dismiss(animated: true, completion: nil)
-            
         }
         
         
     }
-    
-    var eventsFromTheServer: [String : String] = [:]
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -100,8 +100,6 @@ class PickEndDateViewController: UIViewController {
             destinationViewController.monthString = monthString
             destinationViewController.dayString = dayString
             destinationViewController.eventText = eventText
-            
-            print(destinationViewController.yearString, destinationViewController.monthString, destinationViewController.dayString)
         }
     }
     
@@ -130,7 +128,6 @@ class PickEndDateViewController: UIViewController {
         calendarView.visibleDates { (visibleDates) in
             
             self.setupViewOfCalendar(from: visibleDates)
-            
         }
         
     }
@@ -147,7 +144,7 @@ class PickEndDateViewController: UIViewController {
         
         if todaysDateString == monthDateString {
             
-            validCell.dateLabel.textColor = UIColor(red: 2/255.0, green: 158/255.0, blue: 183/255.0, alpha: 1)
+            validCell.dateLabel.textColor = UIColor(red: 44/255.0, green: 243/255.0, blue: 255/255.0, alpha: 1)
             
         } else {
             
@@ -164,7 +161,6 @@ class PickEndDateViewController: UIViewController {
                 } else {
                     
                     validCell.dateLabel.textColor = outsideMonthColor
-                    
                 }
                 
             }
@@ -173,12 +169,13 @@ class PickEndDateViewController: UIViewController {
         
     }
     
+   // var eventsFromTheServer = [String]()
+    
     func handleCellEvents(view: JTAppleCell?, cellState: CellState) {
         
-        guard let validCell = view as? CalendarCell else { return }
-        
-        validCell.dotImageView.isHidden = !eventsFromTheServer.contains { $0.key == formatter.string(from: cellState.date)}
-                
+//        guard let validCell = view as? CalendarCell else { return }
+//        
+//        validCell.dotImageView.isHidden = !eventsFromTheServer.contains { $0.key == formatter.string(from: cellState.date)}
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
@@ -192,7 +189,6 @@ class PickEndDateViewController: UIViewController {
         } else {
             
             validCell.selectedView.isHidden = true
-            
         }
 
     }
@@ -202,7 +198,6 @@ class PickEndDateViewController: UIViewController {
         guard let validCell = view as? CalendarCell else { return }
 
         validCell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
-    
     }
     
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo) {
@@ -216,12 +211,99 @@ class PickEndDateViewController: UIViewController {
         self.formatter.dateFormat = "MM"
         
         self.month.text = self.formatter.string(from: date)
-        
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func setUpJourneyImageView() {
+        
+        let imageView = eventImageView!
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapJourneyImageView(sender: )))
+        
+        tapRecognizer.delegate = self
+        
+        imageView.addGestureRecognizer(tapRecognizer)
+        
+        imageView.isUserInteractionEnabled = true
+    }
+    
+    func handleTapJourneyImageView(sender: UITapGestureRecognizer) {
+        
+        let photoAlert = UIAlertController(title: "Pick an image", message: nil, preferredStyle: .actionSheet)
+        
+        photoAlert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { _ in
+            
+            self.openCamera()
+            
+        }))
+        
+        photoAlert.addAction(UIAlertAction(title: "Pick from album", style: .default, handler: { _ in
+            
+            self.openAlbum()
+            
+        }))
+        
+        photoAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(photoAlert, animated: true)
+        
+    }
+
+    func openCamera() {
+        
+        let isCameraExist = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        if isCameraExist {
+            
+            imagePicker.delegate = self
+            
+            imagePicker.sourceType = .camera
+            
+            self.present(imagePicker, animated: true)
+            
+        } else {
+            
+            let noCaremaAlert = UIAlertController(title: "Sorry", message: "You don't have camera lol", preferredStyle: .alert)
+            
+            noCaremaAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(noCaremaAlert, animated: true)
+        }
+        
+    }
+    
+    func openAlbum() {
+        
+        imagePicker.delegate = self
+        
+        imagePicker.sourceType = .photoLibrary
+        
+        self.present(imagePicker, animated: true)
+        
+    }
+
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        self.dismiss(animated: true) { () -> Void in
+            
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                
+                self.eventImageView.image = image
+                
+                self.eventImageView.contentMode = .scaleAspectFill
+                
+            } else {
+                
+                print("Something went wrong")
+                
+            }
+            
+        }
         
     }
     

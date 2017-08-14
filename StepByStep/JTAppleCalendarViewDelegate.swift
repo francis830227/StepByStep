@@ -27,7 +27,6 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         handleCellVisibility(view: cell, cellState: cellState)
         
         return cell
-        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -57,7 +56,6 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         dayString = self.formatter.string(from: date)
         
         print(yearString, monthString, dayString)
-        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -69,24 +67,24 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         handleCellEvents(view: cell, cellState: cellState)
         
         handleCellVisibility(view: cell, cellState: cellState)
-
     }
     
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         
         setupViewOfCalendar(from: visibleDates)
-        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
+        
         let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "header", for: indexPath) as! CalendarHeaderCollectionReusableView
+        
         return header
     }
     
     func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
+
         return MonthSize(defaultSize: 50)
     }
-    
 }
 
