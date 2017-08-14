@@ -18,6 +18,8 @@ struct EndDate {
     
     var day: String
     
+    var imageURL: String
+    
     var titleName: String
     
     var titleKey: String
@@ -76,8 +78,6 @@ protocol FetchManagerDelegate: class {
 }
 
 class FetchManager {
-    
-    
 
     weak var delegate: FetchManagerDelegate?
     
@@ -96,7 +96,6 @@ class FetchManager {
             if snapshot.exists() == false {
                 
                 NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                
             }
         })
         
@@ -114,9 +113,10 @@ class FetchManager {
                 if let year = dictionary["year"],
                     let month = dictionary["month"],
                     let day = dictionary["day"],
-                    let titleName = dictionary["titleName"] {
+                    let titleName = dictionary["titleName"],
+                    let imageURL = dictionary["image"] {
                     
-                    dataInFM.append(EndDate(year: year, month: month, day: day, titleName: titleName, titleKey: itemSnapshot.key))
+                    dataInFM.append(EndDate(year: year, month: month, day: day, imageURL: imageURL, titleName: titleName, titleKey: itemSnapshot.key))
                     
                     self?.delegate?.manager(didGet: dataInFM)
                     
@@ -134,9 +134,8 @@ class FetchManager {
         ref.child("favorite").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             
             if snapshot.exists() == false {
-                
+            
                 NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                
             }
         })
 
@@ -149,8 +148,10 @@ class FetchManager {
                 DispatchQueue.main.async {
                     self?.delegate?.manager(didGet: placeInFM)
                 }
+                
             } else {
-            for item in snapshot.children {
+            
+                for item in snapshot.children {
                 
                 guard let itemSnapshot = item as? DataSnapshot else { return }
             

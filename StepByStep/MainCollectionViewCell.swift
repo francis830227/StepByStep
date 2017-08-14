@@ -21,11 +21,12 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var deleteButton: UIButton!
     
+    @IBOutlet weak var eventImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         backgroundColor = .clear
-        
     }
     
     func bind() {

@@ -34,7 +34,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     
     let imagePicker = UIImagePickerController()
     
-    
     @IBOutlet weak var eventTextField: SkyFloatingLabelTextField!
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -44,6 +43,10 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var month: UILabel!
     
     @IBOutlet weak var eventImageView: UIImageView!
+    
+    @IBOutlet weak var darkView: UIView!
+    
+    @IBOutlet weak var calendarViewHeightCons: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +58,15 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         gradientNavi()
         
         setupCalendarView()
+        
+        setupEventImageView()
     }
     
     @IBAction func donePickEndButtonPressed(_ sender: Any) {
         
         if yearString == "" || monthString == "" || dayString == "" || eventTextField.text == "" {
             
-            let alert = UIAlertController(title: "沒有事件或日期不能存哦！", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "沒有事件或日期不能存啦！", message: "", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 
@@ -75,20 +80,12 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
         } else {
             
-            let uid = Auth.auth().currentUser?.uid
-            
-            let ref = Database.database().reference().child("title").child(uid!).childByAutoId()
-            
             eventText = eventTextField.text ?? ""
             
-            let values = ["year": yearString, "month": monthString, "day": dayString, "titleName": eventText]
-            
-            ref.updateChildValues(values)
+            uploadToFirebase(eventImageView.image, yearString, monthString, dayString, eventText)
             
             dismiss(animated: true, completion: nil)
         }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,6 +98,46 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             destinationViewController.dayString = dayString
             destinationViewController.eventText = eventText
         }
+    }
+    
+    func uploadToFirebase(_ image: UIImage?, _ year: String, _ month: String, _ day: String, _ eventText: String) {
+        
+        let uniqueString = NSUUID().uuidString
+        
+        let uid = Auth.auth().currentUser?.uid
+        
+        let ref = Database.database().reference().child("title").child(uid!).childByAutoId()
+        
+        guard let photo = image else { return }
+        
+        let photoComp = UIImageJPEGRepresentation(photo, 0.2)
+        
+        let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
+        
+        if let uploadData = photoComp {
+            
+            storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
+                
+                if error != nil {
+                    
+                    print("Error: \(error!.localizedDescription)")
+                    
+                    return
+                }
+                
+                if let uploadImageUrl = data?.downloadURL()?.absoluteString {
+                    
+                    print("Photo URL: \(uploadImageUrl)")
+                    
+                    let values = ["year": year, "month": month, "day": day, "titleName": eventText, "image": uploadImageUrl]
+                    
+                    ref.updateChildValues(values)
+                }
+                
+            })
+            
+        }
+
     }
     
     func setupCalendarView() {
@@ -218,11 +255,11 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     
-    private func setUpJourneyImageView() {
+    private func setupEventImageView() {
         
-        let imageView = eventImageView!
+        let imageView = darkView!
         
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapJourneyImageView(sender: )))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapEventImageView(sender: )))
         
         tapRecognizer.delegate = self
         
@@ -231,9 +268,11 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         imageView.isUserInteractionEnabled = true
     }
     
-    func handleTapJourneyImageView(sender: UITapGestureRecognizer) {
+    func handleTapEventImageView(sender: UITapGestureRecognizer) {
         
         let photoAlert = UIAlertController(title: "Pick an image", message: nil, preferredStyle: .actionSheet)
+        
+        photoAlert.darkAlert(photoAlert)
         
         photoAlert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { _ in
             
@@ -247,7 +286,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
         }))
         
-        photoAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        photoAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         self.present(photoAlert, animated: true)
         
