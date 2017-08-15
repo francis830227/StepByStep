@@ -11,8 +11,8 @@ import CoreData
 import Firebase
 import IQKeyboardManagerSwift
 import GooglePlaces
-import GoogleMaps
 import UserNotifications
+import SlideMenuControllerSwift
 
 
 @UIApplicationMain
@@ -24,10 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        
         GMSPlacesClient.provideAPIKey(placesKey)
-        
-        GMSServices.provideAPIKey(serviceKey)
-        
+                
         IQKeyboardManager.sharedManager().enable = true
         
         IQKeyboardManager.sharedManager().enableAutoToolbar = false

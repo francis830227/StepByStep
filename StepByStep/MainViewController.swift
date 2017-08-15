@@ -14,6 +14,10 @@ import UserNotifications
 
 class MainViewController: UIViewController {
     
+    let colorOne = UIColor(red: 252/255, green: 206/255, blue: 55/255, alpha: 0.6)
+    
+    let colorTwo = UIColor(red: 145/255, green: 18/255, blue: 156/255, alpha: 0.6)
+    
     let animator = LinearCardAttributesAnimator()
     
     let fetchManager = FetchManager()
@@ -29,8 +33,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var todayTime: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    @IBOutlet weak var countLabel: UILabel!
     
     @IBOutlet weak var addButton: UIButton!
     
@@ -149,9 +151,8 @@ func collectionViewLayout(collectionView: UICollectionView, animator: LinearCard
         layout.scrollDirection = .horizontal
         
         layout.animator = animator
-        
+
     }
-    
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -215,7 +216,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400))天前"
+                cell.countDownLabel.text = "過了\(Int((todayInt! - targetDayInt) / 86400))天"
                 
             } else if minus == 0 {
                 
@@ -227,7 +228,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
             }
             
-            cell.finishDateLabel.text = "完成日：\(year)/\(month)/\(day)"
+            cell.finishDateLabel.text = "日期：\(year)/\(month)/\(day)"
             
             cell.clipsToBounds = false
         }
@@ -245,6 +246,14 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         cell.eventImageView.sd_setIndicatorStyle(.white)
         
         cell.eventImageView.sd_setImage(with: URL(string: dates[indexPath.row].imageURL), completed: nil)
+
+        
+        
+        cell.gradientView.colors = [colorOne, colorTwo]
+        
+        cell.gradientView.locations = [0.0, 1.0]
+        
+        cell.gradientView.direction = .horizontal
         
         return cell
     }
@@ -257,12 +266,18 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         let editAction = UIAlertAction(title: "修改卡片", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
             
-            let editEventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editEvent")
+            let editEventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editEvent") as! EditEventViewController
+            
+            editEventViewController.yearString = self.dates[sender.tag].year
+            editEventViewController.monthString = self.dates[sender.tag].month
+            editEventViewController.dayString = self.dates[sender.tag].day
+            editEventViewController.eventText = self.dates[sender.tag].titleName
+            editEventViewController.eventKey = self.dates[sender.tag].titleKey
+            editEventViewController.imageURL = self.dates[sender.tag].imageURL
             
             self.present(editEventViewController, animated: true, completion: nil)
             
             alert.dismiss(animated: true, completion: nil)
-            
         })
         
         let deleteAction = UIAlertAction(title: "刪除卡片", style: UIAlertActionStyle.destructive, handler: { (_ : UIAlertAction) -> Void in
@@ -333,9 +348,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
         return 0
-        
     }
-    
 }
 
 extension MainViewController: FetchManagerDelegate {
@@ -349,6 +362,7 @@ extension MainViewController: FetchManagerDelegate {
         self.dates = data
         
         guard let datesMin = dates.min() else { return }
+        
         prepareNotification(datesMin, todayInt!)
         
         collectionView.reloadData()

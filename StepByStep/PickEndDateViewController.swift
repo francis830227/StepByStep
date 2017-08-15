@@ -32,6 +32,8 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     
     var eventText = ""
     
+    var eventKey = ""
+    
     let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var eventTextField: SkyFloatingLabelTextField!
@@ -89,18 +91,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             dismiss(animated: true, completion: nil)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "tosetupeventsegue" {
-            let destinationViewController = segue.destination as! DailyViewController
-            
-            destinationViewController.yearString = yearString
-            destinationViewController.monthString = monthString
-            destinationViewController.dayString = dayString
-            destinationViewController.eventText = eventText
-        }
-    }
+
     
     func uploadToFirebase(_ image: UIImage?, _ year: String, _ month: String, _ day: String, _ eventText: String) {
         
@@ -213,15 +204,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
         }
         
-    }
-    
-   // var eventsFromTheServer = [String]()
-    
-    func handleCellEvents(view: JTAppleCell?, cellState: CellState) {
-        
-//        guard let validCell = view as? CalendarCell else { return }
-//        
-//        validCell.dotImageView.isHidden = !eventsFromTheServer.contains { $0.key == formatter.string(from: cellState.date)}
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {

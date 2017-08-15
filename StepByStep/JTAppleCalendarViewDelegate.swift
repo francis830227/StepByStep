@@ -22,8 +22,6 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         
         handleCelltextColor(view: cell, cellState: cellState)
         
-        handleCellEvents(view: cell, cellState: cellState)
-        
         handleCellVisibility(view: cell, cellState: cellState)
         
         return cell
@@ -34,8 +32,6 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         handleCellSelected(view: cell, cellState: cellState)
         
         handleCelltextColor(view: cell, cellState: cellState)
-        
-        handleCellEvents(view: cell, cellState: cellState)
         
         handleCellVisibility(view: cell, cellState: cellState)
         
@@ -65,9 +61,7 @@ extension PickEndDateViewController: JTAppleCalendarViewDelegate {
         handleCellSelected(view: cell, cellState: cellState)
         
         handleCelltextColor(view: cell, cellState: cellState)
-        
-        handleCellEvents(view: cell, cellState: cellState)
-        
+                
         handleCellVisibility(view: cell, cellState: cellState)
     }
     

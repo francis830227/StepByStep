@@ -50,6 +50,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GradientView (2.2.0)
   - GTMSessionFetcher/Core (1.1.10)
   - IQKeyboardManagerSwift (4.0.10)
   - JTAppleCalendar (7.0.4)
@@ -83,6 +84,7 @@ PODS:
     - libwebp
     - SDWebImage/Core
   - SkyFloatingLabelTextField (3.1.0)
+  - SlideMenuControllerSwift (3.0.1)
   - SwifterSwift (1.6.4)
 
 DEPENDENCIES:
@@ -94,11 +96,13 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - GradientView
   - IQKeyboardManagerSwift
   - JTAppleCalendar (~> 7.0)
   - NVActivityIndicatorView
   - SDWebImage/WebP
   - SkyFloatingLabelTextField (~> 3.0)
+  - SlideMenuControllerSwift
   - SwifterSwift
 
 SPEC CHECKSUMS:
@@ -114,6 +118,7 @@ SPEC CHECKSUMS:
   GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GradientView: a5397174594f158dc1511127f2004ec25c9d2300
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
@@ -121,8 +126,9 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
+  SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: b472fb3ca4de3ed4db0f301d3f3d2018e07c2165
+PODFILE CHECKSUM: 92f09c681276a0db28a308cd5449cb7f3b2ae982
 
 COCOAPODS: 1.2.1

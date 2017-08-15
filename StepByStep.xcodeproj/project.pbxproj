@@ -32,6 +32,7 @@
 		153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3C1F38709600804B48 /* DailyViewController.swift */; };
 		153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */; };
 		154EF1DF1F35C1B300881D69 /* key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EF1DE1F35C1B300881D69 /* key.swift */; };
+		15B395221F432B0000F7C1DE /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B395211F432B0000F7C1DE /* LeftViewController.swift */; };
 		15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */; };
 		15B9E2031F32058D004FE3B6 /* GradientFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */; };
 		15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */; };
@@ -77,6 +78,7 @@
 		153DEB3C1F38709600804B48 /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
 		153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		154EF1DE1F35C1B300881D69 /* key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = key.swift; sourceTree = "<group>"; };
+		15B395211F432B0000F7C1DE /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientFavorite.swift; sourceTree = "<group>"; };
 		15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				152C7E5B1F2779C7004E6E8C /* StepByStep */,
+				153DEB3E1F3889E900804B48 /* DailyView */,
+				15F309551F3DFD00008FBDA2 /* TodayView */,
 				15F8CCC41F2B3777004F1A0A /* EverydayEventView */,
 				152C7E5A1F2779C7004E6E8C /* Products */,
 				141C97B58E404B69F4F80D53 /* Pods */,
@@ -160,9 +164,8 @@
 				15EDC43B1F28BB04001DF19A /* MainView */,
 				15EDC4601F28DACB001DF19A /* PickEndDateView */,
 				15B9E1F61F30C817004FE3B6 /* FavoriteView */,
-				153DEB3E1F3889E900804B48 /* DailyView */,
-				15F309551F3DFD00008FBDA2 /* TodayView */,
 				152C7E601F2779C7004E6E8C /* Main.storyboard */,
+				15B395211F432B0000F7C1DE /* LeftViewController.swift */,
 				152C7E681F2779C7004E6E8C /* LaunchScreen.storyboard */,
 				152B3A311F2C2E33004FAC2D /* Resource */,
 			);
@@ -176,6 +179,7 @@
 				153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */,
 			);
 			name = DailyView;
+			path = StepByStep;
 			sourceTree = "<group>";
 		};
 		15B9E1F61F30C817004FE3B6 /* FavoriteView */ = {
@@ -247,6 +251,7 @@
 				153A45D11F3EC99500636223 /* FetchTodayListManager.swift */,
 			);
 			name = TodayView;
+			path = StepByStep;
 			sourceTree = "<group>";
 		};
 		15F8CCC41F2B3777004F1A0A /* EverydayEventView */ = {
@@ -447,6 +452,7 @@
 				15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */,
 				152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */,
 				15F8CCC91F2B6610004F1A0A /* JTAppleCalendarDelegate.swift in Sources */,
+				15B395221F432B0000F7C1DE /* LeftViewController.swift in Sources */,
 				15B9E2071F320653004FE3B6 /* FavoriteAutoCompleted.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

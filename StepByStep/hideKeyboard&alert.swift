@@ -32,7 +32,6 @@ extension UIAlertController {
             subview.alpha = 0.9
         }
         alert.view.tintColor = .white
-        
     }
     
 }

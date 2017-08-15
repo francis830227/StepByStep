@@ -11,4 +11,4 @@ import Foundation
     
 let placesKey = "AIzaSyAufGyc9ysxqNM30TSVHdPWekS_CN02KDg"
 
-let serviceKey = "AIzaSyDFRbbH3fjv0U1qI232JDKgeepbmiY5Wgs"
+//let serviceKey = "AIzaSyDFRbbH3fjv0U1qI232JDKgeepbmiY5Wgs"
