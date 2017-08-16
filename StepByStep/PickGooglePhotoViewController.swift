@@ -39,6 +39,7 @@ class PickGooglePhotoViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
+    
 }
 
 extension PickGooglePhotoViewController: FetchManagerDelegate {

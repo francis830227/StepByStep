@@ -126,11 +126,8 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
                     
                     ref.updateChildValues(values)
                 }
-                
             })
-            
         }
-
     }
     
     func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
