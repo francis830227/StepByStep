@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         collectionView.reloadData()
     }
         
@@ -97,6 +97,9 @@ class MainViewController: UIViewController {
         }
     
     }
+    @IBAction func settingButtonPressed(_ sender: Any) {
+        self.slideMenuController()?.openLeft()
+    }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
         
@@ -123,9 +126,9 @@ class MainViewController: UIViewController {
             
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let homeController =  mainStoryboard.instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
+            let controller =  mainStoryboard.instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
             
-            appDelegate?.window?.rootViewController = homeController
+            appDelegate?.window?.rootViewController = controller
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_ : UIAlertAction) -> Void in

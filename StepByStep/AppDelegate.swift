@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        
         GMSPlacesClient.provideAPIKey(placesKey)
                 
         IQKeyboardManager.sharedManager().enable = true
@@ -39,9 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let vc = storyboard.instantiateViewController(withIdentifier: "homeVC")
+            let mainViewController = storyboard.instantiateViewController(withIdentifier: "homeNVC")
             
-            self.window?.rootViewController = vc
+            let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
+            
+            let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
+            
+            self.window?.rootViewController = slideMenuController
             
         } else {
             
@@ -52,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
             
             self.window?.rootViewController = vc
-            
         }
         
         let center = UNUserNotificationCenter.current()
