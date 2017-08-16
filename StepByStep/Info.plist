@@ -46,8 +46,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>
-	<string>for your event!</string>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>for your event!</string>
+	<string></string>
 </dict>
 </plist>

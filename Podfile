@@ -28,6 +28,10 @@ target 'StepByStep' do
 
   pod 'SDWebImage/WebP'
 
+  pod 'GradientView'
+
+  pod 'SlideMenuControllerSwift'
+
   # Pods for StepByStep
 
 end

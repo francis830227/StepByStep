@@ -8,13 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0AEB5E429B685426A514C200 /* Pods_StepByStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */; };
-		152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */; };
-		152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */; };
 		152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */; };
-		152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */; };
 		152B3A391F2DAF51004FAC2D /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A381F2DAF51004FAC2D /* Gradient.swift */; };
 		152B3A3B1F2DF338004FAC2D /* hideKeyboard&alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A3A1F2DF338004FAC2D /* hideKeyboard&alert.swift */; };
-		152B3A3D1F2E0081004FAC2D /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */; };
 		152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */; };
 		152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A641F2F335F004FAC2D /* fetchManager.swift */; };
 		152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */; };
@@ -27,11 +23,9 @@
 		152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E751F278117004E6E8C /* GoogleService-Info.plist */; };
 		152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */; };
 		153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153223AE1F407FA00044B0BF /* EditEventViewController.swift */; };
-		153A45CC1F3EBC6A00636223 /* TodayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */; };
-		153A45D21F3EC99500636223 /* FetchTodayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45D11F3EC99500636223 /* FetchTodayListManager.swift */; };
-		153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3C1F38709600804B48 /* DailyViewController.swift */; };
-		153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */; };
 		154EF1DF1F35C1B300881D69 /* key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EF1DE1F35C1B300881D69 /* key.swift */; };
+		1565201B1F441C83000DB4E9 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */; };
+		15B395261F43E1E300F7C1DE /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B395251F43E1E300F7C1DE /* LeftViewController.swift */; };
 		15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */; };
 		15B9E2031F32058D004FE3B6 /* GradientFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */; };
 		15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */; };
@@ -42,21 +36,13 @@
 		15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC4331F289C3D001DF19A /* MainViewController.swift */; };
 		15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45C1F28D272001DF19A /* CalendarCell.swift */; };
 		15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */; };
-		15F8CCC31F2B376C004F1A0A /* EverydayEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */; };
-		15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */; };
-		15F8CCC91F2B6610004F1A0A /* JTAppleCalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCC81F2B6610004F1A0A /* JTAppleCalendarDelegate.swift */; };
-		15F8CCCB1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCCA1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		013C5C7BAA191E40B9F76C83 /* Pods-StepByStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.debug.xcconfig"; sourceTree = "<group>"; };
-		152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventTableViewCell.swift; sourceTree = "<group>"; };
-		152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventTableView.swift; sourceTree = "<group>"; };
 		152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
-		152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		152B3A381F2DAF51004FAC2D /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		152B3A3A1F2DF338004FAC2D /* hideKeyboard&alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "hideKeyboard&alert.swift"; sourceTree = "<group>"; };
-		152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepByStep.entitlements; sourceTree = "<group>"; };
 		152B3A421F2EF881004FAC2D /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		152B3A641F2F335F004FAC2D /* fetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fetchManager.swift; path = ../fetchManager.swift; sourceTree = "<group>"; };
@@ -72,11 +58,9 @@
 		152C7E751F278117004E6E8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = StepByStep/MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		153223AE1F407FA00044B0BF /* EditEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEventViewController.swift; path = StepByStep/EditEventViewController.swift; sourceTree = "<group>"; };
-		153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayTableViewController.swift; sourceTree = "<group>"; };
-		153A45D11F3EC99500636223 /* FetchTodayListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchTodayListManager.swift; sourceTree = "<group>"; };
-		153DEB3C1F38709600804B48 /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
-		153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		154EF1DE1F35C1B300881D69 /* key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = key.swift; sourceTree = "<group>"; };
+		1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		15B395251F43E1E300F7C1DE /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientFavorite.swift; sourceTree = "<group>"; };
 		15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -87,10 +71,6 @@
 		15EDC4331F289C3D001DF19A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = StepByStep/MainViewController.swift; sourceTree = "<group>"; };
 		15EDC45C1F28D272001DF19A /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickEndDateViewController.swift; sourceTree = "<group>"; };
-		15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventViewController.swift; sourceTree = "<group>"; };
-		15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCalendarCell.swift; sourceTree = "<group>"; };
-		15F8CCC81F2B6610004F1A0A /* JTAppleCalendarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTAppleCalendarDelegate.swift; sourceTree = "<group>"; };
-		15F8CCCA1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTAppleCalendarDatasource.swift; sourceTree = "<group>"; };
 		B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepByStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				152C7E5B1F2779C7004E6E8C /* StepByStep */,
-				15F8CCC41F2B3777004F1A0A /* EverydayEventView */,
 				152C7E5A1F2779C7004E6E8C /* Products */,
 				141C97B58E404B69F4F80D53 /* Pods */,
 				B07CFF51F7AD773675CB3A1E /* Frameworks */,
@@ -152,6 +131,7 @@
 				152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */,
 				152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */,
 				152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */,
+				15B395251F43E1E300F7C1DE /* LeftViewController.swift */,
 				154EF1DE1F35C1B300881D69 /* key.swift */,
 				152B3A3A1F2DF338004FAC2D /* hideKeyboard&alert.swift */,
 				152B3A641F2F335F004FAC2D /* fetchManager.swift */,
@@ -160,22 +140,12 @@
 				15EDC43B1F28BB04001DF19A /* MainView */,
 				15EDC4601F28DACB001DF19A /* PickEndDateView */,
 				15B9E1F61F30C817004FE3B6 /* FavoriteView */,
-				153DEB3E1F3889E900804B48 /* DailyView */,
-				15F309551F3DFD00008FBDA2 /* TodayView */,
 				152C7E601F2779C7004E6E8C /* Main.storyboard */,
+				1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */,
 				152C7E681F2779C7004E6E8C /* LaunchScreen.storyboard */,
 				152B3A311F2C2E33004FAC2D /* Resource */,
 			);
 			path = StepByStep;
-			sourceTree = "<group>";
-		};
-		153DEB3E1F3889E900804B48 /* DailyView */ = {
-			isa = PBXGroup;
-			children = (
-				153DEB3C1F38709600804B48 /* DailyViewController.swift */,
-				153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */,
-			);
-			name = DailyView;
 			sourceTree = "<group>";
 		};
 		15B9E1F61F30C817004FE3B6 /* FavoriteView */ = {
@@ -238,39 +208,6 @@
 				15EDC45C1F28D272001DF19A /* CalendarCell.swift */,
 			);
 			name = PickEndDateView;
-			sourceTree = "<group>";
-		};
-		15F309551F3DFD00008FBDA2 /* TodayView */ = {
-			isa = PBXGroup;
-			children = (
-				153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */,
-				153A45D11F3EC99500636223 /* FetchTodayListManager.swift */,
-			);
-			name = TodayView;
-			sourceTree = "<group>";
-		};
-		15F8CCC41F2B3777004F1A0A /* EverydayEventView */ = {
-			isa = PBXGroup;
-			children = (
-				15F8CCC71F2B658E004F1A0A /* JTAppleCalendar */,
-				15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */,
-				152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */,
-				152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */,
-				152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */,
-				15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */,
-			);
-			name = EverydayEventView;
-			path = StepByStep;
-			sourceTree = "<group>";
-		};
-		15F8CCC71F2B658E004F1A0A /* JTAppleCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */,
-				15F8CCCA1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift */,
-				15F8CCC81F2B6610004F1A0A /* JTAppleCalendarDelegate.swift */,
-			);
-			name = JTAppleCalendar;
 			sourceTree = "<group>";
 		};
 		B07CFF51F7AD773675CB3A1E /* Frameworks */ = {
@@ -414,39 +351,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				153A45D21F3EC99500636223 /* FetchTodayListManager.swift in Sources */,
 				152B3A3B1F2DF338004FAC2D /* hideKeyboard&alert.swift in Sources */,
-				153A45CC1F3EBC6A00636223 /* TodayTableViewController.swift in Sources */,
 				15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */,
 				15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */,
-				152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */,
 				152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */,
-				15F8CCCB1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift in Sources */,
 				152B3A391F2DAF51004FAC2D /* Gradient.swift in Sources */,
-				15F8CCC31F2B376C004F1A0A /* EverydayEventViewController.swift in Sources */,
-				152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */,
 				15B9E2031F32058D004FE3B6 /* GradientFavorite.swift in Sources */,
 				15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */,
+				1565201B1F441C83000DB4E9 /* SlideMenuViewController.swift in Sources */,
 				154EF1DF1F35C1B300881D69 /* key.swift in Sources */,
 				15E8BFF81F2A106E00458733 /* JTAppleCalendarViewDelegate.swift in Sources */,
-				153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */,
 				152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */,
 				152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */,
 				15C94E061F3C05D0003C2A97 /* FavTableViewCell.swift in Sources */,
 				15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */,
-				153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */,
 				153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */,
 				152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */,
-				152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */,
-				15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */,
 				152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */,
 				152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */,
 				15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */,
-				152B3A3D1F2E0081004FAC2D /* TextFieldDelegate.swift in Sources */,
 				152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */,
 				15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */,
 				152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */,
-				15F8CCC91F2B6610004F1A0A /* JTAppleCalendarDelegate.swift in Sources */,
+				15B395261F43E1E300F7C1DE /* LeftViewController.swift in Sources */,
 				15B9E2071F320653004FE3B6 /* FavoriteAutoCompleted.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
