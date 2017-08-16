@@ -13,12 +13,6 @@ import GoogleMaps
 import Firebase
 import FirebaseStorage
 
-struct Place {
-    var name: String
-    var address: String
-    var image: UIImage?
-}
-
 class FavoriteViewController: UIViewController {
 
     var resultsViewController: GMSAutocompleteResultsViewController?
@@ -28,9 +22,7 @@ class FavoriteViewController: UIViewController {
     var resultView: UITextView?
     
     let fetchManager = FetchManager()
-    
-    var places = [Place]()
-    
+        
     var placesInfo = [FavoritePlace]()
     
     @IBOutlet weak var favoriteTableView: UITableView!
@@ -69,11 +61,6 @@ class FavoriteViewController: UIViewController {
         favoriteTableView.reloadData()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        
-    }
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -114,10 +101,8 @@ class FavoriteViewController: UIViewController {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
-                self.places[indexPathRow].image = photo
                 
                 self.getPhotoURL(photo, placeName, placeAddress, indexPathRow: indexPathRow)
-                
             }
         })
     }
@@ -148,8 +133,6 @@ class FavoriteViewController: UIViewController {
                 }
                 
                 if let uploadImageUrl = data?.downloadURL()?.absoluteString {
-                    
-                    print("Photo URL: \(uploadImageUrl)")
                     
                     let values = ["name": placeName, "address": placeAddress, "image": uploadImageUrl]
                     

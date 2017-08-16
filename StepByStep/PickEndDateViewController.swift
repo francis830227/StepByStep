@@ -218,7 +218,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
             validCell.selectedView.isHidden = true
         }
-
     }
     
     func handleCellVisibility(view: JTAppleCell?, cellState: CellState) {
@@ -277,10 +276,15 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
         }))
         
+        photoAlert.addAction(UIAlertAction(title: "Choose from favorite places", style: .default, handler: { _ in
+            
+            self.openPlace()
+            
+        }))
+        
         photoAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         self.present(photoAlert, animated: true)
-        
     }
 
     func openCamera() {
@@ -315,8 +319,16 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         self.present(imagePicker, animated: true)
         
     }
-
     
+    func openPlace() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "googlephotoNVC")
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         self.dismiss(animated: true) { () -> Void in
@@ -330,11 +342,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             } else {
                 
                 print("Something went wrong")
-                
             }
-            
         }
-        
     }
-    
 }

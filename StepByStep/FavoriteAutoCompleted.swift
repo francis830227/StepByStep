@@ -23,9 +23,7 @@ extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
         
         print("Place address: \(place.formattedAddress!)")
         
-        self.places.append(Place(name: place.name, address: place.formattedAddress!, image: nil))
-        
-        self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!, indexPathRow: self.places.count - 1)
+
         
         favoriteTableView.reloadData()
     }
