@@ -9,16 +9,19 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SkyFloatingLabelTextField
 
 class SignupViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextFieldWithIcon!
+    
+    @IBOutlet weak var firstNameTextField: SkyFloatingLabelTextFieldWithIcon!
+    
+    @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextFieldWithIcon!
     
     @IBOutlet weak var errorLabel: UILabel!
-    
-    //var ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +29,8 @@ class SignupViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
-        //ref = Database.database().reference()
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
         if emailTextField.text == "" || passwordTextField.text == "" {
@@ -45,7 +42,9 @@ class SignupViewController: UIViewController {
                 
                 if error == nil {
                     
-                    print("You have successfully signed up.")
+                    let uid = Auth.auth().currentUser?.uid
+                    
+                    let ref = Database.database().reference().child("users").child(uid!).childByAutoId()
                     
                     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
                     
@@ -55,7 +54,9 @@ class SignupViewController: UIViewController {
                     
                     appDelegate.window?.rootViewController = homeViewController
                     
-                    //self.ref?.childByAutoId().child("Posts").child("Name").setValue("\(self.firstNameTextField.text ?? "") \(self.lastNameTextField.text ?? "")")
+                    let values = ["email": self.emailTextField.text!, "firstName": self.firstNameTextField.text!, "lastName": self.lastNameTextField.text!]
+                    
+                    ref.updateChildValues(values)
                     
                 } else {
                     
@@ -66,7 +67,6 @@ class SignupViewController: UIViewController {
                     alertController.addAction(defaultAction)
                     
                     self.present(alertController, animated: true, completion: nil)
-                    
                 }
                 
             }
@@ -75,4 +75,9 @@ class SignupViewController: UIViewController {
         
     }
     
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 }
