@@ -12,7 +12,13 @@ import IQKeyboardManagerSwift
 import Firebase
 import SkyFloatingLabelTextField
 
-class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
+protocol GetImageDelegate {
+    
+    func setImagePickedFromGoogle(_ imageUrl: String)
+
+}
+
+class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, GetImageDelegate {
     
     let formatter = DateFormatter()
     
@@ -33,8 +39,10 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     var eventText = ""
     
     var eventKey = ""
-    
+        
     let imagePicker = UIImagePickerController()
+    
+    let pickGooglePhotoViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "googlephoto") as! PickGooglePhotoViewController
     
     @IBOutlet weak var eventTextField: SkyFloatingLabelTextField!
 
@@ -91,7 +99,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             dismiss(animated: true, completion: nil)
         }
     }
-
     
     func uploadToFirebase(_ image: UIImage?, _ year: String, _ month: String, _ day: String, _ eventText: String) {
         
@@ -242,6 +249,17 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     
+    func setImagePickedFromGoogle(_ imageUrl: String) {
+        
+        eventImageView.contentMode = .scaleAspectFill
+        
+        eventImageView.sd_setShowActivityIndicatorView(true)
+        
+        eventImageView.sd_setIndicatorStyle(.white)
+        
+        eventImageView.sd_setImage(with: URL(string: imageUrl))
+    }
+    
     private func setupEventImageView() {
         
         let imageView = darkView!
@@ -319,11 +337,9 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     
     func openPlace() {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        pickGooglePhotoViewController.delegate = self
         
-        let viewController = storyboard.instantiateViewController(withIdentifier: "googlephotoNVC")
-        
-        self.present(viewController, animated: true, completion: nil)
+        self.present(pickGooglePhotoViewController, animated: true, completion: nil)
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

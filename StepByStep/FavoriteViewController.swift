@@ -117,7 +117,7 @@ class FavoriteViewController: UIViewController {
         
         guard let photo = image else { return }
         
-        let photoComp = UIImageJPEGRepresentation(photo, 0.2)
+        let photoComp = UIImageJPEGRepresentation(photo, 0.5)
         
         let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
         

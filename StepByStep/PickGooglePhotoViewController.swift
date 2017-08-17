@@ -16,6 +16,8 @@ class PickGooglePhotoViewController: UIViewController {
     
     var placesInfo = [FavoritePlace]()
     
+    var delegate: GetImageDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

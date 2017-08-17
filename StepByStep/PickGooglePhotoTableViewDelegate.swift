@@ -40,7 +40,7 @@ extension PickGooglePhotoViewController: UITableViewDelegate, UITableViewDataSou
         
         print(indexPathRow)
         
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapEventImageView(sender: )))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapEventImageView(sender:_:)))
         
         tapRecognizer.delegate = self as? UIGestureRecognizerDelegate
         
@@ -49,9 +49,12 @@ extension PickGooglePhotoViewController: UITableViewDelegate, UITableViewDataSou
         imageView.isUserInteractionEnabled = true
     }
     
-    func handleTapEventImageView(sender: UITapGestureRecognizer) {
+    func handleTapEventImageView(sender: UITapGestureRecognizer, _ indexPathRow: Int) {
         
-        print("test")
+        let imageUrl = self.placesInfo[indexPathRow].placeImageURL
+        print(imageUrl)
+        delegate?.setImagePickedFromGoogle(imageUrl)
         
+        dismiss(animated: true)
     }
 }
