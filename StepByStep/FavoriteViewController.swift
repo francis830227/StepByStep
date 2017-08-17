@@ -81,20 +81,20 @@ class FavoriteViewController: UIViewController {
         resultsViewController?.secondaryTextColor = .lightGray
     }
 
-    func loadFirstPhotoForPlace(placeID: String, placeName: String, placeAddress: String, indexPathRow: Int) {
+    func loadFirstPhotoForPlace(placeID: String, placeName: String, placeAddress: String) {
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
             if let error = error {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
                 if let firstPhoto = photos?.results.first {
-                    self.loadImageForMetadata(photoMetadata: firstPhoto, placeName: placeName, placeAddress: placeAddress, indexPathRow: indexPathRow)
+                    self.loadImageForMetadata(photoMetadata: firstPhoto, placeName: placeName, placeAddress: placeAddress)
                 }
             }
         }
     }
     
-    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, placeName: String, placeAddress: String, indexPathRow: Int) {
+    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, placeName: String, placeAddress: String) {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
             (photo, error) -> Void in
             if let error = error {
@@ -102,12 +102,12 @@ class FavoriteViewController: UIViewController {
                 print("Error: \(error.localizedDescription)")
             } else {
                 
-                self.getPhotoURL(photo, placeName, placeAddress, indexPathRow: indexPathRow)
+                self.getPhotoURL(photo, placeName, placeAddress)
             }
         })
     }
     
-    func getPhotoURL(_ image: UIImage?,_ placeName: String,_ placeAddress: String, indexPathRow: Int) {
+    func getPhotoURL(_ image: UIImage?,_ placeName: String,_ placeAddress: String) {
         
         let uniqueString = NSUUID().uuidString
         

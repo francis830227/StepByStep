@@ -2,6 +2,74 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AnimatedCollectionViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GradientView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JTAppleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-StepByStep.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SkyFloatingLabelTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SlideMenuControllerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwifterSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>libwebp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>01B5F9358EAD17782FA546BF99060034</key>
@@ -10,16 +78,6 @@
 			<true/>
 		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>14B930E783EA9EB5461498F165AE54C7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2770D91E14297A8B05AC2A9F3FC5084D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -39,22 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D9DFEEFD9EB6CFC8831AA6F5856D2AA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>75D1B8CB5A49A933492DE151AAB8A182</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9339FFC3DEC4E47870FA632DD81A6342</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9EEA355D7DB942B471DCE0412D2CCAE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
