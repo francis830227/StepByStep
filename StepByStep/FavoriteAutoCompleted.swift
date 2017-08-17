@@ -22,10 +22,8 @@ extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place name: \(place.name)")
         
         print("Place address: \(place.formattedAddress!)")
-        
-        self.places.append(Place(name: place.name, address: place.formattedAddress!, image: nil))
-        
-        self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!, indexPathRow: self.places.count - 1)
+
+        self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!)
         
         favoriteTableView.reloadData()
     }
@@ -35,7 +33,6 @@ extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
         
         // TODO: handle the error.
         print("Error: ", error.localizedDescription)
-        
     }
     
     // Turn the network activity indicator on and off again.

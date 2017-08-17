@@ -12,7 +12,13 @@ import IQKeyboardManagerSwift
 import Firebase
 import SkyFloatingLabelTextField
 
-class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
+protocol GetImageDelegate {
+    
+    func setImagePickedFromGoogle(_ imageUrl: String)
+
+}
+
+class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, GetImageDelegate {
     
     let formatter = DateFormatter()
     
@@ -33,8 +39,10 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     var eventText = ""
     
     var eventKey = ""
-    
+        
     let imagePicker = UIImagePickerController()
+    
+    let pickGooglePhotoViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "googlephoto") as! PickGooglePhotoViewController
     
     @IBOutlet weak var eventTextField: SkyFloatingLabelTextField!
 
@@ -91,7 +99,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             dismiss(animated: true, completion: nil)
         }
     }
-
     
     func uploadToFirebase(_ image: UIImage?, _ year: String, _ month: String, _ day: String, _ eventText: String) {
         
@@ -126,11 +133,8 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
                     
                     ref.updateChildValues(values)
                 }
-                
             })
-            
         }
-
     }
     
     func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
@@ -218,7 +222,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
             validCell.selectedView.isHidden = true
         }
-
     }
     
     func handleCellVisibility(view: JTAppleCell?, cellState: CellState) {
@@ -244,6 +247,17 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func backButtonPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    func setImagePickedFromGoogle(_ imageUrl: String) {
+        
+        eventImageView.contentMode = .scaleAspectFill
+        
+        eventImageView.sd_setShowActivityIndicatorView(true)
+        
+        eventImageView.sd_setIndicatorStyle(.white)
+        
+        eventImageView.sd_setImage(with: URL(string: imageUrl))
     }
     
     private func setupEventImageView() {
@@ -277,10 +291,15 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
         }))
         
+        photoAlert.addAction(UIAlertAction(title: "Choose from favorite places", style: .default, handler: { _ in
+            
+            self.openPlace()
+            
+        }))
+        
         photoAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         self.present(photoAlert, animated: true)
-        
     }
 
     func openCamera() {
@@ -315,8 +334,14 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         self.present(imagePicker, animated: true)
         
     }
-
     
+    func openPlace() {
+        
+        pickGooglePhotoViewController.delegate = self
+        
+        self.present(pickGooglePhotoViewController, animated: true, completion: nil)
+    }
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         self.dismiss(animated: true) { () -> Void in
@@ -330,11 +355,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             } else {
                 
                 print("Something went wrong")
-                
             }
-            
         }
-        
     }
-    
 }

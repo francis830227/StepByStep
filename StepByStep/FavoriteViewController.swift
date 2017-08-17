@@ -13,12 +13,6 @@ import GoogleMaps
 import Firebase
 import FirebaseStorage
 
-struct Place {
-    var name: String
-    var address: String
-    var image: UIImage?
-}
-
 class FavoriteViewController: UIViewController {
 
     var resultsViewController: GMSAutocompleteResultsViewController?
@@ -28,9 +22,7 @@ class FavoriteViewController: UIViewController {
     var resultView: UITextView?
     
     let fetchManager = FetchManager()
-    
-    var places = [Place]()
-    
+        
     var placesInfo = [FavoritePlace]()
     
     @IBOutlet weak var favoriteTableView: UITableView!
@@ -69,11 +61,6 @@ class FavoriteViewController: UIViewController {
         favoriteTableView.reloadData()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        
-    }
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -94,35 +81,33 @@ class FavoriteViewController: UIViewController {
         resultsViewController?.secondaryTextColor = .lightGray
     }
 
-    func loadFirstPhotoForPlace(placeID: String, placeName: String, placeAddress: String, indexPathRow: Int) {
+    func loadFirstPhotoForPlace(placeID: String, placeName: String, placeAddress: String) {
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
             if let error = error {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
                 if let firstPhoto = photos?.results.first {
-                    self.loadImageForMetadata(photoMetadata: firstPhoto, placeName: placeName, placeAddress: placeAddress, indexPathRow: indexPathRow)
+                    self.loadImageForMetadata(photoMetadata: firstPhoto, placeName: placeName, placeAddress: placeAddress)
                 }
             }
         }
     }
     
-    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, placeName: String, placeAddress: String, indexPathRow: Int) {
+    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, placeName: String, placeAddress: String) {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
             (photo, error) -> Void in
             if let error = error {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
-                self.places[indexPathRow].image = photo
                 
-                self.getPhotoURL(photo, placeName, placeAddress, indexPathRow: indexPathRow)
-                
+                self.getPhotoURL(photo, placeName, placeAddress)
             }
         })
     }
     
-    func getPhotoURL(_ image: UIImage?,_ placeName: String,_ placeAddress: String, indexPathRow: Int) {
+    func getPhotoURL(_ image: UIImage?,_ placeName: String,_ placeAddress: String) {
         
         let uniqueString = NSUUID().uuidString
         
@@ -132,7 +117,7 @@ class FavoriteViewController: UIViewController {
         
         guard let photo = image else { return }
         
-        let photoComp = UIImageJPEGRepresentation(photo, 0.1)
+        let photoComp = UIImageJPEGRepresentation(photo, 0.5)
         
         let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
         
@@ -148,8 +133,6 @@ class FavoriteViewController: UIViewController {
                 }
                 
                 if let uploadImageUrl = data?.downloadURL()?.absoluteString {
-                    
-                    print("Photo URL: \(uploadImageUrl)")
                     
                     let values = ["name": placeName, "address": placeAddress, "image": uploadImageUrl]
                     
