@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SkyFloatingLabelTextField
+import SlideMenuControllerSwift
 
 class SignupViewController: UIViewController {
     
@@ -46,20 +47,23 @@ class SignupViewController: UIViewController {
                     
                     let ref = Database.database().reference().child("users").child(uid!)
                     
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     
-                    let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "homeVC") as! MainViewController
+                    let mainViewController = storyboard.instantiateViewController(withIdentifier: "homeNVC")
                     
+                    let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
+                    
+                    let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
+
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     
-                    appDelegate.window?.rootViewController = homeViewController
+                    appDelegate.window?.rootViewController = slideMenuController
                     
                     let values = ["email": self.emailTextField.text!, "firstName": self.firstNameTextField.text!, "lastName": self.lastNameTextField.text!]
                     
                     ref.updateChildValues(values)
                     
                 } else {
-                   
                     
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     

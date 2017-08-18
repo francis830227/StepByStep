@@ -306,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej7-dS-Twe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1519.2" y="911.69415292353835"/>
+            <point key="canvasLocation" x="1839" y="888"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -549,7 +549,7 @@
         <!--Main View Controller-->
         <scene sceneID="SNq-Bh-Srn">
             <objects>
-                <viewController storyboardIdentifier="homeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMY-pn-IJn" customClass="MainViewController" customModule="StepByStep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMY-pn-IJn" customClass="MainViewController" customModule="StepByStep" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wAs-hC-O9k"/>
                         <viewControllerLayoutGuide type="bottom" id="1my-wA-2I0"/>

@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import SkyFloatingLabelTextField
 import NVActivityIndicatorView
+import SlideMenuControllerSwift
 
 class LoginViewController: UIViewController {
 
@@ -49,13 +50,18 @@ class LoginViewController: UIViewController {
 
                     UserDefaults.standard.synchronize()
                     
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     
-                    let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "homeNVC") as! MainViewController
+                    let mainViewController = storyboard.instantiateViewController(withIdentifier: "homeNVC")
+                    
+                    let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
+                    
+                    let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
+
                     
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     
-                    appDelegate.window?.rootViewController = homeViewController
+                    appDelegate.window?.rootViewController = slideMenuController
                     
                 } else {
                     
