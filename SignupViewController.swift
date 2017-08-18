@@ -44,7 +44,7 @@ class SignupViewController: UIViewController {
                     
                     let uid = Auth.auth().currentUser?.uid
                     
-                    let ref = Database.database().reference().child("users").child(uid!).childByAutoId()
+                    let ref = Database.database().reference().child("users").child(uid!)
                     
                     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
                     
@@ -62,7 +62,9 @@ class SignupViewController: UIViewController {
                     
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.darkAlert(alertController)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     
                     alertController.addAction(defaultAction)
                     

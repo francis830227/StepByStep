@@ -45,14 +45,13 @@ class LoginViewController: UIViewController {
                 
                 if error == nil {
 
-                    
                     UserDefaults.standard.setValue(Auth.auth().currentUser?.uid, forKey: "uid")
 
                     UserDefaults.standard.synchronize()
                     
                     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
                     
-                    let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "homeVC") as! MainViewController
+                    let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "homeNVC") as! MainViewController
                     
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     
@@ -63,12 +62,13 @@ class LoginViewController: UIViewController {
                     // 提示用戶從 firebase 返回了一個錯誤。
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.darkAlert(alertController)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     
                     alertController.addAction(defaultAction)
                     
                     self.present(alertController, animated: true, completion: nil)
-                    
                 }
                 
             }

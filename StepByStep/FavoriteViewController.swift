@@ -155,4 +155,8 @@ extension FavoriteViewController: FetchManagerDelegate {
         return
     }
     
+    func manager(didGet data: User?) {
+        return
+    }
+    
 }

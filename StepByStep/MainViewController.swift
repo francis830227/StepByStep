@@ -375,10 +375,12 @@ extension MainViewController: FetchManagerDelegate {
         return
     }
     
+    func manager(didGet data: User?) {
+        return
+    }
 }
 
 extension MainViewController: UNUserNotificationCenterDelegate {
-    
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         

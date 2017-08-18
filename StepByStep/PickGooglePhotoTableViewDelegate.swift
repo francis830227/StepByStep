@@ -25,7 +25,7 @@ extension PickGooglePhotoViewController: UITableViewDelegate, UITableViewDataSou
         
         cell.pickLabel.text = placesInfo[indexPath.row].placeName
         
-        setupImageView(cell.darkView, indexPath.row)
+        //setupImageView(cell.darkView, indexPath.row)
         
         cell.pickImageView.sd_setShowActivityIndicatorView(true)
         cell.pickImageView.sd_setIndicatorStyle(.white)
@@ -34,27 +34,36 @@ extension PickGooglePhotoViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    private func setupImageView(_ view: UIView, _ indexPathRow: Int) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let imageView = view
+        let imageUrl = self.placesInfo[indexPath.row].placeImageURL
         
-        print(indexPathRow)
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapEventImageView(sender:_:)))
-        
-        tapRecognizer.delegate = self as? UIGestureRecognizerDelegate
-        
-        imageView.addGestureRecognizer(tapRecognizer)
-        
-        imageView.isUserInteractionEnabled = true
-    }
-    
-    func handleTapEventImageView(sender: UITapGestureRecognizer, _ indexPathRow: Int) {
-        
-        let imageUrl = self.placesInfo[indexPathRow].placeImageURL
-        print(imageUrl)
         delegate?.setImagePickedFromGoogle(imageUrl)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
         dismiss(animated: true)
     }
+    
+//    private func setupImageView(_ view: UIView, _ indexPathRow: Int) {
+//        
+//        let imageView = view
+//        //print(indexPathRow)
+//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapEventImageView(sender:_:)))
+//        
+//        tapRecognizer.delegate = self as? UIGestureRecognizerDelegate
+//        
+//        imageView.addGestureRecognizer(tapRecognizer)
+//        
+//        imageView.isUserInteractionEnabled = true
+//    }
+//    
+//    func handleTapEventImageView(sender: UITapGestureRecognizer, _ indexPathRow: Int) {
+//       // print(indexPathRow)
+//        let imageUrl = self.placesInfo[indexPathRow].placeImageURL
+//        
+//        delegate?.setImagePickedFromGoogle(imageUrl)
+//        
+//        dismiss(animated: true)
+//    }
 }

@@ -69,12 +69,25 @@ struct FavoritePlace {
     
 }
 
+struct User {
+    
+    var email: String
+    
+    var firstName: String
+    
+    var lastName: String
+    
+    var imageUrl: String
+    
+}
+
 protocol FetchManagerDelegate: class {
     
     func manager(didGet data: [EndDate])
     
     func manager(didGet data: [FavoritePlace])
-
+    
+    func manager(didGet data: User?)
 }
 
 class FetchManager {
@@ -140,7 +153,6 @@ class FetchManager {
         })
 
         ref.child("favorite").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
-            //print(snapshot.value)
             
             var placeInFM = [FavoritePlace]()
             
@@ -176,4 +188,50 @@ class FetchManager {
         
     }
     
+    func requestUser() {
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
+        ref.child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            
+            if snapshot.exists() == false {
+                
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+        })
+        
+        ref.child("users").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            
+            var user: User?
+            
+            if snapshot.value == nil {
+
+                DispatchQueue.main.async {
+                    self?.delegate?.manager(didGet: user)
+                }
+                
+            } else {
+                
+                    guard let dictionary = snapshot.value as? [String: String] else { return }
+                    
+                    if let email = dictionary["email"],
+                        let firstName = dictionary["firstName"],
+                        let lastName = dictionary["lastName"],
+                        let imageURL = dictionary["image"] {
+                        
+                        user?.email = email
+                        user?.firstName = firstName
+                        user?.lastName = lastName
+                        user?.imageUrl = imageURL
+                        
+                        DispatchQueue.main.async {
+                            self?.delegate?.manager(didGet: user)
+                        }
+                        
+                        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                    }
+                }
+            })
+        
+
+}
 }

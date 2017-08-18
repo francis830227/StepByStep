@@ -12,11 +12,6 @@ import IQKeyboardManagerSwift
 import Firebase
 import SkyFloatingLabelTextField
 
-protocol GetImageDelegate {
-    
-    func setImagePickedFromGoogle(_ imageUrl: String)
-
-}
 
 class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, GetImageDelegate {
     
@@ -322,7 +317,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
             self.present(noCaremaAlert, animated: true)
         }
-        
     }
     
     func openAlbum() {
@@ -338,7 +332,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     func openPlace() {
         
         pickGooglePhotoViewController.delegate = self
-        
+
         self.present(pickGooglePhotoViewController, animated: true, completion: nil)
     }
 
