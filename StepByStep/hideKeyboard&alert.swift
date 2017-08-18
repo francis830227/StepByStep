@@ -27,11 +27,12 @@ extension UIAlertController {
         let firstSubview = alert.view.subviews.first
         let alertContentView = firstSubview?.subviews.first
         for subview in (alertContentView?.subviews)! {
+            subview.tintColor = .white
             subview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
-            subview.layer.cornerRadius = 10
             subview.alpha = 0.9
         }
         alert.view.tintColor = .white
+        
     }
     
 }

@@ -59,10 +59,15 @@ class SignupViewController: UIViewController {
                     ref.updateChildValues(values)
                     
                 } else {
+                   
                     
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
                     alertController.darkAlert(alertController)
+                    
+                    alertController.setValue(NSAttributedString(string: "Error", attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedTitle")
+                    
+                    alertController.setValue(NSAttributedString(string: (error?.localizedDescription)!, attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedMessage")
                     
                     let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     

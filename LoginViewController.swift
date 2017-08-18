@@ -60,10 +60,13 @@ class LoginViewController: UIViewController {
                 } else {
                     
                     // 提示用戶從 firebase 返回了一個錯誤。
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
                     
                     alertController.darkAlert(alertController)
                     
+                    alertController.setValue(NSAttributedString(string: "Error", attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedTitle")
+                    
+                    alertController.setValue(NSAttributedString(string: (error?.localizedDescription)!, attributes: [NSForegroundColorAttributeName : UIColor.gray]), forKey: "attributedMessage")
                     let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     
                     alertController.addAction(defaultAction)
