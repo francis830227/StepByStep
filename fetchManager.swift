@@ -219,10 +219,7 @@ class FetchManager {
                     let lastName = dictionary["lastName"],
                     let imageUrl = dictionary["image"] {
                     
-                    user?.email = email
-                    user?.firstName = firstName
-                    user?.lastName = lastName
-                    user?.imageUrl = imageUrl
+                    user = User(email: email, firstName: firstName, lastName: lastName, imageUrl: imageUrl)
                     
                     DispatchQueue.main.async {
                         self?.delegate?.manager(didGet: user)

@@ -20,6 +20,8 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var triangleImageView: UIImageView!
     
+    @IBOutlet weak var tapView: UIView!
+    
     var user: User?
     
     let imagePicker = UIImagePickerController()
@@ -35,6 +37,8 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         fetchManager.delegate = self
         
         fetchManager.requestUser()
+        
+        setupUserImageView()
     }
 
     func uploadToFirebase(_ image: UIImage?) {
@@ -43,7 +47,7 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let uid = Auth.auth().currentUser?.uid
         
-        let ref = Database.database().reference().child("user").child(uid!)
+        let ref = Database.database().reference().child("users").child(uid!)
         
         guard let photo = image else { return }
         
@@ -77,15 +81,15 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     private func setupUserImageView() {
         
-        let imageView = userImageView!
+        let tap = tapView!
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapUserImageView(sender: )))
         
         tapRecognizer.delegate = self 
         
-        imageView.addGestureRecognizer(tapRecognizer)
+        tap.addGestureRecognizer(tapRecognizer)
         
-        imageView.isUserInteractionEnabled = true
+        tap.isUserInteractionEnabled = true
     }
     
     func handleTapUserImageView(sender: UITapGestureRecognizer) {

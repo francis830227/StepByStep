@@ -10,12 +10,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StepByStep/LeftViewController.swift"
-            timestampString = "524843263.616243"
+            timestampString = "524845831.075187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "manager(didGet:)"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "uploadToFirebase(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepByStep.LeftViewController.(uploadToFirebase (Swift.Optional&lt;__ObjC.UIImage&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "StepByStep"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/francis/Documents/iOSdev/StepByStep/StepByStep/LeftViewController.swift"
+                  timestampString = "524846120.988847"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "861">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepByStep.LeftViewController.(uploadToFirebase (Swift.Optional&lt;__ObjC.UIImage&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "StepByStep"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/francis/Documents/iOSdev/StepByStep/StepByStep/LeftViewController.swift"
+                  timestampString = "524846120.992266"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "1233">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StepByStep/LeftViewController.swift"
+            timestampString = "524845831.712743"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "uploadToFirebase(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StepByStep/LeftViewController.swift"
+            timestampString = "524845833.425113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "uploadToFirebase(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
