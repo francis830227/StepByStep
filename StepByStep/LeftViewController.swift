@@ -215,13 +215,16 @@ extension LeftViewController: FetchManagerDelegate {
     }
     
     func manager(didGet data: User?) {
+        
         self.user = data
         
-        userNameLabel.text = (self.user?.firstName)! + " " + (self.user?.lastName)!
+        userNameLabel.text = "\(self.user?.firstName ?? "No user name") \(self.user?.lastName ?? "")"
         
         userImageView.sd_setShowActivityIndicatorView(true)
         userImageView.sd_setIndicatorStyle(.white)
-        userImageView.sd_setImage(with: URL(string: (user?.imageUrl)!), completed: nil)
         
+        if user?.imageUrl != nil {
+        userImageView.sd_setImage(with: URL(string: (user?.imageUrl)!), completed: nil)
+        }
     }
 }

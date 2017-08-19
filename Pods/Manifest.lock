@@ -1,5 +1,8 @@
 PODS:
   - AnimatedCollectionViewLayout (0.3.0)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - Firebase/Auth (4.0.2):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -89,11 +92,12 @@ PODS:
 
 DEPENDENCIES:
   - AnimatedCollectionViewLayout
+  - Crashlytics
+  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
   - GradientView
@@ -107,6 +111,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AnimatedCollectionViewLayout: 504b992a4258eb39d2dd2b2b48e84b4b95860fd7
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
   FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -129,6 +135,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: 92f09c681276a0db28a308cd5449cb7f3b2ae982
+PODFILE CHECKSUM: 092c66550eb9da7476b04bcac7f4ac3a98433d64
 
 COCOAPODS: 1.2.1

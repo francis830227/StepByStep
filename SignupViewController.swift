@@ -49,6 +49,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 
                 if error == nil {
                     
+                    UserDefaults.standard.setValue(Auth.auth().currentUser?.uid, forKey: "uid")
+                    
+                    UserDefaults.standard.synchronize()
+                    
                     let uid = Auth.auth().currentUser?.uid
                     
                     let ref = Database.database().reference().child("users").child(uid!)

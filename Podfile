@@ -22,7 +22,6 @@ target 'StepByStep' do
 
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
-  pod 'GoogleMaps'
 
   pod 'SwifterSwift'
 
@@ -31,6 +30,10 @@ target 'StepByStep' do
   pod 'GradientView'
 
   pod 'SlideMenuControllerSwift'
+
+  pod 'Fabric'
+
+  pod 'Crashlytics'
 
   # Pods for StepByStep
 

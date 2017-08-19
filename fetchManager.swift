@@ -77,7 +77,7 @@ struct User {
     
     var lastName: String
     
-    var imageUrl: String
+    var imageUrl: String?
     
 }
 
@@ -191,47 +191,47 @@ class FetchManager {
     func requestUser() {
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         
-        ref.child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            
-            if snapshot.exists() == false {
-                
-                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-            }
-        })
-        
         ref.child("users").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
             
-            var user: User?
+            var user: User!
             
-            if snapshot.value == nil {
-
-                DispatchQueue.main.async {
-                    self?.delegate?.manager(didGet: user)
+            print(self?.uid ?? "NO UID!!!!")
+            guard let dictionary = snapshot.value as? [String: String] else { return }
+            if dictionary.has(key: "image") == false {
+                
+                if let email = dictionary["email"],
+                    let firstName = dictionary["firstName"],
+                    let lastName = dictionary["lastName"] {
+                    
+                    user = User(email: email, firstName: firstName, lastName: lastName, imageUrl: nil)
+                    
+                    DispatchQueue.main.async {
+                        self?.delegate?.manager(didGet: user)
+                    }
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 }
                 
             } else {
                 
-                    guard let dictionary = snapshot.value as? [String: String] else { return }
+                if let email = dictionary["email"],
+                    let firstName = dictionary["firstName"],
+                    let lastName = dictionary["lastName"],
+                    let imageUrl = dictionary["image"] {
                     
-                    if let email = dictionary["email"],
-                        let firstName = dictionary["firstName"],
-                        let lastName = dictionary["lastName"],
-                        let imageURL = dictionary["image"] {
-                        
-                        user?.email = email
-                        user?.firstName = firstName
-                        user?.lastName = lastName
-                        user?.imageUrl = imageURL
-                        
-                        DispatchQueue.main.async {
-                            self?.delegate?.manager(didGet: user)
-                        }
-                        
-                        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                    user?.email = email
+                    user?.firstName = firstName
+                    user?.lastName = lastName
+                    user?.imageUrl = imageUrl
+                    
+                    DispatchQueue.main.async {
+                        self?.delegate?.manager(didGet: user)
                     }
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 }
-            })
-        
-
-}
+            }
+            
+        })
+    }
 }

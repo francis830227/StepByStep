@@ -13,7 +13,9 @@ import IQKeyboardManagerSwift
 import GooglePlaces
 import UserNotifications
 import SlideMenuControllerSwift
-
+import Fabric
+import Crashlytics
+import NVActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
         FirebaseApp.configure()
+        
+        NVActivityIndicatorView.DEFAULT_TYPE = .ballRotateChase
         
         if UserDefaults.standard.value(forKey: "uid") != nil {
             
@@ -68,6 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let action = UNNotificationAction(identifier: "remindLater", title: "Remind me later", options: [])
         let category = UNNotificationCategory(identifier: "myCategory", actions: [action], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        Fabric.with([Crashlytics.self])
         
         return true
     }

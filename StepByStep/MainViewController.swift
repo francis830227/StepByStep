@@ -11,6 +11,7 @@ import AnimatedCollectionViewLayout
 import Firebase
 import NVActivityIndicatorView
 import UserNotifications
+import Crashlytics
 
 class MainViewController: UIViewController {
     
@@ -59,7 +60,7 @@ class MainViewController: UIViewController {
 
         collectionView.reloadData()
     }
-        
+    
     func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
         
         let minute = dateMin.minute
@@ -91,7 +92,6 @@ class MainViewController: UIViewController {
                 print(error?.localizedDescription ?? "")
             }
         }
-    
     }
     
     @IBAction func settingButtonPressed(_ sender: Any) {
