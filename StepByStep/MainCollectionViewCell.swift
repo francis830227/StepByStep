@@ -8,7 +8,7 @@
 
 import UIKit
 import AnimatedCollectionViewLayout
-import GradientView
+import SwifterSwift
 
 class MainCollectionViewCell: UICollectionViewCell {
     
@@ -24,7 +24,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var eventImageView: UIImageView!
     
-    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var imageView: UIImageView!
+    
     
     let firstColorOne = UIColor(red: 19/255, green: 198/255, blue: 201/255, alpha: 1)
     let firstColorTwo = UIColor(red: 45/255, green: 130/255, blue: 187/255, alpha: 1)
@@ -36,6 +37,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         backgroundColor = .clear
+        
     }
     
     func bind() {

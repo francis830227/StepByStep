@@ -14,10 +14,6 @@ import UserNotifications
 
 class MainViewController: UIViewController {
     
-    let colorOne = UIColor(red: 252/255, green: 206/255, blue: 55/255, alpha: 0.6)
-    
-    let colorTwo = UIColor(red: 145/255, green: 18/255, blue: 156/255, alpha: 0.6)
-    
     let animator = LinearCardAttributesAnimator()
     
     let fetchManager = FetchManager()
@@ -80,11 +76,11 @@ class MainViewController: UIViewController {
         } else {
             
             content.title = "\(dateMin.titleName)今天到期！"
-            content.body = ""
+            content.body = "事情做了嗎？"
             content.sound = UNNotificationSound.default()
         }
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: false)
 
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         UNUserNotificationCenter.current().delegate = self
@@ -97,8 +93,11 @@ class MainViewController: UIViewController {
         }
     
     }
+    
     @IBAction func settingButtonPressed(_ sender: Any) {
         self.slideMenuController()?.openLeft()
+        
+        Analytics.logEvent("settingButtonPressed", parameters: nil)
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -107,54 +106,27 @@ class MainViewController: UIViewController {
 
         let navigationVC = self.storyboard?.instantiateViewController(withIdentifier: "addNVC")
         
+        Analytics.logEvent("addButtonPressed", parameters: nil)
+        
         self.present(navigationVC!, animated: true, completion: nil)
     }
-
     
-    @IBAction func logout(_ sender: Any) {
-        let alert = UIAlertController(title: "確定登出？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+    func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
         
-        let sureAction = UIAlertAction(title: "Sure", style: UIAlertActionStyle.default, handler: { (_: UIAlertAction) -> Void in
-            
-            try! Auth.auth().signOut()
-            
-            let defaults = UserDefaults.standard
-            
-            defaults.removeObject(forKey: "uid")
-            
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let controller =  mainStoryboard.instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
-            
-            appDelegate?.window?.rootViewController = controller
-        })
+        collectionView.isPagingEnabled = true
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_ : UIAlertAction) -> Void in
+        if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
             
-            alert.dismiss(animated: true, completion: nil)
-        
-        })
-        
-        alert.addAction(sureAction)
-        
-        alert.addAction(cancelAction)
-        
-        self.present(alert, animated: true, completion: nil)
+            layout.scrollDirection = .horizontal
+            
+            layout.animator = animator
+            
+        }
     }
-}
-
-func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
     
-    collectionView.isPagingEnabled = true
-    
-    if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         
-        layout.scrollDirection = .horizontal
-        
-        layout.animator = animator
-
+        Analytics.logEvent("favoriteButtonPressed", parameters: nil)
     }
 }
 
@@ -181,6 +153,16 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let day = dates[indexPath.row].day
 
         cell.bind()
+        
+        cell.imageView.blur(withStyle: .regular)
+        
+        cell.imageView.contentMode = .scaleAspectFill
+        
+        cell.imageView.sd_setShowActivityIndicatorView(true)
+        
+        cell.imageView.sd_setIndicatorStyle(.gray)
+        
+        cell.imageView.sd_setImage(with: URL(string: dates[indexPath.row].imageURL), completed: nil)
         
         if year == "" || month == "" || day == "" {
             
@@ -249,14 +231,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         cell.eventImageView.sd_setIndicatorStyle(.white)
         
         cell.eventImageView.sd_setImage(with: URL(string: dates[indexPath.row].imageURL), completed: nil)
-
-        
-        
-        cell.gradientView.colors = [colorOne, colorTwo]
-        
-        cell.gradientView.locations = [0.0, 1.0]
-        
-        cell.gradientView.direction = .horizontal
         
         return cell
     }

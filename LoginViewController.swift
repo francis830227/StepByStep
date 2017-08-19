@@ -13,7 +13,7 @@ import SkyFloatingLabelTextField
 import NVActivityIndicatorView
 import SlideMenuControllerSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
     
@@ -24,6 +24,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
@@ -84,6 +87,13 @@ class LoginViewController: UIViewController {
             
         }
         
+    }
+    
+    func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
     }
 
 }

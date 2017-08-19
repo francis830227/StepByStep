@@ -12,7 +12,7 @@ import FirebaseAuth
 import SkyFloatingLabelTextField
 import SlideMenuControllerSwift
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
     
@@ -27,6 +27,11 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        firstNameTextField.delegate = self
+        firstNameTextField.delegate = self
+        
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
@@ -39,6 +44,7 @@ class SignupViewController: UIViewController {
             errorLabel.isHidden = false
             
         } else {
+            
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
@@ -84,6 +90,13 @@ class SignupViewController: UIViewController {
             
         }
         
+    }
+    
+    func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {

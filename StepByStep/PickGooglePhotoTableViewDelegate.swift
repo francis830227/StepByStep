@@ -43,27 +43,5 @@ extension PickGooglePhotoViewController: UITableViewDelegate, UITableViewDataSou
         tableView.deselectRow(at: indexPath, animated: true)
         
         dismiss(animated: true)
-    }
-    
-//    private func setupImageView(_ view: UIView, _ indexPathRow: Int) {
-//        
-//        let imageView = view
-//        //print(indexPathRow)
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapEventImageView(sender:_:)))
-//        
-//        tapRecognizer.delegate = self as? UIGestureRecognizerDelegate
-//        
-//        imageView.addGestureRecognizer(tapRecognizer)
-//        
-//        imageView.isUserInteractionEnabled = true
-//    }
-//    
-//    func handleTapEventImageView(sender: UITapGestureRecognizer, _ indexPathRow: Int) {
-//       // print(indexPathRow)
-//        let imageUrl = self.placesInfo[indexPathRow].placeImageURL
-//        
-//        delegate?.setImagePickedFromGoogle(imageUrl)
-//        
-//        dismiss(animated: true)
-//    }
+    }    
 }
