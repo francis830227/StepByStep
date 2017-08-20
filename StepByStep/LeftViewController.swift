@@ -40,6 +40,13 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         fetchManager.requestUser()
         
         setupUserImageView()
+        
+        self.userImageView.contentMode = .scaleAspectFill
+        
+        self.userImageView.layer.borderWidth = 1
+        self.userImageView.layer.masksToBounds = false
+        self.userImageView.layer.cornerRadius = self.userImageView.frame.height/2
+        self.userImageView.clipsToBounds = true
     }
 
     func uploadToFirebase(_ image: UIImage?) {
@@ -156,6 +163,11 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
                 self.userImageView.contentMode = .scaleAspectFill
                 
+                self.userImageView.layer.borderWidth = 1
+                self.userImageView.layer.masksToBounds = false
+                self.userImageView.layer.cornerRadius = self.userImageView.frame.height/2
+                self.userImageView.clipsToBounds = true
+                
                 self.uploadToFirebase(image)
                 
             } else {
@@ -169,7 +181,7 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func notificationSwitch(_ sender: UISwitch) {
         if sender.isOn == true {
-            
+            //UNUserNotificationCenter.current().
         } else {
             UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         }
@@ -177,7 +189,7 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
-        let alert = UIAlertController(title: "確定登出？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert = UIAlertController(title: "Log Out？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
         
         alert.darkAlert(alert)
         
@@ -210,8 +222,6 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.present(alert, animated: true, completion: nil)
     }
-
-    
 
 }
 

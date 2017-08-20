@@ -132,13 +132,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var date = DateComponents()
         
-        date.hour = 15
+        date.hour = 18
         
-        date.minute = 56
+        date.minute = 25
         
-        //let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        let calendar = Calendar(identifier: .gregorian)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, hour: date.hour, minute: date.minute)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
+
+        
         
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         UNUserNotificationCenter.current().delegate = self
@@ -149,6 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error?.localizedDescription ?? "")
             }
         }
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

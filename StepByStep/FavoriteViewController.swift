@@ -8,8 +8,6 @@
 
 import UIKit
 import GooglePlaces
-import GooglePlacePicker
-import GoogleMaps
 import Firebase
 import FirebaseStorage
 

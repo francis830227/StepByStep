@@ -33,14 +33,7 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleMaps (2.3.1):
-    - GoogleMaps/Maps (= 2.3.1)
   - GoogleMaps/Base (2.3.1)
-  - GoogleMaps/Maps (2.3.1):
-    - GoogleMaps/Base
-  - GooglePlacePicker (2.3.1):
-    - GoogleMaps (= 2.3.1)
-    - GooglePlaces (= 2.3.1)
   - GooglePlaces (2.3.1):
     - GoogleMaps/Base (= 2.3.1)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
@@ -53,7 +46,6 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GradientView (2.2.0)
   - GTMSessionFetcher/Core (1.1.10)
   - IQKeyboardManagerSwift (4.0.10)
   - JTAppleCalendar (7.0.4)
@@ -98,9 +90,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - GooglePlacePicker
   - GooglePlaces
-  - GradientView
   - IQKeyboardManagerSwift
   - JTAppleCalendar (~> 7.0)
   - NVActivityIndicatorView
@@ -121,10 +111,8 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
-  GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GradientView: a5397174594f158dc1511127f2004ec25c9d2300
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
@@ -135,6 +123,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: 092c66550eb9da7476b04bcac7f4ac3a98433d64
+PODFILE CHECKSUM: 4be91bc67fb6a598be4f35cc054dbf274b21da6e
 
 COCOAPODS: 1.2.1

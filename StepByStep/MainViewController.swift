@@ -25,9 +25,10 @@ class MainViewController: UIViewController {
         
     var todayInt: Int?
     
-    @IBOutlet weak var addLabel: UILabel!
     
     @IBOutlet weak var todayTime: UILabel!
+    
+    @IBOutlet weak var addImageView: UIImageView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -50,9 +51,7 @@ class MainViewController: UIViewController {
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
-        guard let datesMin = dates.min() else { return }
         
-        prepareNotification(datesMin, todayInt!)
         
     }
     
@@ -62,44 +61,7 @@ class MainViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
-        
-        let minute = dateMin.minute
-        
-        let minus = Int((minute - todayInt) / 86400)
-        
-        let content = UNMutableNotificationContent()
-        
-        if minus > 1 {
-            
-            content.title = "\(dateMin.titleName)再\(minus)天就到了～"
-            content.body = "點進來看還有什麼沒完成的吧！"
-            content.sound = UNNotificationSound.default()
-        } else {
-            
-            content.title = "\(dateMin.titleName)今天到期！"
-            content.body = "事情做了嗎？"
-            content.sound = UNNotificationSound.default()
-        }
-        
-        var date = DateComponents()
-        
-        date.hour = 15
-        
-        date.minute = 56
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-
-        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().add(request){(error) in
-            
-            if (error != nil) {
-                
-                print(error?.localizedDescription ?? "")
-            }
-        }
-    }
+    
     
     @IBAction func settingButtonPressed(_ sender: Any) {
         self.slideMenuController()?.openLeft()
@@ -143,7 +105,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         if dates.count > 0 {
         
-            addLabel.isHidden = true
+            addImageView.isHidden = true
         }
         
         return dates.count
@@ -208,19 +170,19 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "過了\(Int((todayInt! - targetDayInt) / 86400))天"
+                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400))days passed"
                 
             } else if minus == 0 {
                 
-                cell.countDownLabel.text = "今天"
+                cell.countDownLabel.text = "Today"
                 
             } else {
 
-                cell.countDownLabel.text = "剩\(Int((targetDayInt - todayInt!) / 86400))天"
+                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400))days"
 
             }
             
-            cell.finishDateLabel.text = "日期：\(year)/\(month)/\(day)"
+            cell.finishDateLabel.text = "Date : \(year)/\(month)/\(day)"
             
             cell.clipsToBounds = false
         }
@@ -248,7 +210,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         alert.darkAlert(alert)
         
-        let editAction = UIAlertAction(title: "修改卡片", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
+        let editAction = UIAlertAction(title: "Edit", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
             
             let editEventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editEvent") as! EditEventViewController
             
@@ -264,9 +226,9 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             alert.dismiss(animated: true, completion: nil)
         })
         
-        let deleteAction = UIAlertAction(title: "刪除卡片", style: UIAlertActionStyle.destructive, handler: { (_ : UIAlertAction) -> Void in
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler: { (_ : UIAlertAction) -> Void in
             
-            let deleteAlert = UIAlertController(title: "確定刪除？", message: nil, preferredStyle: .actionSheet)
+            let deleteAlert = UIAlertController(title: "Sure？", message: nil, preferredStyle: .actionSheet)
             
             deleteAlert.darkAlert(deleteAlert)
             
@@ -282,7 +244,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
                 self.dates = []
                 
-                self.addLabel.isHidden = false
+                self.addImageView.isHidden = false
                 
                 self.collectionView.reloadData()
                 
@@ -302,7 +264,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             self.present(deleteAlert, animated: true, completion: nil)
         })
         
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
             
             alert.dismiss(animated: true, completion: nil)
         })
@@ -345,7 +307,9 @@ extension MainViewController: FetchManagerDelegate {
         
         self.dates = data
         
-        
+        guard let datesMin = dates.min() else { return }
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.prepareNotification(datesMin, todayInt!)
         
         collectionView.reloadData()
     }

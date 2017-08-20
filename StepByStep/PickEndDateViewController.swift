@@ -73,7 +73,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         
         if yearString == "" || monthString == "" || dayString == "" || eventTextField.text == "" {
             
-            let alert = UIAlertController(title: "沒有事件或日期不能存啦！", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Can't save event without date or title.", message: "", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 

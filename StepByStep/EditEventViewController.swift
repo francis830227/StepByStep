@@ -143,7 +143,7 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
         
         if yearString == "" || monthString == "" || dayString == "" || dateTextField.text == "" {
             
-            let alert = UIAlertController(title: "Can't save event without date or event title.", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Can't save event without date or title.", message: "", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 
@@ -234,7 +234,7 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
             self.openAlbum()
         }))
         
-        photoAlert.addAction(UIAlertAction(title: "Choose from favorite places", style: .default, handler: { _ in
+        photoAlert.addAction(UIAlertAction(title: "Pick from favorite places", style: .default, handler: { _ in
             
             self.openPlace()
             

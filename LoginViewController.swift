@@ -21,16 +21,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        self.logoImageView.layer.borderWidth = 1
+        self.logoImageView.layer.masksToBounds = false
+        self.logoImageView.layer.cornerRadius = self.logoImageView.frame.height/2
+        self.logoImageView.clipsToBounds = true
+        
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
-        
     }
 
     override func didReceiveMemoryWarning() {

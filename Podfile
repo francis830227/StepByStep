@@ -26,8 +26,6 @@ target 'StepByStep' do
 
   pod 'SDWebImage/WebP'
 
-  pod 'GradientView'
-
   pod 'SlideMenuControllerSwift'
 
   pod 'Fabric'

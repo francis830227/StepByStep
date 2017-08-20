@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GradientView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BF00F9E712E93DA7B03ACF46198775B</key>
+		<key>59FAF5BD462985EDF44412C6F05EC73A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>75D1B8CB5A49A933492DE151AAB8A182</key>
+		<key>6AD7F361D7ADA13D77FAFE1E5D3C8D9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9339FFC3DEC4E47870FA632DD81A6342</key>
+		<key>74DC6CA6C160F3A99820B8D1DB8F0C3B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE90F92E0EBD66818C300E90BFCB0EA1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,22 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C18D3EA420D93B8B018B9DF1C44B2401</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C235F77E101E742652CCF98FFDFA5182</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C95D56266896D03F32E7CAD4510D7FBF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DD7F6F4913A0E4451B7A24523E8DDE27</key>
+		<key>F002A6ADF687D36817E27C87F4EAA0E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
