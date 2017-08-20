@@ -15,6 +15,10 @@ extension PickGooglePhotoViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if placesInfo.count != 0 {
+            noFavLabel.isHidden = true
+        }
+        
         return placesInfo.count
     }
     

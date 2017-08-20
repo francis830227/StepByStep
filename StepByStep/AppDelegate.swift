@@ -69,15 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
            
             }
-        let action = UNNotificationAction(identifier: "remindLater", title: "Remind me later", options: [])
-        let category = UNNotificationCategory(identifier: "myCategory", actions: [action], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([category])
-        
+
         Fabric.with([Crashlytics.self])
         
         return true
     }
-
+    
     func scheduleNotification(at date: Date) {
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: date)
@@ -112,9 +109,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
+        
+        let minute = dateMin.minute
+        
+        let minus = Int((minute - todayInt) / 86400)
+        
+        let content = UNMutableNotificationContent()
+        
+        if minus > 1 {
+            
+            content.title = "\(dateMin.titleName)再\(minus)天就到了～"
+            content.body = "點進來看還有什麼沒完成的吧！"
+            content.sound = UNNotificationSound.default()
+        } else {
+            
+            content.title = "\(dateMin.titleName)今天到期！"
+            content.body = "事情做了嗎？"
+            content.sound = UNNotificationSound.default()
+        }
+        
+        var date = DateComponents()
+        
+        date.hour = 15
+        
+        date.minute = 56
+        
+        //let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().add(request){(error) in
+            
+            if (error != nil) {
+                
+                print(error?.localizedDescription ?? "")
+            }
+        }
+    }
 
-    
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -189,10 +225,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        if response.actionIdentifier == "remindLater" {
-            let newDate = Date(timeInterval: 900, since: Date())
-            scheduleNotification(at: newDate)
-        }
     }
 }
 

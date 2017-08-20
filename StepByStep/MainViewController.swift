@@ -50,9 +50,10 @@ class MainViewController: UIViewController {
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
-        let delegate = UIApplication.shared.delegate as? AppDelegate
+        guard let datesMin = dates.min() else { return }
         
-        delegate?.scheduleNotification(at: todayDate)
+        prepareNotification(datesMin, todayInt!)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +82,13 @@ class MainViewController: UIViewController {
             content.sound = UNNotificationSound.default()
         }
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: false)
+        var date = DateComponents()
+        
+        date.hour = 15
+        
+        date.minute = 56
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
 
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         UNUserNotificationCenter.current().delegate = self
@@ -338,9 +345,7 @@ extension MainViewController: FetchManagerDelegate {
         
         self.dates = data
         
-        guard let datesMin = dates.min() else { return }
         
-        prepareNotification(datesMin, todayInt!)
         
         collectionView.reloadData()
     }

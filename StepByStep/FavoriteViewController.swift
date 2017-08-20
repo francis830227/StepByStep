@@ -25,6 +25,8 @@ class FavoriteViewController: UIViewController {
         
     var placesInfo = [FavoritePlace]()
     
+    @IBOutlet weak var addImageView: UIImageView!
+    
     @IBOutlet weak var favoriteTableView: UITableView!
     
     override func viewDidLoad() {

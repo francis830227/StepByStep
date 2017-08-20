@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwifterSwift
+import UserNotifications
 
 class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
@@ -166,6 +167,13 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    @IBAction func notificationSwitch(_ sender: UISwitch) {
+        if sender.isOn == true {
+            
+        } else {
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        }
+    }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         

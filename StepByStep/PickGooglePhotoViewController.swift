@@ -26,6 +26,8 @@ class PickGooglePhotoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var noFavLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
