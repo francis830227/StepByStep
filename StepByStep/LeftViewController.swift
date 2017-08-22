@@ -197,7 +197,7 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         alert.darkAlert(alert)
         
-        let sureAction = UIAlertAction(title: "Sure", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
+        let sureAction = UIAlertAction(title: "Sure", style: UIAlertActionStyle.destructive, handler: { (_ : UIAlertAction) -> Void in
             
             try! Auth.auth().signOut()
             
