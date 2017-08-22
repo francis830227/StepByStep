@@ -18,6 +18,7 @@ extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
         
         searchController?.isActive = false
         
+        searchController?.searchBar.text = place.name
         // Do something with the selected place.
         print("Place name: \(place.name)")
         

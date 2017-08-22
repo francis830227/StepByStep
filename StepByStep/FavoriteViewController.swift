@@ -55,11 +55,17 @@ class FavoriteViewController: UIViewController {
         definesPresentationContext = true
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchController?.searchBar.text = searchBar.text
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         favoriteTableView.reloadData()
     }
+    
+    
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

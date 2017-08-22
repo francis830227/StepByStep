@@ -118,6 +118,10 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         photoAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
+        photoAlert.popoverPresentationController?.sourceView = self.view
+        photoAlert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        photoAlert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        
         self.present(photoAlert, animated: true)
     }
     

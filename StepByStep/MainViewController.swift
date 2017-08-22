@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
         
         let todayDate = Date()
         
-        formatter.dateFormat = "yyyy MM dd"
+        formatter.dateFormat = "yyyy/MM/dd"
         
         let date = formatter.string(from: todayDate)
         
@@ -170,7 +170,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400))days passed"
+                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400)) days passed"
                 
             } else if minus == 0 {
                 
@@ -178,7 +178,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
             } else {
 
-                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400))days"
+                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400)) days"
 
             }
             
@@ -261,6 +261,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             deleteAlert.addAction(deleteCancelAction)
             
+            deleteAlert.popoverPresentationController?.sourceView = self.view
+            deleteAlert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+            deleteAlert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            
             self.present(deleteAlert, animated: true, completion: nil)
         })
         
@@ -272,6 +276,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         alert.addAction(editAction)
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
+        
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        alert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
         
         self.present(alert, animated: true, completion: nil)
     }
