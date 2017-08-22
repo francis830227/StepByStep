@@ -46,6 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
             
+            SlideMenuOptions.animationDuration = 0.2
+            SlideMenuOptions.shadowOpacity = 2
+            SlideMenuOptions.shadowRadius = 3
+            SlideMenuOptions.contentViewScale = 1
+            
             let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
             
             self.window?.rootViewController = slideMenuController
