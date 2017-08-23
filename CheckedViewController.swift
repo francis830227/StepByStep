@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CheckedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -16,6 +17,8 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var historyTableView: UITableView!
 
+    @IBOutlet weak var noLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +29,9 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        if historyEvents.count > 0 {
+            noLabel.isHidden = true
+        }
         return historyEvents.count
     }
     
@@ -51,6 +56,27 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.historyImageView.sd_setImage(with: URL(string: historyEvents[indexPath.row].imageUrl), completed: nil)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            let uid = Auth.auth().currentUser!.uid
+            
+            let ref = Database.database().reference().child("historyList").child(uid)
+            
+            ref.child(historyEvents[indexPath.row].key).removeValue()
+            
+            historyEvents = []
+            
+            noLabel.isHidden = false
+            
+            tableView.reloadData()
+        }
     }
     
     @IBAction func exitButtonPressed(_ sender: Any) {

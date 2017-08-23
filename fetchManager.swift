@@ -92,6 +92,8 @@ struct HistoryEvent {
     var day: String
     
     var imageUrl: String
+    
+    var key: String
 }
 
 protocol FetchManagerDelegate: class {
@@ -275,7 +277,7 @@ class FetchManager {
                     let titleName = dictionary["titleName"],
                     let imageURL = dictionary["imageUrl"] {
                     
-                    dataInFM.append(HistoryEvent(titleName: titleName, year: year, month: month, day: day, imageUrl: imageURL))
+                    dataInFM.append(HistoryEvent(titleName: titleName, year: year, month: month, day: day, imageUrl: imageURL, key: itemSnapshot.key))
                     
                     self?.delegate?.manager(didGet: dataInFM)
                     

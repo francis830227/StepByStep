@@ -237,8 +237,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         ref.child(key).removeValue()
         
-        collectionView.reloadData()
+        self.dates = []
         
+        self.addImageView.isHidden = false
+        
+        self.collectionView.reloadData()
     }
     
     func dealWithCollectionViewCell(sender: UIButton) {
@@ -277,7 +280,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 let ref = Database.database().reference().child("title").child(uid)
                 
                 ref.child(self.dates[sender.tag].titleKey).removeValue()
-                print(sender.tag, self.dates[sender.tag].titleKey)
                 
                 self.dates = []
                 
