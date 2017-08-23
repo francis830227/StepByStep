@@ -11,10 +11,10 @@ import GooglePlaces
 import Firebase
 import FirebaseStorage
 
-class FavoriteViewController: UIViewController {
-
-    var resultsViewController: GMSAutocompleteResultsViewController?
+class FavoriteViewController: UIViewController, UISearchBarDelegate {
     
+    let resultsViewController = GMSAutocompleteViewController()
+
     var searchController: UISearchController?
     
     var resultView: UITextView?
@@ -34,25 +34,8 @@ class FavoriteViewController: UIViewController {
         
         fetchManager.requestPlace()
         
-        resultsViewController = GMSAutocompleteResultsViewController()
-        
-        resultsViewController?.delegate = self
-        
-        let subView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 45.0))
-
         gradientFavoriteNavi()
-
-        searchBarAndNaviLayout()
         
-        subView.addSubview((searchController?.searchBar)!)
-        
-        view.addSubview(subView)
-        
-        searchController?.searchBar.sizeToFit()
-        
-        // When UISearchController presents the results view, present it in
-        // this view controller, not one further up the chain.
-        definesPresentationContext = true
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -66,6 +49,34 @@ class FavoriteViewController: UIViewController {
     }
     
     
+    @IBAction func showSearchBarButtonPressed(_ sender: UIButton) {
+        
+        let resultsViewController = GMSAutocompleteViewController()
+        
+        resultsViewController.delegate = self
+        
+        UISearchBar.appearance().tintColor = .white
+        
+        UISearchBar.appearance().barStyle = UIBarStyle.default
+        
+        let searchBarTextAttributes: [String : AnyObject] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: UIFont.systemFontSize)]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = searchBarTextAttributes
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).keyboardAppearance = .dark
+        UINavigationBar.appearance().tintColor = .white
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
+        resultsViewController.primaryTextHighlightColor = .white
+        resultsViewController.primaryTextColor = .lightGray
+        resultsViewController.tableCellBackgroundColor = UIColor(red: 34/255, green: 41/255, blue: 41/255, alpha: 0.8)
+        resultsViewController.tableCellSeparatorColor = .lightGray
+        resultsViewController.secondaryTextColor = .lightGray
+        
+//        // When UISearchController presents the results view, present it in
+//        // this view controller, not one further up the chain.
+        definesPresentationContext = true
+        
+        present(resultsViewController, animated: true, completion: nil)
+    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -73,18 +84,20 @@ class FavoriteViewController: UIViewController {
 
     func searchBarAndNaviLayout() {
 
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController
-        searchController?.searchBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
-        searchController?.searchBar.tintColor = .white
-        searchController?.searchBar.keyboardAppearance = .dark
-        resultsViewController?.navigationController?.navigationBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
-        resultsViewController?.navigationController?.navigationBar.tintColor = UIColor.white
-        resultsViewController?.primaryTextHighlightColor = .white
-        resultsViewController?.primaryTextColor = .lightGray
-        resultsViewController?.tableCellBackgroundColor = UIColor(red: 34/255, green: 41/255, blue: 41/255, alpha: 0.8)
-        resultsViewController?.tableCellSeparatorColor = .lightGray
-        resultsViewController?.secondaryTextColor = .lightGray
+        
+        
+//        searchController = UISearchController(searchResultsController: resultsViewController)
+//        //searchController?.searchResultsUpdater = resultsViewController
+//        searchController?.searchBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
+//        searchController?.searchBar.tintColor = .white
+//        searchController?.searchBar.keyboardAppearance = .dark
+//        resultsViewController.navigationController?.navigationBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
+//        resultsViewController.navigationController?.navigationBar.tintColor = UIColor.white
+//        resultsViewController.primaryTextHighlightColor = .white
+//        resultsViewController.primaryTextColor = .lightGray
+//        resultsViewController.tableCellBackgroundColor = UIColor(red: 34/255, green: 41/255, blue: 41/255, alpha: 0.8)
+//        resultsViewController.tableCellSeparatorColor = .lightGray
+//        resultsViewController.secondaryTextColor = .lightGray
     }
 
     func loadFirstPhotoForPlace(placeID: String, placeName: String, placeAddress: String) {

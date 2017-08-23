@@ -11,40 +11,30 @@ import UIKit
 import GooglePlaces
 import Firebase
 
-extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
+extension FavoriteViewController: GMSAutocompleteViewControllerDelegate {
     
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-                           didAutocompleteWith place: GMSPlace) {
+    public func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
-        searchController?.isActive = false
-        
-        searchController?.searchBar.text = place.name
-        // Do something with the selected place.
         print("Place name: \(place.name)")
         
         print("Place address: \(place.formattedAddress!)")
-
+        
         self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!)
+        
+        self.dismiss(animated: true, completion: nil)
         
         favoriteTableView.reloadData()
     }
     
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-                           didFailAutocompleteWithError error: Error){
-        
+    public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        
+
+    public func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        self.dismiss(animated: true, completion: nil)
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
     }
-    
 }

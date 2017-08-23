@@ -43,10 +43,6 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.userImageView.contentMode = .scaleAspectFit
         
-//        self.userImageView.layer.borderWidth = 1
-//        self.userImageView.layer.masksToBounds = false
-//        self.userImageView.layer.cornerRadius = self.userImageView.frame.height/2
-//        self.userImageView.clipsToBounds = true
     }
 
     func uploadToFirebase(_ image: UIImage?) {
