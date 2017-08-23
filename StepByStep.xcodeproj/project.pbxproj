@@ -40,6 +40,9 @@
 		15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC4331F289C3D001DF19A /* MainViewController.swift */; };
 		15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45C1F28D272001DF19A /* CalendarCell.swift */; };
 		15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */; };
+		15EFF7371F4D7DA300AAA940 /* LeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */; };
+		15EFF7391F4D843400AAA940 /* CheckedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF7381F4D843400AAA940 /* CheckedViewController.swift */; };
+		15EFF73B1F4D8D4300AAA940 /* CheckedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,9 @@
 		15EDC4331F289C3D001DF19A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = StepByStep/MainViewController.swift; sourceTree = "<group>"; };
 		15EDC45C1F28D272001DF19A /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickEndDateViewController.swift; sourceTree = "<group>"; };
+		15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftTableViewCell.swift; sourceTree = "<group>"; };
+		15EFF7381F4D843400AAA940 /* CheckedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedViewController.swift; sourceTree = "<group>"; };
+		15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedTableViewCell.swift; sourceTree = "<group>"; };
 		B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepByStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +167,9 @@
 			children = (
 				1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */,
 				15B395251F43E1E300F7C1DE /* LeftViewController.swift */,
+				15EFF7381F4D843400AAA940 /* CheckedViewController.swift */,
+				15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */,
+				15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */,
 			);
 			name = SettingView;
 			path = ..;
@@ -408,11 +417,14 @@
 				152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */,
 				152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */,
 				15C94E061F3C05D0003C2A97 /* FavTableViewCell.swift in Sources */,
+				15EFF7371F4D7DA300AAA940 /* LeftTableViewCell.swift in Sources */,
 				15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */,
 				153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */,
 				152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */,
+				15EFF7391F4D843400AAA940 /* CheckedViewController.swift in Sources */,
 				152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */,
 				156520431F44799B000DB4E9 /* PickGooglePhotoTableViewCell.swift in Sources */,
+				15EFF73B1F4D8D4300AAA940 /* CheckedTableViewCell.swift in Sources */,
 				152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */,
 				1565203C1F4472C3000DB4E9 /* PickGooglePhotoViewController.swift in Sources */,
 				15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */,

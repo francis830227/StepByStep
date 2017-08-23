@@ -68,5 +68,9 @@ extension PickGooglePhotoViewController: FetchManagerDelegate {
         return
     }
     
+    func manager(didGet data: [HistoryEvent]) {
+        return
+    }
+    
 }
 

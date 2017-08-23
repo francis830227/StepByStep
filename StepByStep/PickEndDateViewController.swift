@@ -82,7 +82,9 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         
         if eventTextField.text == "" {
             
-            let alert = UIAlertController(title: "Can't save event without title.", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Can't save event without title", message: "", preferredStyle: .alert)
+            
+            alert.darkAlert(alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 
@@ -114,7 +116,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         
         guard let photo = image else { return }
         
-        let photoComp = UIImageJPEGRepresentation(photo, 0.5)
+        let photoComp = UIImageJPEGRepresentation(photo, 0.6)
         
         let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
         
@@ -355,10 +357,10 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 
-                self.eventImageView.image = image
-                
                 self.eventImageView.contentMode = .scaleAspectFill
                 
+                self.eventImageView.image = image
+
             } else {
                 
                 print("Something went wrong")

@@ -45,9 +45,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
+        let activityData = ActivityData()
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
         if emailTextField.text == "" || passwordTextField.text == "" {
             
             errorLabel.isHidden = false
+            
+            errorLabel.bounce()
+            
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             
         } else {
             
@@ -67,13 +75,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
 
-                    
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     
                     appDelegate.window?.rootViewController = slideMenuController
                     
                 } else {
                     
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     // 提示用戶從 firebase 返回了一個錯誤。
                     let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
                     

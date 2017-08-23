@@ -50,7 +50,6 @@ class MainViewController: UIViewController {
         todayTime.text = date
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,8 +57,6 @@ class MainViewController: UIViewController {
 
         collectionView.reloadData()
     }
-    
-    
     
     @IBAction func settingButtonPressed(_ sender: Any) {
         self.slideMenuController()?.openLeft()
@@ -187,6 +184,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         cell.eventLabel.text? = dates[indexPath.row].titleName
         
         cell.eventLabel.text = cell.eventLabel.text?.uppercased()
+        
+        cell.checkButton.tag = indexPath.row
+        
+        cell.checkButton.addTarget(self, action: #selector(checkCompletedEvent(sender:)), for: .touchUpInside)
 
         cell.deleteButton.tag = indexPath.row
         
@@ -201,6 +202,43 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         cell.eventImageView.sd_setImage(with: URL(string: dates[indexPath.row].imageURL), completed: nil)
         
         return cell
+    }
+    
+    func checkCompletedEvent(sender: UIButton) {
+        
+        let imageUrl = dates[sender.tag].imageURL
+        let year = dates[sender.tag].year
+        let month = dates[sender.tag].month
+        let day = dates[sender.tag].day
+        let title = dates[sender.tag].titleName
+        
+        uploadToHistoryList(imageUrl, year, month, day, title)
+        
+        let key = dates[sender.tag].titleKey
+        removeFromFirebase(key)
+    }
+    
+    func uploadToHistoryList(_ imageURL: String, _ year: String, _ month: String, _ day: String, _ eventText: String) {
+        
+        let uid = Auth.auth().currentUser?.uid
+        
+        let ref = Database.database().reference().child("historyList").child(uid!).childByAutoId()
+        
+        let values = ["year": year, "month": month, "day": day, "titleName": eventText, "imageUrl": imageURL]
+                    
+        ref.updateChildValues(values)
+    }
+
+    func removeFromFirebase(_ key: String) {
+        
+        let uid = Auth.auth().currentUser!.uid
+        
+        let ref = Database.database().reference().child("title").child(uid)
+        
+        ref.child(key).removeValue()
+        
+        collectionView.reloadData()
+        
     }
     
     func dealWithCollectionViewCell(sender: UIButton) {
@@ -248,7 +286,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 self.collectionView.reloadData()
                 
                 deleteAlert.dismiss(animated: true, completion: nil)
-                
             })
             
             let deleteCancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
@@ -257,7 +294,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             })
             
             deleteAlert.addAction(deleteSureAction)
-            
             deleteAlert.addAction(deleteCancelAction)
             
             deleteAlert.popoverPresentationController?.sourceView = self.view
@@ -326,6 +362,10 @@ extension MainViewController: FetchManagerDelegate {
     }
     
     func manager(didGet data: User?) {
+        return
+    }
+    
+    func manager(didGet data: [HistoryEvent]) {
         return
     }
 }

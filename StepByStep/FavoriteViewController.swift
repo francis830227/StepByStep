@@ -118,7 +118,7 @@ class FavoriteViewController: UIViewController, UISearchBarDelegate {
         
         guard let photo = image else { return }
         
-        let photoComp = UIImageJPEGRepresentation(photo, 0.5)
+        let photoComp = UIImageJPEGRepresentation(photo, 0.6)
         
         let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
         
@@ -159,5 +159,7 @@ extension FavoriteViewController: FetchManagerDelegate {
     func manager(didGet data: User?) {
         return
     }
-    
+    func manager(didGet data: [HistoryEvent]) {
+        return
+    }
 }

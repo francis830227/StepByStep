@@ -31,7 +31,7 @@ struct EndDate {
         formatter.dateFormat = "yyyy MM dd"
         
         let minute = formatter.date(from: "\(year) \(month) \(day)")
-        print(year,month,day)
+
         let targetDayNS = minute! as NSDate
         
         return  Int(targetDayNS.timeIntervalSinceReferenceDate)
@@ -81,6 +81,19 @@ struct User {
     
 }
 
+struct HistoryEvent {
+    
+    var titleName: String
+    
+    var year: String
+    
+    var month: String
+    
+    var day: String
+    
+    var imageUrl: String
+}
+
 protocol FetchManagerDelegate: class {
     
     func manager(didGet data: [EndDate])
@@ -88,6 +101,8 @@ protocol FetchManagerDelegate: class {
     func manager(didGet data: [FavoritePlace])
     
     func manager(didGet data: User?)
+    
+    func manager(didGet data: [HistoryEvent])
 }
 
 class FetchManager {
@@ -224,6 +239,45 @@ class FetchManager {
                     DispatchQueue.main.async {
                         self?.delegate?.manager(didGet: user)
                     }
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                }
+            }
+            
+        })
+    }
+    
+    func requestHistoryEvent() {
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
+        ref.child("historyList").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            
+            if snapshot.exists() == false {
+                
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+        })
+        
+        ref.child("historyList").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            print(snapshot.value!)
+            
+            var dataInFM = [HistoryEvent]()
+            
+            for item in snapshot.children {
+                
+                guard let itemSnapshot = item as? DataSnapshot else { return }
+                
+                guard let dictionary = itemSnapshot.value as? [String: String] else { return }
+                
+                if let year = dictionary["year"],
+                    let month = dictionary["month"],
+                    let day = dictionary["day"],
+                    let titleName = dictionary["titleName"],
+                    let imageURL = dictionary["imageUrl"] {
+                    
+                    dataInFM.append(HistoryEvent(titleName: titleName, year: year, month: month, day: day, imageUrl: imageURL))
+                    
+                    self?.delegate?.manager(didGet: dataInFM)
                     
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 }

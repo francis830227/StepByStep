@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import SkyFloatingLabelTextField
 import SlideMenuControllerSwift
+import NVActivityIndicatorView
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     
@@ -46,9 +47,17 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
+        let activityData = ActivityData()
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
         if emailTextField.text == "" || passwordTextField.text == "" {
             
             errorLabel.isHidden = false
+            
+            errorLabel.bounce()
+            
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             
         } else {
             
@@ -81,6 +90,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     ref.updateChildValues(values)
                     
                 } else {
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     

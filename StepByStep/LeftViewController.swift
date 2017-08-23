@@ -220,6 +220,8 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         alert.addAction(cancelAction)
         
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -249,4 +251,34 @@ extension LeftViewController: FetchManagerDelegate {
         userImageView.sd_setImage(with: URL(string: (user?.imageUrl)!), completed: nil)
         }
     }
+    
+    func manager(didGet data: [HistoryEvent]) {
+        return
+    }
+}
+
+extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "leftCell", for: indexPath) as! LeftTableViewCell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DetailView", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailView" {
+            var vc = segue.destination as! CheckedViewController
+        }
+    }
+    
 }
