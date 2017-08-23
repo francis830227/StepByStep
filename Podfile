@@ -21,16 +21,16 @@ target 'StepByStep' do
   pod 'SkyFloatingLabelTextField', '~> 3.0'
 
   pod 'GooglePlaces'
-  pod 'GooglePlacePicker'
-  pod 'GoogleMaps'
 
   pod 'SwifterSwift'
 
   pod 'SDWebImage/WebP'
 
-  pod 'GradientView'
-
   pod 'SlideMenuControllerSwift'
+
+  pod 'Fabric'
+
+  pod 'Crashlytics'
 
   # Pods for StepByStep
 

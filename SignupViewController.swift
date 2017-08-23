@@ -9,31 +9,41 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SkyFloatingLabelTextField
+import SlideMenuControllerSwift
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextFieldWithIcon!
+    
+    @IBOutlet weak var firstNameTextField: SkyFloatingLabelTextFieldWithIcon!
+    
+    @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextFieldWithIcon!
     
     @IBOutlet weak var errorLabel: UILabel!
     
-    //var ref: DatabaseReference?
+    @IBOutlet weak var logoImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        firstNameTextField.delegate = self
+        firstNameTextField.delegate = self
+        
+        self.logoImageView.layer.borderWidth = 1
+        self.logoImageView.layer.masksToBounds = false
+        self.logoImageView.layer.cornerRadius = self.logoImageView.frame.height/2
+        self.logoImageView.clipsToBounds = true
+        
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
-        //ref = Database.database().reference()
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
         if emailTextField.text == "" || passwordTextField.text == "" {
@@ -41,32 +51,50 @@ class SignupViewController: UIViewController {
             errorLabel.isHidden = false
             
         } else {
+            
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
                     
-                    print("You have successfully signed up.")
+                    UserDefaults.standard.setValue(Auth.auth().currentUser?.uid, forKey: "uid")
                     
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                    UserDefaults.standard.synchronize()
                     
-                    let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "homeVC") as! MainViewController
+                    let uid = Auth.auth().currentUser?.uid
                     
+                    let ref = Database.database().reference().child("users").child(uid!)
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let mainViewController = storyboard.instantiateViewController(withIdentifier: "homeNVC")
+                    
+                    let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
+                    
+                    let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
+
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     
-                    appDelegate.window?.rootViewController = homeViewController
+                    appDelegate.window?.rootViewController = slideMenuController
                     
-                    //self.ref?.childByAutoId().child("Posts").child("Name").setValue("\(self.firstNameTextField.text ?? "") \(self.lastNameTextField.text ?? "")")
+                    let values = ["email": self.emailTextField.text!, "firstName": self.firstNameTextField.text!, "lastName": self.lastNameTextField.text!]
+                    
+                    ref.updateChildValues(values)
                     
                 } else {
                     
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.darkAlert(alertController)
+                    
+                    alertController.setValue(NSAttributedString(string: "Error", attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedTitle")
+                    
+                    alertController.setValue(NSAttributedString(string: (error?.localizedDescription)!, attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedMessage")
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     
                     alertController.addAction(defaultAction)
                     
                     self.present(alertController, animated: true, completion: nil)
-                    
                 }
                 
             }
@@ -75,4 +103,16 @@ class SignupViewController: UIViewController {
         
     }
     
+    func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
+    }
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 }

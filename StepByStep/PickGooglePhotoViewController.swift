@@ -10,6 +10,12 @@ import UIKit
 import Firebase
 import GooglePlaces
 
+protocol GetImageDelegate: class {
+    
+    func setImagePickedFromGoogle(_ imageUrl: String)
+    
+}
+
 class PickGooglePhotoViewController: UIViewController {
 
     let fetchManager = FetchManager()
@@ -19,6 +25,8 @@ class PickGooglePhotoViewController: UIViewController {
     var delegate: GetImageDelegate?
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var noFavLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +44,10 @@ class PickGooglePhotoViewController: UIViewController {
         tableView.reloadData()
     }
     
+
     @IBAction func backButtonPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
-        
     }
     
 }
@@ -53,6 +61,10 @@ extension PickGooglePhotoViewController: FetchManagerDelegate {
     }
     
     func manager(didGet data: [EndDate]) {
+        return
+    }
+    
+    func manager(didGet data: User?) {
         return
     }
     

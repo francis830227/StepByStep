@@ -68,7 +68,7 @@
 		1565203D1F44761F000DB4E9 /* PickGooglePhotoTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGooglePhotoTableViewDelegate.swift; sourceTree = "<group>"; };
 		156520401F44782A000DB4E9 /* GradientPick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientPick.swift; sourceTree = "<group>"; };
 		156520421F44799B000DB4E9 /* PickGooglePhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGooglePhotoTableViewCell.swift; sourceTree = "<group>"; };
-		15B395251F43E1E300F7C1DE /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		15B395251F43E1E300F7C1DE /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftViewController.swift; path = StepByStep/LeftViewController.swift; sourceTree = "<group>"; };
 		15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientFavorite.swift; sourceTree = "<group>"; };
 		15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 				152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */,
 				152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */,
 				152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */,
-				15B395251F43E1E300F7C1DE /* LeftViewController.swift */,
 				154EF1DE1F35C1B300881D69 /* key.swift */,
 				152B3A3A1F2DF338004FAC2D /* hideKeyboard&alert.swift */,
 				152B3A641F2F335F004FAC2D /* fetchManager.swift */,
@@ -161,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */,
+				15B395251F43E1E300F7C1DE /* LeftViewController.swift */,
 			);
 			name = SettingView;
 			path = ..;
@@ -260,6 +260,7 @@
 				152C7E571F2779C6004E6E8C /* Resources */,
 				3D054B2298E4C8C9AC329547 /* [CP] Embed Pods Frameworks */,
 				88D2557AA12BFE1194A4887B /* [CP] Copy Pods Resources */,
+				156B904B1F481DAC000772EB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -328,6 +329,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		156B904B1F481DAC000772EB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 54f44d1f1d19f45e71f3edc4e3a95d4c87ee82ad 72c28bc081ac5273a5a4bbc3fe5fbf9971c4d5d2ea5b84e5056a43c722252b61";
+		};
 		3D054B2298E4C8C9AC329547 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -540,6 +554,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = francis.StepByStep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -555,6 +570,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = francis.StepByStep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

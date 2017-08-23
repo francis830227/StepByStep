@@ -13,7 +13,9 @@ import IQKeyboardManagerSwift
 import GooglePlaces
 import UserNotifications
 import SlideMenuControllerSwift
-
+import Fabric
+import Crashlytics
+import NVActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        NVActivityIndicatorView.DEFAULT_TYPE = .ballRotateChase
+        
         if UserDefaults.standard.value(forKey: "uid") != nil {
             
             self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -41,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainViewController = storyboard.instantiateViewController(withIdentifier: "homeNVC")
             
             let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
+            
+            SlideMenuOptions.animationDuration = 0.2
+            SlideMenuOptions.shadowOpacity = 2
+            SlideMenuOptions.shadowRadius = 3
+            SlideMenuOptions.contentViewScale = 1
             
             let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
             
@@ -65,13 +74,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
            
             }
-        let action = UNNotificationAction(identifier: "remindLater", title: "Remind me later", options: [])
-        let category = UNNotificationCategory(identifier: "myCategory", actions: [action], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([category])
-        
-        return true
-    }
 
+        Fabric.with([Crashlytics.self])
+        
+        
+        
+                return true
+    }
+    
     func scheduleNotification(at date: Date) {
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: date)
@@ -106,9 +116,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
+        
+        let minute = dateMin.minute
+        
+        let minus = Int((minute - todayInt) / 86400)
+        
+        let content = UNMutableNotificationContent()
+        
+        if minus > 1 {
+            
+            content.title = "\(dateMin.titleName)再\(minus)天就到了～"
+            content.body = "點進來看還有什麼沒完成的吧！"
+            content.sound = UNNotificationSound.default()
+        } else {
+            
+            content.title = "\(dateMin.titleName)今天到期！"
+            content.body = "事情做了嗎？"
+            content.sound = UNNotificationSound.default()
+        }
+        
+        var date = DateComponents()
+        
+        date.hour = 18
+        
+        date.minute = 25
+        
+        let calendar = Calendar(identifier: .gregorian)
+        
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, hour: date.hour, minute: date.minute)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
 
-    
-    
+        
+        
+        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().add(request){(error) in
+            
+            if (error != nil) {
+                
+                print(error?.localizedDescription ?? "")
+            }
+        }
+        
+    }
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -183,10 +237,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        if response.actionIdentifier == "remindLater" {
-            let newDate = Date(timeInterval: 900, since: Date())
-            scheduleNotification(at: newDate)
-        }
     }
 }
 

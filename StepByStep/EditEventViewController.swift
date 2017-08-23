@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SkyFloatingLabelTextField
 
-class EditEventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
+class EditEventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate,GetImageDelegate {
 
     var yearString = ""
     
@@ -33,6 +33,8 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var editImageView: UIImageView!
     
     @IBOutlet weak var darkView: UIView!
+    
+    let pickGooglePhotoViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "googlephoto") as! PickGooglePhotoViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +96,7 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -140,7 +143,7 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
         
         if yearString == "" || monthString == "" || dayString == "" || dateTextField.text == "" {
             
-            let alert = UIAlertController(title: "Can't save event without date or event title.", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Can't save event without date or title.", message: "", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 
@@ -172,7 +175,7 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
         
         guard let photo = image else { return }
         
-        let photoComp = UIImageJPEGRepresentation(photo, 0.2)
+        let photoComp = UIImageJPEGRepresentation(photo, 0.5)
         
         let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
         
@@ -231,7 +234,17 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
             self.openAlbum()
         }))
         
+        photoAlert.addAction(UIAlertAction(title: "Pick from favorite places", style: .default, handler: { _ in
+            
+            self.openPlace()
+            
+        }))
+        
         photoAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        photoAlert.popoverPresentationController?.sourceView = self.view
+        photoAlert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        photoAlert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
         
         self.present(photoAlert, animated: true)
     }
@@ -268,6 +281,23 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
         self.present(imagePicker, animated: true)
     }
     
+    func openPlace() {
+        
+        pickGooglePhotoViewController.delegate = self
+        
+        self.present(pickGooglePhotoViewController, animated: true, completion: nil)
+    }
+    
+    func setImagePickedFromGoogle(_ imageUrl: String) {
+        
+        editImageView.contentMode = .scaleAspectFill
+        
+        editImageView.sd_setShowActivityIndicatorView(true)
+        
+        editImageView.sd_setIndicatorStyle(.white)
+        
+        editImageView.sd_setImage(with: URL(string: imageUrl))
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         

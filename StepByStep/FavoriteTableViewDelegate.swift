@@ -14,6 +14,10 @@ import Firebase
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if placesInfo.count > 0 {
+            addImageView.isHidden = true
+        }
         return placesInfo.count
 
     }
@@ -47,7 +51,11 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
             
             ref.child(placesInfo[indexPath.row].placeKey).removeValue()
             
+            placesInfo = []
             
+            addImageView.isHidden = false
+            
+            tableView.reloadData()
             
         }
     }

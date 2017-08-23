@@ -12,11 +12,6 @@ import IQKeyboardManagerSwift
 import Firebase
 import SkyFloatingLabelTextField
 
-protocol GetImageDelegate {
-    
-    func setImagePickedFromGoogle(_ imageUrl: String)
-
-}
 
 class PickEndDateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, GetImageDelegate {
     
@@ -72,13 +67,22 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         setupCalendarView()
         
         setupEventImageView()
+        
+        formatter.dateFormat = "yyyy"
+        yearString = formatter.string(from: todaysDate)
+
+        formatter.dateFormat = "MM"
+        monthString = formatter.string(from: todaysDate)
+        
+        formatter.dateFormat = "dd"
+        dayString = formatter.string(from: todaysDate)
     }
     
     @IBAction func donePickEndButtonPressed(_ sender: Any) {
         
-        if yearString == "" || monthString == "" || dayString == "" || eventTextField.text == "" {
+        if eventTextField.text == "" {
             
-            let alert = UIAlertController(title: "沒有事件或日期不能存啦！", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Can't save event without title.", message: "", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 
@@ -110,7 +114,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         
         guard let photo = image else { return }
         
-        let photoComp = UIImageJPEGRepresentation(photo, 0.2)
+        let photoComp = UIImageJPEGRepresentation(photo, 0.5)
         
         let storageRef = Storage.storage().reference().child("favoriteImage").child(uid!).child("\(uniqueString).png")
         
@@ -299,6 +303,10 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         
         photoAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
+        photoAlert.popoverPresentationController?.sourceView = self.view
+        photoAlert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        photoAlert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        
         self.present(photoAlert, animated: true)
     }
 
@@ -322,7 +330,6 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
             
             self.present(noCaremaAlert, animated: true)
         }
-        
     }
     
     func openAlbum() {
@@ -338,7 +345,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     func openPlace() {
         
         pickGooglePhotoViewController.delegate = self
-        
+
         self.present(pickGooglePhotoViewController, animated: true, completion: nil)
     }
 

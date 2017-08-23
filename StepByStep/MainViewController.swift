@@ -11,12 +11,9 @@ import AnimatedCollectionViewLayout
 import Firebase
 import NVActivityIndicatorView
 import UserNotifications
+import Crashlytics
 
 class MainViewController: UIViewController {
-    
-    let colorOne = UIColor(red: 252/255, green: 206/255, blue: 55/255, alpha: 0.6)
-    
-    let colorTwo = UIColor(red: 145/255, green: 18/255, blue: 156/255, alpha: 0.6)
     
     let animator = LinearCardAttributesAnimator()
     
@@ -28,9 +25,10 @@ class MainViewController: UIViewController {
         
     var todayInt: Int?
     
-    @IBOutlet weak var addLabel: UILabel!
     
     @IBOutlet weak var todayTime: UILabel!
+    
+    @IBOutlet weak var addImageView: UIImageView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -45,7 +43,7 @@ class MainViewController: UIViewController {
         
         let todayDate = Date()
         
-        formatter.dateFormat = "yyyy MM dd"
+        formatter.dateFormat = "yyyy/MM/dd"
         
         let date = formatter.string(from: todayDate)
         
@@ -53,9 +51,6 @@ class MainViewController: UIViewController {
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        
-        delegate?.scheduleNotification(at: todayDate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,42 +58,13 @@ class MainViewController: UIViewController {
 
         collectionView.reloadData()
     }
-        
-    func prepareNotification(_ dateMin: EndDate, _ todayInt: Int) {
-        
-        let minute = dateMin.minute
-        
-        let minus = Int((minute - todayInt) / 86400)
-        
-        let content = UNMutableNotificationContent()
-        
-        if minus > 1 {
-            
-            content.title = "\(dateMin.titleName)再\(minus)天就到了～"
-            content.body = "點進來看還有什麼沒完成的吧！"
-            content.sound = UNNotificationSound.default()
-        } else {
-            
-            content.title = "\(dateMin.titleName)今天到期！"
-            content.body = ""
-            content.sound = UNNotificationSound.default()
-        }
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
-
-        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().add(request){(error) in
-            
-            if (error != nil) {
-                
-                print(error?.localizedDescription ?? "")
-            }
-        }
     
-    }
+    
+    
     @IBAction func settingButtonPressed(_ sender: Any) {
         self.slideMenuController()?.openLeft()
+        
+        Analytics.logEvent("settingButtonPressed", parameters: nil)
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -107,54 +73,27 @@ class MainViewController: UIViewController {
 
         let navigationVC = self.storyboard?.instantiateViewController(withIdentifier: "addNVC")
         
+        Analytics.logEvent("addButtonPressed", parameters: nil)
+        
         self.present(navigationVC!, animated: true, completion: nil)
     }
-
     
-    @IBAction func logout(_ sender: Any) {
-        let alert = UIAlertController(title: "確定登出？", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+    func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
         
-        let sureAction = UIAlertAction(title: "Sure", style: UIAlertActionStyle.default, handler: { (_: UIAlertAction) -> Void in
-            
-            try! Auth.auth().signOut()
-            
-            let defaults = UserDefaults.standard
-            
-            defaults.removeObject(forKey: "uid")
-            
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let controller =  mainStoryboard.instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
-            
-            appDelegate?.window?.rootViewController = controller
-        })
+        collectionView.isPagingEnabled = true
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_ : UIAlertAction) -> Void in
+        if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
             
-            alert.dismiss(animated: true, completion: nil)
-        
-        })
-        
-        alert.addAction(sureAction)
-        
-        alert.addAction(cancelAction)
-        
-        self.present(alert, animated: true, completion: nil)
+            layout.scrollDirection = .horizontal
+            
+            layout.animator = animator
+            
+        }
     }
-}
-
-func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
     
-    collectionView.isPagingEnabled = true
-    
-    if let layout = collectionView.collectionViewLayout as? AnimatedCollectionViewLayout {
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         
-        layout.scrollDirection = .horizontal
-        
-        layout.animator = animator
-
+        Analytics.logEvent("favoriteButtonPressed", parameters: nil)
     }
 }
 
@@ -164,7 +103,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         if dates.count > 0 {
         
-            addLabel.isHidden = true
+            addImageView.isHidden = true
         }
         
         return dates.count
@@ -181,6 +120,16 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let day = dates[indexPath.row].day
 
         cell.bind()
+        
+        cell.imageView.blur(withStyle: .dark)
+        
+        cell.imageView.contentMode = .scaleAspectFill
+        
+        cell.imageView.sd_setShowActivityIndicatorView(true)
+        
+        cell.imageView.sd_setIndicatorStyle(.gray)
+        
+        cell.imageView.sd_setImage(with: URL(string: dates[indexPath.row].imageURL), completed: nil)
         
         if year == "" || month == "" || day == "" {
             
@@ -206,7 +155,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
             let date = formatter.date(from: targetDay)
             
-            
             let targetDayNS = date! as NSDate
             
             let todayNS = todayDate! as NSDate
@@ -219,24 +167,26 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "過了\(Int((todayInt! - targetDayInt) / 86400))天"
+                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400)) - DAY PASSED"
                 
             } else if minus == 0 {
                 
-                cell.countDownLabel.text = "今天"
+                cell.countDownLabel.text = "TODAY"
                 
             } else {
 
-                cell.countDownLabel.text = "剩\(Int((targetDayInt - todayInt!) / 86400))天"
+                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400)) - DAY LEFT"
 
             }
             
-            cell.finishDateLabel.text = "日期：\(year)/\(month)/\(day)"
+            cell.finishDateLabel.text = "DATE : \(year)/\(month)/\(day)"
             
             cell.clipsToBounds = false
         }
         
-        cell.eventLabel.text = dates[indexPath.row].titleName
+        cell.eventLabel.text? = dates[indexPath.row].titleName
+        
+        cell.eventLabel.text = cell.eventLabel.text?.uppercased()
 
         cell.deleteButton.tag = indexPath.row
         
@@ -249,14 +199,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         cell.eventImageView.sd_setIndicatorStyle(.white)
         
         cell.eventImageView.sd_setImage(with: URL(string: dates[indexPath.row].imageURL), completed: nil)
-
-        
-        
-        cell.gradientView.colors = [colorOne, colorTwo]
-        
-        cell.gradientView.locations = [0.0, 1.0]
-        
-        cell.gradientView.direction = .horizontal
         
         return cell
     }
@@ -267,7 +209,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         alert.darkAlert(alert)
         
-        let editAction = UIAlertAction(title: "修改卡片", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
+        let editAction = UIAlertAction(title: "Edit", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
             
             let editEventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editEvent") as! EditEventViewController
             
@@ -283,9 +225,9 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             alert.dismiss(animated: true, completion: nil)
         })
         
-        let deleteAction = UIAlertAction(title: "刪除卡片", style: UIAlertActionStyle.destructive, handler: { (_ : UIAlertAction) -> Void in
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler: { (_ : UIAlertAction) -> Void in
             
-            let deleteAlert = UIAlertController(title: "確定刪除？", message: nil, preferredStyle: .actionSheet)
+            let deleteAlert = UIAlertController(title: "Sure？", message: nil, preferredStyle: .actionSheet)
             
             deleteAlert.darkAlert(deleteAlert)
             
@@ -301,7 +243,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
                 self.dates = []
                 
-                self.addLabel.isHidden = false
+                self.addImageView.isHidden = false
                 
                 self.collectionView.reloadData()
                 
@@ -318,10 +260,14 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             deleteAlert.addAction(deleteCancelAction)
             
+            deleteAlert.popoverPresentationController?.sourceView = self.view
+            deleteAlert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+            deleteAlert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            
             self.present(deleteAlert, animated: true, completion: nil)
         })
         
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
             
             alert.dismiss(animated: true, completion: nil)
         })
@@ -329,6 +275,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         alert.addAction(editAction)
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
+        
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        alert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -365,8 +315,8 @@ extension MainViewController: FetchManagerDelegate {
         self.dates = data
         
         guard let datesMin = dates.min() else { return }
-        
-        prepareNotification(datesMin, todayInt!)
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.prepareNotification(datesMin, todayInt!)
         
         collectionView.reloadData()
     }
@@ -375,10 +325,12 @@ extension MainViewController: FetchManagerDelegate {
         return
     }
     
+    func manager(didGet data: User?) {
+        return
+    }
 }
 
 extension MainViewController: UNUserNotificationCenterDelegate {
-    
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         

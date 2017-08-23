@@ -1,5 +1,8 @@
 PODS:
   - AnimatedCollectionViewLayout (0.3.0)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - Firebase/Auth (4.0.2):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -30,14 +33,7 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleMaps (2.3.1):
-    - GoogleMaps/Maps (= 2.3.1)
   - GoogleMaps/Base (2.3.1)
-  - GoogleMaps/Maps (2.3.1):
-    - GoogleMaps/Base
-  - GooglePlacePicker (2.3.1):
-    - GoogleMaps (= 2.3.1)
-    - GooglePlaces (= 2.3.1)
   - GooglePlaces (2.3.1):
     - GoogleMaps/Base (= 2.3.1)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
@@ -50,7 +46,6 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GradientView (2.2.0)
   - GTMSessionFetcher/Core (1.1.10)
   - IQKeyboardManagerSwift (4.0.10)
   - JTAppleCalendar (7.0.4)
@@ -89,14 +84,13 @@ PODS:
 
 DEPENDENCIES:
   - AnimatedCollectionViewLayout
+  - Crashlytics
+  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - GoogleMaps
-  - GooglePlacePicker
   - GooglePlaces
-  - GradientView
   - IQKeyboardManagerSwift
   - JTAppleCalendar (~> 7.0)
   - NVActivityIndicatorView
@@ -107,6 +101,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AnimatedCollectionViewLayout: 504b992a4258eb39d2dd2b2b48e84b4b95860fd7
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
   FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -115,10 +111,8 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
-  GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GradientView: a5397174594f158dc1511127f2004ec25c9d2300
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
@@ -129,6 +123,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: 92f09c681276a0db28a308cd5449cb7f3b2ae982
+PODFILE CHECKSUM: 4be91bc67fb6a598be4f35cc054dbf274b21da6e
 
 COCOAPODS: 1.2.1

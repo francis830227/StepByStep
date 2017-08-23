@@ -11,8 +11,9 @@ import Firebase
 import FirebaseAuth
 import SkyFloatingLabelTextField
 import NVActivityIndicatorView
+import SlideMenuControllerSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
     
@@ -20,13 +21,22 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        self.logoImageView.layer.borderWidth = 1
+        self.logoImageView.layer.masksToBounds = false
+        self.logoImageView.layer.cornerRadius = self.logoImageView.frame.height/2
+        self.logoImageView.clipsToBounds = true
+        
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,36 +55,51 @@ class LoginViewController: UIViewController {
                 
                 if error == nil {
 
-                    
                     UserDefaults.standard.setValue(Auth.auth().currentUser?.uid, forKey: "uid")
 
                     UserDefaults.standard.synchronize()
                     
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     
-                    let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "homeVC") as! MainViewController
+                    let mainViewController = storyboard.instantiateViewController(withIdentifier: "homeNVC")
+                    
+                    let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
+                    
+                    let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
+
                     
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     
-                    appDelegate.window?.rootViewController = homeViewController
+                    appDelegate.window?.rootViewController = slideMenuController
                     
                 } else {
                     
                     // 提示用戶從 firebase 返回了一個錯誤。
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.darkAlert(alertController)
+                    
+                    alertController.setValue(NSAttributedString(string: "Error", attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedTitle")
+                    
+                    alertController.setValue(NSAttributedString(string: (error?.localizedDescription)!, attributes: [NSForegroundColorAttributeName : UIColor.gray]), forKey: "attributedMessage")
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     
                     alertController.addAction(defaultAction)
                     
                     self.present(alertController, animated: true, completion: nil)
-                    
                 }
                 
             }
             
         }
         
+    }
+    
+    func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
     }
 
 }
