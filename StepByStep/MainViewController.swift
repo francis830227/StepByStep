@@ -51,8 +51,6 @@ class MainViewController: UIViewController {
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,7 +121,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
         cell.bind()
         
-        cell.imageView.blur(withStyle: .regular)
+        cell.imageView.blur(withStyle: .dark)
         
         cell.imageView.contentMode = .scaleAspectFill
         
@@ -157,7 +155,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
             let date = formatter.date(from: targetDay)
             
-            
             let targetDayNS = date! as NSDate
             
             let todayNS = todayDate! as NSDate
@@ -170,24 +167,26 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400)) days passed"
+                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400)) - DAY PASSED"
                 
             } else if minus == 0 {
                 
-                cell.countDownLabel.text = "Today"
+                cell.countDownLabel.text = "TODAY"
                 
             } else {
 
-                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400)) days"
+                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400)) - DAY LEFT"
 
             }
             
-            cell.finishDateLabel.text = "Date : \(year)/\(month)/\(day)"
+            cell.finishDateLabel.text = "DATE : \(year)/\(month)/\(day)"
             
             cell.clipsToBounds = false
         }
         
-        cell.eventLabel.text = dates[indexPath.row].titleName
+        cell.eventLabel.text? = dates[indexPath.row].titleName
+        
+        cell.eventLabel.text = cell.eventLabel.text?.uppercased()
 
         cell.deleteButton.tag = indexPath.row
         

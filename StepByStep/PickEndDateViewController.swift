@@ -67,13 +67,22 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
         setupCalendarView()
         
         setupEventImageView()
+        
+        formatter.dateFormat = "yyyy"
+        yearString = formatter.string(from: todaysDate)
+
+        formatter.dateFormat = "MM"
+        monthString = formatter.string(from: todaysDate)
+        
+        formatter.dateFormat = "dd"
+        dayString = formatter.string(from: todaysDate)
     }
     
     @IBAction func donePickEndButtonPressed(_ sender: Any) {
         
-        if yearString == "" || monthString == "" || dayString == "" || eventTextField.text == "" {
+        if eventTextField.text == "" {
             
-            let alert = UIAlertController(title: "Can't save event without date or title.", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Can't save event without title.", message: "", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (_ : UIAlertAction) -> Void in
                 
