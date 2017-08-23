@@ -82,24 +82,6 @@ class FavoriteViewController: UIViewController, UISearchBarDelegate {
         dismiss(animated: true, completion: nil)
     }
 
-    func searchBarAndNaviLayout() {
-
-        
-        
-//        searchController = UISearchController(searchResultsController: resultsViewController)
-//        //searchController?.searchResultsUpdater = resultsViewController
-//        searchController?.searchBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
-//        searchController?.searchBar.tintColor = .white
-//        searchController?.searchBar.keyboardAppearance = .dark
-//        resultsViewController.navigationController?.navigationBar.barTintColor = UIColor(red: 42/255, green: 48/255, blue: 48/255, alpha: 1)
-//        resultsViewController.navigationController?.navigationBar.tintColor = UIColor.white
-//        resultsViewController.primaryTextHighlightColor = .white
-//        resultsViewController.primaryTextColor = .lightGray
-//        resultsViewController.tableCellBackgroundColor = UIColor(red: 34/255, green: 41/255, blue: 41/255, alpha: 0.8)
-//        resultsViewController.tableCellSeparatorColor = .lightGray
-//        resultsViewController.secondaryTextColor = .lightGray
-    }
-
     func loadFirstPhotoForPlace(placeID: String, placeName: String, placeAddress: String) {
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
             if let error = error {
