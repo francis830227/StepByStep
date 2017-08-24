@@ -1673,7 +1673,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Fyg-6x-Upz"/>
                                     <constraint firstAttribute="width" constant="44" id="d1q-wh-aE5"/>
                                 </constraints>
-                                <state key="normal" image="ic_keyboard_arrow_left_white_48pt">
+                                <state key="normal" image="ic_clear_white_48pt">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1730,31 +1730,6 @@
             </objects>
             <point key="canvasLocation" x="3548" y="45.42728635682159"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="rSY-Te-z2j">
-            <objects>
-                <navigationController storyboardIdentifier="addNVC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="so8-0G-xlU" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="JC3-qo-J5V">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.2072882325" green="0.2520395024" blue="0.24731064189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="nri-f1-JJe">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="ytw-Bg-NU3" kind="relationship" relationship="rootViewController" id="Rbs-E2-28X"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lht-DV-qKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3548" y="-643"/>
-        </scene>
         <!--Checked View Controller-->
         <scene sceneID="f9Z-fi-Hok">
             <objects>
@@ -1775,7 +1750,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ahA-mp-lQX" id="jYC-Na-o2f">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPX-kB-jjk">

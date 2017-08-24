@@ -253,6 +253,7 @@ class PickEndDateViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func backButtonPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+
     }
     
     func setImagePickedFromGoogle(_ imageUrl: String) {

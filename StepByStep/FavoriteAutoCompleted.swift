@@ -21,7 +21,7 @@ extension FavoriteViewController: GMSAutocompleteViewControllerDelegate {
         
         self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!)
         
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         
         favoriteTableView.reloadData()
     }
@@ -33,7 +33,7 @@ extension FavoriteViewController: GMSAutocompleteViewControllerDelegate {
 
     public func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         
 
     }

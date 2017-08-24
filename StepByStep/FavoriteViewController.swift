@@ -75,7 +75,7 @@ class FavoriteViewController: UIViewController, UISearchBarDelegate {
 //        // this view controller, not one further up the chain.
         definesPresentationContext = true
         
-        present(resultsViewController, animated: true, completion: nil)
+        present(resultsViewController, animated: false, completion: nil)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {

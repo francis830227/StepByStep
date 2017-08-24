@@ -68,11 +68,11 @@ class MainViewController: UIViewController {
         
         sender.bounce()
 
-        let navigationVC = self.storyboard?.instantiateViewController(withIdentifier: "addNVC")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "pickDate")
         
         Analytics.logEvent("addButtonPressed", parameters: nil)
         
-        self.present(navigationVC!, animated: true, completion: nil)
+        self.present(vc!, animated: true, completion: nil)
     }
     
     func collectionViewLayout(collectionView: UICollectionView, animator: LinearCardAttributesAnimator) {
