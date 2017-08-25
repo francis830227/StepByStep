@@ -35,11 +35,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         firstNameTextField.delegate = self
         firstNameTextField.delegate = self
         
-        self.logoImageView.layer.borderWidth = 1
-        self.logoImageView.layer.masksToBounds = false
-        self.logoImageView.layer.cornerRadius = self.logoImageView.frame.height/2
-        self.logoImageView.clipsToBounds = true
-        
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()

@@ -27,20 +27,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         emailTextField.delegate = self
-        passwordTextField.delegate = self
         
-        self.logoImageView.layer.borderWidth = 1
-        self.logoImageView.layer.masksToBounds = false
-        self.logoImageView.layer.cornerRadius = self.logoImageView.frame.height/2
-        self.logoImageView.clipsToBounds = true
+        passwordTextField.delegate = self
         
         hideKeyboardWhenTappedAround()
         
         dismissKeyboard()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -82,7 +74,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                    // 提示用戶從 firebase 返回了一個錯誤。
+
                     let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
                     
                     alertController.darkAlert(alertController)
