@@ -16,7 +16,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if placesInfo.count > 0 {
-            addImageView.isHidden = true
+            addImageView.alpha = 0.0
         }
         return placesInfo.count
 
@@ -53,7 +53,11 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
             
             placesInfo = []
             
-            addImageView.isHidden = false
+            self.addImageView.alpha = 0.0
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: {
+                self.addImageView.alpha = 1.0
+            }, completion: nil)
             
             tableView.reloadData()
             

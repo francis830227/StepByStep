@@ -63,20 +63,56 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             
             let uid = Auth.auth().currentUser!.uid
             
             let ref = Database.database().reference().child("historyList").child(uid)
             
-            ref.child(historyEvents[indexPath.row].key).removeValue()
+            ref.child(self.historyEvents[indexPath.row].key).removeValue()
             
-            historyEvents = []
+            self.historyEvents = []
             
-            noLabel.isHidden = false
+            self.noLabel.isHidden = false
             
             tableView.reloadData()
+
         }
+        delete.backgroundColor = .red
+        
+        let unDo = UITableViewRowAction(style: .normal, title: "Undo") { action, index in
+            
+            let uid = Auth.auth().currentUser!.uid
+            
+            let ref = Database.database().reference().child("title").child(uid).childByAutoId()
+            
+            let year = self.historyEvents[indexPath.row].year
+            let month = self.historyEvents[indexPath.row].month
+            let day = self.historyEvents[indexPath.row].day
+            let titleName = self.historyEvents[indexPath.row].titleName
+            let imageUrl = self.historyEvents[indexPath.row].imageUrl
+            
+            let values = ["year": year, "month": month, "day": day, "titleName": titleName, "image": imageUrl]
+            
+            ref.updateChildValues(values)
+            
+            let refHistory = Database.database().reference().child("historyList").child(uid)
+            
+            refHistory.child(self.historyEvents[indexPath.row].key).removeValue()
+            
+            self.historyEvents = []
+            
+            //self.addImageView.isHidden = false
+            
+            self.historyTableView.reloadData()
+        }
+        unDo.backgroundColor = UIColor.blue.withAlphaComponent(0.8)
+        
+        return [delete, unDo]
     }
     
     @IBAction func exitButtonPressed(_ sender: Any) {

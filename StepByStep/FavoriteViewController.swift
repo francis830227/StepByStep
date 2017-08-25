@@ -35,7 +35,6 @@ class FavoriteViewController: UIViewController, UISearchBarDelegate {
         fetchManager.requestPlace()
         
         gradientFavoriteNavi()
-        
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

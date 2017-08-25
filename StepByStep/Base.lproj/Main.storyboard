@@ -803,18 +803,22 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-LX-uQy">
-                                                                    <rect key="frame" x="123" y="238" width="48" height="48"/>
-                                                                    <state key="normal" image="ic_settings_white_48pt"/>
+                                                                    <rect key="frame" x="239" y="337" width="48" height="48"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="48" id="fux-aS-6pg"/>
+                                                                        <constraint firstAttribute="width" constant="48" id="wpn-qd-G4V"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="ic_done_white_48pt"/>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.19214463230000001" green="0.19216534499999999" blue="0.1921273768" alpha="0.1483572345890411" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="mf2-LX-uQy" firstAttribute="centerX" secondItem="jx4-Og-9wu" secondAttribute="centerX" id="7ug-Ug-I7K"/>
+                                                                <constraint firstAttribute="trailing" secondItem="mf2-LX-uQy" secondAttribute="trailing" constant="8" id="8eA-Jj-KgH"/>
                                                                 <constraint firstItem="Bt8-nF-94e" firstAttribute="leading" secondItem="24R-tf-cEf" secondAttribute="leading" constant="8" id="APw-kk-yF1"/>
                                                                 <constraint firstItem="24R-tf-cEf" firstAttribute="leading" secondItem="jx4-Og-9wu" secondAttribute="leading" id="Cta-A7-oDv"/>
-                                                                <constraint firstItem="mf2-LX-uQy" firstAttribute="centerY" secondItem="jx4-Og-9wu" secondAttribute="centerY" id="IHS-KX-C3N"/>
                                                                 <constraint firstAttribute="trailing" secondItem="24R-tf-cEf" secondAttribute="trailing" id="KCN-rx-8dm"/>
                                                                 <constraint firstItem="9r2-Pf-e8l" firstAttribute="leading" secondItem="jx4-Og-9wu" secondAttribute="leading" constant="8" id="LhP-H4-P8h"/>
+                                                                <constraint firstItem="24R-tf-cEf" firstAttribute="top" secondItem="mf2-LX-uQy" secondAttribute="bottom" constant="8" id="OnX-Pv-qNn"/>
                                                                 <constraint firstAttribute="trailing" secondItem="kaw-Zt-t0f" secondAttribute="trailing" constant="10" id="QXy-iu-orV"/>
                                                                 <constraint firstItem="kaw-Zt-t0f" firstAttribute="top" secondItem="jx4-Og-9wu" secondAttribute="top" constant="10" id="bBa-7b-vSn"/>
                                                                 <constraint firstItem="kaw-Zt-t0f" firstAttribute="leading" secondItem="jx4-Og-9wu" secondAttribute="leading" constant="10" id="bFT-XG-Q1Z"/>
@@ -888,18 +892,18 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017 10 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxf-eX-Zim">
-                                <rect key="frame" x="116" y="28" width="143" height="38"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <rect key="frame" x="128.5" y="28" width="119.5" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.18029672290000001" green="0.20286437560000001" blue="0.076434403499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4T-ky-nfV">
-                                <rect key="frame" x="309" y="25" width="50" height="50"/>
+                                <rect key="frame" x="319" y="25" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="X3W-bL-B6d"/>
-                                    <constraint firstAttribute="height" constant="50" id="jeq-XH-yNv"/>
+                                    <constraint firstAttribute="width" constant="40" id="X3W-bL-B6d"/>
+                                    <constraint firstAttribute="height" constant="40" id="jeq-XH-yNv"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="place">
@@ -1297,7 +1301,7 @@
                                     <constraint firstAttribute="height" constant="44" id="HYO-or-LUU"/>
                                     <constraint firstAttribute="width" constant="44" id="dcH-W3-xbc"/>
                                 </constraints>
-                                <state key="normal" image="ic_keyboard_arrow_left_white_48pt">
+                                <state key="normal" image="ic_clear_white_48pt">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1451,7 +1455,7 @@
                                                     </collectionViewCell>
                                                 </cells>
                                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="yFj-27-Zuo" customClass="CalendarHeaderCollectionReusableView" customModule="StepByStep" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="252.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="252"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpq-dR-3dd">
@@ -2078,10 +2082,10 @@
         <image name="ic_add_white_48pt" width="48" height="48"/>
         <image name="ic_assignment_turned_in_white_48pt" width="48" height="48"/>
         <image name="ic_clear_white_48pt" width="48" height="48"/>
+        <image name="ic_done_white_48pt" width="48" height="48"/>
         <image name="ic_keyboard_arrow_left_white_48pt" width="48" height="48"/>
         <image name="ic_menu_white_48pt" width="48" height="48"/>
         <image name="ic_more_horiz_48pt" width="48" height="48"/>
-        <image name="ic_settings_white_48pt" width="48" height="48"/>
         <image name="person" width="649" height="659"/>
         <image name="photo" width="511" height="512"/>
         <image name="place" width="512" height="512"/>

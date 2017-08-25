@@ -50,6 +50,7 @@ class MainViewController: UIViewController {
         todayTime.text = date
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,7 +101,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         if dates.count > 0 {
         
-            addImageView.isHidden = true
+            addImageView.alpha = 0.0
         }
         
         return dates.count
@@ -168,7 +169,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
             } else if minus == 0 {
                 
-                cell.countDownLabel.text = "TODAY"
+                cell.countDownLabel.text = "Today"
                 
             } else {
 
@@ -176,7 +177,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
             }
             
-            cell.finishDateLabel.text = "DATE : \(year)/\(month)/\(day)"
+            cell.finishDateLabel.text = "Due : \(year)/\(month)/\(day)"
             
             cell.clipsToBounds = false
         }
@@ -239,7 +240,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         self.dates = []
         
-        self.addImageView.isHidden = false
+        self.addImageView.alpha = 0.0
+        
+        UIView.animate(withDuration: 1, delay: 1, options: .curveLinear, animations: {
+            self.addImageView.alpha = 1.0
+        }, completion: nil)
         
         self.collectionView.reloadData()
     }
@@ -283,7 +288,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
                 self.dates = []
                 
-                self.addImageView.isHidden = false
+                self.addImageView.alpha = 0.0
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: {
+                    self.addImageView.alpha = 1.0
+                }, completion: nil)
+                
                 
                 self.collectionView.reloadData()
                 
