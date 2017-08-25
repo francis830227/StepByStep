@@ -25,7 +25,6 @@ class MainViewController: UIViewController {
         
     var todayInt: Int?
     
-    
     @IBOutlet weak var todayTime: UILabel!
     
     @IBOutlet weak var addImageView: UIImageView!
@@ -33,6 +32,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var addButton: UIButton!
+    
+    @IBOutlet weak var savedView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class MainViewController: UIViewController {
         
         collectionViewLayout(collectionView: collectionView, animator: animator)
         
+        savedView.alpha = 0.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,8 +121,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
         cell.bind()
         
-        cell.imageView.blur(withStyle: .dark)
-        
         cell.imageView.contentMode = .scaleAspectFill
         
         cell.imageView.sd_setShowActivityIndicatorView(true)
@@ -165,7 +165,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
             if minus < 0 {
 
-                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400)) - DAY PASSED"
+                cell.countDownLabel.text = "\(Int((todayInt! - targetDayInt) / 86400)) - day passed"
                 
             } else if minus == 0 {
                 
@@ -173,7 +173,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 
             } else {
 
-                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400)) - DAY LEFT"
+                cell.countDownLabel.text = "\(Int((targetDayInt - todayInt!) / 86400)) - day left"
 
             }
             
@@ -182,9 +182,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.clipsToBounds = false
         }
         
-        cell.eventLabel.text? = dates[indexPath.row].titleName
-        
-        cell.eventLabel.text = cell.eventLabel.text?.uppercased()
+        cell.eventLabel.text = dates[indexPath.row].titleName
         
         cell.checkButton.tag = indexPath.row
         
@@ -217,6 +215,14 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         let key = dates[sender.tag].titleKey
         removeFromFirebase(key)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: {
+            self.savedView.alpha = 1.0
+        }) { _ in
+            UIView.animate(withDuration: 0.5, animations: { 
+                self.savedView.alpha = 0.0
+            }, completion: nil)
+        }
     }
     
     func uploadToHistoryList(_ imageURL: String, _ year: String, _ month: String, _ day: String, _ eventText: String) {

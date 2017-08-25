@@ -82,7 +82,7 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.reloadData()
 
         }
-        delete.backgroundColor = .red
+        delete.backgroundColor = UIColor.red.withAlphaComponent(0.8)
         
         let unDo = UITableViewRowAction(style: .normal, title: "Undo") { action, index in
             
@@ -110,7 +110,7 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
             
             self.historyTableView.reloadData()
         }
-        unDo.backgroundColor = UIColor.blue.withAlphaComponent(0.8)
+        unDo.backgroundColor = UIColor(red: 65, green: 115, blue: 211)
         
         return [delete, unDo]
     }
