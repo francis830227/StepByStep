@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import GooglePlaces
 import Firebase
+import NVActivityIndicatorView
 
 extension FavoriteViewController: GMSAutocompleteViewControllerDelegate {
     
@@ -24,6 +25,12 @@ extension FavoriteViewController: GMSAutocompleteViewControllerDelegate {
         self.dismiss(animated: false, completion: nil)
         
         favoriteTableView.reloadData()
+        
+        let activityData = ActivityData()
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("Saving")
     }
     
     public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {

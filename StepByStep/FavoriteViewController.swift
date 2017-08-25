@@ -10,6 +10,7 @@ import UIKit
 import GooglePlaces
 import Firebase
 import FirebaseStorage
+import NVActivityIndicatorView
 
 class FavoriteViewController: UIViewController, UISearchBarDelegate {
     
@@ -149,6 +150,8 @@ extension FavoriteViewController: FetchManagerDelegate {
         
         self.placesInfo = data
         favoriteTableView.reloadData()
+        
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
     
     func manager(didGet data: [EndDate]) {

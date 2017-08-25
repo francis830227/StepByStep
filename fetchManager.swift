@@ -120,6 +120,7 @@ class FetchManager {
     func requestData() {
         
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading...")
         
         ref.child("title").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             
@@ -160,6 +161,7 @@ class FetchManager {
     func requestPlace() {
         
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading...")
         
         ref.child("favorite").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             
@@ -251,6 +253,7 @@ class FetchManager {
     
     func requestHistoryEvent() {
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading...")
         
         ref.child("historyList").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             

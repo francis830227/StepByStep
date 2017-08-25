@@ -220,21 +220,21 @@ class EditEventViewController: UIViewController, UIImagePickerControllerDelegate
     
     func handleTapEventImageView(sender: UITapGestureRecognizer) {
         
-        let photoAlert = UIAlertController(title: "Pick an image", message: nil, preferredStyle: .actionSheet)
+        let photoAlert = UIAlertController(title: "Pick An Image", message: nil, preferredStyle: .actionSheet)
         
         photoAlert.darkAlert(photoAlert)
         
-        photoAlert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { _ in
+        photoAlert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             
             self.openCamera()
         }))
         
-        photoAlert.addAction(UIAlertAction(title: "Pick from album", style: .default, handler: { _ in
+        photoAlert.addAction(UIAlertAction(title: "Album", style: .default, handler: { _ in
             
             self.openAlbum()
         }))
         
-        photoAlert.addAction(UIAlertAction(title: "Pick from favorite places", style: .default, handler: { _ in
+        photoAlert.addAction(UIAlertAction(title: "Favorite Places", style: .default, handler: { _ in
             
             self.openPlace()
             

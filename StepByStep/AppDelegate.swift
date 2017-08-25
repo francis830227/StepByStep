@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
             
-            SlideMenuOptions.animationDuration = 0.2
+            SlideMenuOptions.animationDuration = 0.3
             SlideMenuOptions.shadowOpacity = 2
             SlideMenuOptions.shadowRadius = 3
             SlideMenuOptions.contentViewScale = 1
@@ -127,21 +127,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if minus > 1 {
             
-            content.title = "\(dateMin.titleName)再\(minus)天就到了～"
-            content.body = "點進來看還有什麼沒完成的吧！"
+            content.title = "\(dateMin.titleName) will due in \(minus) days."
+            content.body = "Check your list now!"
             content.sound = UNNotificationSound.default()
         } else {
             
-            content.title = "\(dateMin.titleName)今天到期！"
-            content.body = "事情做了嗎？"
+            content.title = "\(dateMin.titleName) due today!"
+            content.body = "Has it done?"
             content.sound = UNNotificationSound.default()
         }
         
         var date = DateComponents()
         
-        date.hour = 18
+        date.hour = 22
         
-        date.minute = 25
+        date.minute = 30
         
         let calendar = Calendar(identifier: .gregorian)
         

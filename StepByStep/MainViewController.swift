@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     @IBOutlet weak var savedView: UIView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -360,11 +360,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 extension MainViewController: FetchManagerDelegate {
     
     func manager(didGet data: [EndDate]) {
-        
+                
         let today = NSDate()
         
         todayInt = Int(today.timeIntervalSinceReferenceDate)
-        
+                
         self.dates = data
         
         guard let datesMin = dates.min() else { return }
@@ -372,6 +372,8 @@ extension MainViewController: FetchManagerDelegate {
         delegate?.prepareNotification(datesMin, todayInt!)
         
         collectionView.reloadData()
+        
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
     
     func manager(didGet data: [FavoritePlace]) {
