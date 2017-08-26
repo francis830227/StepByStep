@@ -163,7 +163,6 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
                 self.userImageView.contentMode = .scaleAspectFill
                 
-                self.userImageView.layer.borderWidth = 1
                 self.userImageView.layer.masksToBounds = false
                 self.userImageView.layer.cornerRadius = self.userImageView.frame.height/2
                 self.userImageView.clipsToBounds = true
@@ -273,12 +272,6 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "DetailView", sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetailView" {
-            var vc = segue.destination as! CheckedViewController
-        }
     }
     
 }

@@ -53,7 +53,7 @@
 		152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepByStep.entitlements; sourceTree = "<group>"; };
 		152B3A421F2EF881004FAC2D /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		152B3A641F2F335F004FAC2D /* fetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fetchManager.swift; path = ../fetchManager.swift; sourceTree = "<group>"; };
-		152C7E591F2779C7004E6E8C /* StepByStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepByStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		152C7E591F2779C7004E6E8C /* Card My Date!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card My Date!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C7E611F2779C7004E6E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		152C7E641F2779C7004E6E8C /* StepByStep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StepByStep.xcdatamodel; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		152C7E5A1F2779C7004E6E8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				152C7E591F2779C7004E6E8C /* StepByStep.app */,
+				152C7E591F2779C7004E6E8C /* Card My Date!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,9 +259,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		152C7E581F2779C6004E6E8C /* StepByStep */ = {
+		152C7E581F2779C6004E6E8C /* Card My Date! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "StepByStep" */;
+			buildConfigurationList = 152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card My Date!" */;
 			buildPhases = (
 				92BFA5E2E1ED27DCCA34DE00 /* [CP] Check Pods Manifest.lock */,
 				152C7E551F2779C6004E6E8C /* Sources */,
@@ -275,9 +275,9 @@
 			);
 			dependencies = (
 			);
-			name = StepByStep;
+			name = "Card My Date!";
 			productName = StepByStep;
-			productReference = 152C7E591F2779C7004E6E8C /* StepByStep.app */;
+			productReference = 152C7E591F2779C7004E6E8C /* Card My Date!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -318,7 +318,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				152C7E581F2779C6004E6E8C /* StepByStep */,
+				152C7E581F2779C6004E6E8C /* Card My Date! */,
 			);
 		};
 /* End PBXProject section */
@@ -598,7 +598,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "StepByStep" */ = {
+		152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card My Date!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				152C7E6F1F2779C7004E6E8C /* Debug */,
