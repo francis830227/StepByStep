@@ -33,7 +33,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         firstNameTextField.delegate = self
-        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
         
         hideKeyboardWhenTappedAround()
         
@@ -56,7 +56,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            Auth.auth().createUser(withEmail: "\(emailTextField.text!)@abc.com", password: passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
                     
