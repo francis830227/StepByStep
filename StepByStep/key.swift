@@ -7,8 +7,5 @@
 //
 
 import Foundation
-
     
 let placesKey = "AIzaSyA2SAESJAo7CB1Z0IBqH4dGrr0WQHWefxA"
-
-//let serviceKey = "AIzaSyDFRbbH3fjv0U1qI232JDKgeepbmiY5Wgs"

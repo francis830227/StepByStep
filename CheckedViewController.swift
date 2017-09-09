@@ -25,13 +25,16 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
         fetchManager.delegate = self
         
         fetchManager.requestHistoryEvent()
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if historyEvents.count > 0 {
+           
             noLabel.isHidden = true
+        
         }
+        
         return historyEvents.count
     }
     
@@ -40,7 +43,9 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckedCell", for: indexPath) as! CheckedTableViewCell
         
         let year = historyEvents[indexPath.row].year
+        
         let month = historyEvents[indexPath.row].month
+        
         let day = historyEvents[indexPath.row].day
         
         cell.historyDateLabel.text = "DATE : \(year)/\(month)/\(day)"
@@ -59,15 +64,12 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-    }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             
             let uid = Auth.auth().currentUser!.uid
             
@@ -80,11 +82,11 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
             self.noLabel.isHidden = false
             
             tableView.reloadData()
-
         }
-        delete.backgroundColor = UIColor.red.withAlphaComponent(0.8)
         
-        let unDo = UITableViewRowAction(style: .normal, title: "Undo") { action, index in
+        deleteAction.backgroundColor = UIColor.red.withAlphaComponent(0.8)
+        
+        let unDoAction = UITableViewRowAction(style: .normal, title: "Undo") { action, index in
             
             let uid = Auth.auth().currentUser!.uid
             
@@ -110,9 +112,10 @@ class CheckedViewController: UIViewController, UITableViewDataSource, UITableVie
             
             self.historyTableView.reloadData()
         }
-        unDo.backgroundColor = UIColor(red: 65, green: 115, blue: 211)
         
-        return [delete, unDo]
+        unDoAction.backgroundColor = UIColor(red: 65, green: 115, blue: 211)
+        
+        return [deleteAction, unDoAction]
     }
     
     @IBAction func exitButtonPressed(_ sender: Any) {

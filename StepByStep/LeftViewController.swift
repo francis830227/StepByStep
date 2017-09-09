@@ -135,7 +135,7 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
         } else {
             
-            let noCaremaAlert = UIAlertController(title: "Sorry", message: "You don't have camera lol", preferredStyle: .alert)
+            let noCaremaAlert = UIAlertController(title: "Oops!", message: "Camera required", preferredStyle: .alert)
             
             noCaremaAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
@@ -171,19 +171,11 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
             } else {
                 
-                print("Something went wrong")
+                print("Upload to firebase failed.")
             }
             
         }
-        
-    }
-    
-    @IBAction func notificationSwitch(_ sender: UISwitch) {
-        if sender.isOn == true {
-            //UNUserNotificationCenter.current().
-        } else {
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        }
+
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -216,7 +208,6 @@ class LeftViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         })
         
         alert.addAction(sureAction)
-        
         alert.addAction(cancelAction)
         
         alert.popoverPresentationController?.sourceView = self.view

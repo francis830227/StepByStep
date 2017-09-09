@@ -66,7 +66,6 @@ struct FavoritePlace {
     var placeImageURL: String
     
     var placeKey: String
-    
 }
 
 struct User {
@@ -78,7 +77,6 @@ struct User {
     var lastName: String
     
     var imageUrl: String?
-    
 }
 
 struct HistoryEvent {
@@ -204,17 +202,17 @@ class FetchManager {
                 }
             }
         })
-        
     }
     
     func requestUser() {
+        
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         
         ref.child("users").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
             
             var user: User!
             
-            print(self?.uid ?? "NO UID!!!!")
+            print(self?.uid ?? "No UID")
             guard let dictionary = snapshot.value as? [String: String] else { return }
             if dictionary.has(key: "image") == false {
                 
@@ -238,7 +236,10 @@ class FetchManager {
                     let lastName = dictionary["lastName"],
                     let imageUrl = dictionary["image"] {
                     
-                    user = User(email: email, firstName: firstName, lastName: lastName, imageUrl: imageUrl)
+                    user = User(email: email,
+                                firstName: firstName,
+                                lastName: lastName,
+                                imageUrl: imageUrl)
                     
                     DispatchQueue.main.async {
                         self?.delegate?.manager(didGet: user)
@@ -252,6 +253,7 @@ class FetchManager {
     }
     
     func requestHistoryEvent() {
+        
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading...")
         
@@ -264,7 +266,6 @@ class FetchManager {
         })
         
         ref.child("historyList").child(uid).observe(DataEventType.value, with: { [weak self] (snapshot) in
-            print(snapshot.value!)
             
             var dataInFM = [HistoryEvent]()
             
@@ -280,14 +281,18 @@ class FetchManager {
                     let titleName = dictionary["titleName"],
                     let imageURL = dictionary["imageUrl"] {
                     
-                    dataInFM.append(HistoryEvent(titleName: titleName, year: year, month: month, day: day, imageUrl: imageURL, key: itemSnapshot.key))
+                    dataInFM.append(HistoryEvent(titleName: titleName,
+                                                 year: year,
+                                                 month: month,
+                                                 day: day,
+                                                 imageUrl: imageURL,
+                                                 key: itemSnapshot.key))
                     
                     self?.delegate?.manager(didGet: dataInFM)
                     
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 }
             }
-            
         })
     }
 }
