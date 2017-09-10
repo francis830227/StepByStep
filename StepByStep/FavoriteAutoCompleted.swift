@@ -16,10 +16,6 @@ extension FavoriteViewController: GMSAutocompleteViewControllerDelegate {
 
     public func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
 
-        print("Place name: \(place.name)")
-
-        print("Place address: \(place.formattedAddress!)")
-
         self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!)
 
         self.dismiss(animated: false, completion: nil)
