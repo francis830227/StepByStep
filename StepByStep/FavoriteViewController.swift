@@ -154,6 +154,7 @@ extension FavoriteViewController: FetchManagerDelegate {
     func manager(didGet data: [FavoritePlace]) {
 
         self.placesInfo = data
+
         favoriteTableView.reloadData()
 
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
