@@ -15,14 +15,14 @@ extension UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
     func dismissKeyboard() {
         view.endEditing(true)
     }
 }
 
 extension UIAlertController {
-    
+
     func darkAlert(_ alert: UIAlertController) {
         let firstSubview = alert.view.subviews.first
         let alertContentView = firstSubview?.subviews.first
@@ -31,8 +31,8 @@ extension UIAlertController {
             subview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
             subview.alpha = 0.9
         }
-        
+
         alert.view.tintColor = .white
     }
-    
+
 }

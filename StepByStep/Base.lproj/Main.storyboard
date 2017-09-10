@@ -359,7 +359,7 @@
                                     <action selector="logoutButtonPressed:" destination="TvS-Vs-fvO" eventType="touchUpInside" id="q7E-H8-B9B"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 1.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Ei-eXL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 1.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Ei-eXL">
                                 <rect key="frame" x="275" y="627" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="c4T-0S-Fl8"/>

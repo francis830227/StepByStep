@@ -14,30 +14,28 @@ class CalendarCell: JTAppleCell {
     @IBOutlet weak var dateLabel: UILabel!
 
     @IBOutlet weak var selectedView: UIView!
-    
+
     @IBOutlet weak var dotImageView: UIImageView!
-    
+
     func selectedViewLayout() {
-        
+
         selectedView.bounce()
-        
+
     }
 
 }
 
 //bounce animation
 extension UIView {
-    
+
     func bounce() {
-        
+
         self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.beginFromCurrentState, animations:
-            {
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
                 self.transform = CGAffineTransform(scaleX: 1, y: 1)
-                
+
         })
     }
-    
-}
 
+}

@@ -14,111 +14,113 @@ import SlideMenuControllerSwift
 import NVActivityIndicatorView
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
-    
+
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
-    
+
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextFieldWithIcon!
-    
+
     @IBOutlet weak var firstNameTextField: SkyFloatingLabelTextFieldWithIcon!
-    
+
     @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextFieldWithIcon!
-    
+
     @IBOutlet weak var errorLabel: UILabel!
-    
+
     @IBOutlet weak var logoImageView: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         emailTextField.delegate = self
         passwordTextField.delegate = self
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
-        
+
         hideKeyboardWhenTappedAround()
-        
+
         dismissKeyboard()
     }
 
     @IBAction func signUpButtonPressed(_ sender: Any) {
-        
+
         let activityData = ActivityData()
-        
+
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        
+
         if emailTextField.text == "" || passwordTextField.text == "" {
-            
+
             errorLabel.isHidden = false
-            
+
             errorLabel.bounce()
-            
+
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-            
+
         } else {
-            
-            Auth.auth().createUser(withEmail: "\(emailTextField.text!)@abc.com", password: passwordTextField.text!) { (user, error) in
-                
+
+            Auth.auth().createUser(withEmail: "\(emailTextField.text!)@abc.com", password: passwordTextField.text!) { (_, error) in
+
                 if error == nil {
-                    
+
                     UserDefaults.standard.setValue(Auth.auth().currentUser?.uid, forKey: "uid")
-                    
+
                     UserDefaults.standard.synchronize()
-                    
+
                     let uid = Auth.auth().currentUser?.uid
-                    
+
                     let ref = Database.database().reference().child("users").child(uid!)
-                    
+
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    
+
                     let mainViewController = storyboard.instantiateViewController(withIdentifier: "homeNVC")
-                    
+
                     let leftViewController = storyboard.instantiateViewController(withIdentifier: "left")
-                    
+
                     let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
 
+                    // swiftlint:disable force_cast
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    
+                    // swiftlint:enable force_cast
+
                     appDelegate.window?.rootViewController = slideMenuController
-                    
+
                     let values = ["email": self.emailTextField.text!, "firstName": self.firstNameTextField.text!, "lastName": self.lastNameTextField.text!]
-                    
+
                     ref.updateChildValues(values)
-                    
+
                 } else {
-                    
+
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                    
+
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
+
                     alertController.darkAlert(alertController)
-                    
-                    alertController.setValue(NSAttributedString(string: "Error", attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedTitle")
-                    
-                    alertController.setValue(NSAttributedString(string: (error?.localizedDescription)!, attributes: [NSForegroundColorAttributeName : UIColor.white]), forKey: "attributedMessage")
-                    
+
+                    alertController.setValue(NSAttributedString(string: "Error", attributes: [NSForegroundColorAttributeName: UIColor.white]), forKey: "attributedTitle")
+
+                    alertController.setValue(NSAttributedString(string: (error?.localizedDescription)!, attributes: [NSForegroundColorAttributeName: UIColor.white]), forKey: "attributedMessage")
+
                     let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    
+
                     alertController.addAction(defaultAction)
-                    
+
                     self.present(alertController, animated: true, completion: nil)
                 }
-                
+
             }
-            
+
         }
-        
+
     }
-    
+
     func textFieldShouldReturn(_ eventTextField: UITextField) -> Bool {
-        
+
         self.view.endEditing(true)
-        
+
         return true
     }
-    
+
     @IBAction func loginButtonPressed(_ sender: Any) {
-        
+
         dismiss(animated: true, completion: nil)
-        
+
     }
 }

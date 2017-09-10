@@ -11,15 +11,14 @@ import UIKit
 class PickGooglePhotoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var pickImageView: UIImageView!
-    
+
     @IBOutlet weak var pickLabel: UILabel!
-    
+
     @IBOutlet weak var darkView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    
 }
