@@ -10,43 +10,37 @@ import Foundation
 import UIKit
 import GooglePlaces
 import Firebase
+import NVActivityIndicatorView
 
-extension FavoriteViewController: GMSAutocompleteResultsViewControllerDelegate {
-    
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-                           didAutocompleteWith place: GMSPlace) {
-        
-        searchController?.isActive = false
-        
-        // Do something with the selected place.
+extension FavoriteViewController: GMSAutocompleteViewControllerDelegate {
+
+    public func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+
         print("Place name: \(place.name)")
-        
+
         print("Place address: \(place.formattedAddress!)")
-        
-        self.places.append(Place(name: place.name, address: place.formattedAddress!, image: nil))
-        
-        self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!, indexPathRow: self.places.count - 1)
-        
+
+        self.loadFirstPhotoForPlace(placeID: place.placeID, placeName: place.name, placeAddress: place.formattedAddress!)
+
+        self.dismiss(animated: false, completion: nil)
+
         favoriteTableView.reloadData()
+
+        let activityData = ActivityData()
+
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+
+        NVActivityIndicatorPresenter.sharedInstance.setMessage("Saving")
     }
-    
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-                           didFailAutocompleteWithError error: Error){
-        
-        // TODO: handle the error.
+
+    public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+
         print("Error: ", error.localizedDescription)
-        
     }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        
+
+    public func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.dismiss(animated: false, completion: nil)
+
     }
-    
-    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
 }

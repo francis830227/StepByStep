@@ -1,5 +1,8 @@
 PODS:
   - AnimatedCollectionViewLayout (0.3.0)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - Firebase/Auth (4.0.2):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -30,14 +33,7 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleMaps (2.3.1):
-    - GoogleMaps/Maps (= 2.3.1)
   - GoogleMaps/Base (2.3.1)
-  - GoogleMaps/Maps (2.3.1):
-    - GoogleMaps/Base
-  - GooglePlacePicker (2.3.1):
-    - GoogleMaps (= 2.3.1)
-    - GooglePlaces (= 2.3.1)
   - GooglePlaces (2.3.1):
     - GoogleMaps/Base (= 2.3.1)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
@@ -83,26 +79,30 @@ PODS:
     - libwebp
     - SDWebImage/Core
   - SkyFloatingLabelTextField (3.1.0)
+  - SlideMenuControllerSwift (3.0.1)
   - SwifterSwift (1.6.4)
 
 DEPENDENCIES:
   - AnimatedCollectionViewLayout
+  - Crashlytics
+  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - GoogleMaps
-  - GooglePlacePicker
   - GooglePlaces
   - IQKeyboardManagerSwift
   - JTAppleCalendar (~> 7.0)
   - NVActivityIndicatorView
   - SDWebImage/WebP
   - SkyFloatingLabelTextField (~> 3.0)
+  - SlideMenuControllerSwift
   - SwifterSwift
 
 SPEC CHECKSUMS:
   AnimatedCollectionViewLayout: 504b992a4258eb39d2dd2b2b48e84b4b95860fd7
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
   FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -111,7 +111,6 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
-  GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
@@ -121,8 +120,9 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
+  SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
 
-PODFILE CHECKSUM: b472fb3ca4de3ed4db0f301d3f3d2018e07c2165
+PODFILE CHECKSUM: 4be91bc67fb6a598be4f35cc054dbf274b21da6e
 
 COCOAPODS: 1.2.1

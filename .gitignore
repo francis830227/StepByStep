@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/swift
 
+Key.swift
+*.plist
+
 ### Swift ###
 # Xcode
 #
@@ -9,6 +12,8 @@
 ## Build generated
 build/
 DerivedData/
+
+
 
 ## Various settings
 *.pbxuser

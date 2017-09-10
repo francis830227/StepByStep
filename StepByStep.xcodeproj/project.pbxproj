@@ -8,15 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0AEB5E429B685426A514C200 /* Pods_StepByStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */; };
-		152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */; };
-		152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */; };
 		152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */; };
-		152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */; };
 		152B3A391F2DAF51004FAC2D /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A381F2DAF51004FAC2D /* Gradient.swift */; };
 		152B3A3B1F2DF338004FAC2D /* hideKeyboard&alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A3A1F2DF338004FAC2D /* hideKeyboard&alert.swift */; };
-		152B3A3D1F2E0081004FAC2D /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */; };
 		152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */; };
-		152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A641F2F335F004FAC2D /* fetchManager.swift */; };
+		152B3A651F2F335F004FAC2D /* FetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B3A641F2F335F004FAC2D /* FetchManager.swift */; };
 		152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */; };
 		152C7E621F2779C7004E6E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E601F2779C7004E6E8C /* Main.storyboard */; };
 		152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */; };
@@ -24,14 +20,14 @@
 		152C7E6A1F2779C7004E6E8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E681F2779C7004E6E8C /* LaunchScreen.storyboard */; };
 		152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E711F277EF2004E6E8C /* LoginViewController.swift */; };
 		152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E731F277F11004E6E8C /* SignupViewController.swift */; };
-		152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E751F278117004E6E8C /* GoogleService-Info.plist */; };
 		152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */; };
 		153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153223AE1F407FA00044B0BF /* EditEventViewController.swift */; };
-		153A45CC1F3EBC6A00636223 /* TodayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */; };
-		153A45D21F3EC99500636223 /* FetchTodayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45D11F3EC99500636223 /* FetchTodayListManager.swift */; };
-		153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3C1F38709600804B48 /* DailyViewController.swift */; };
-		153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */; };
-		154EF1DF1F35C1B300881D69 /* key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EF1DE1F35C1B300881D69 /* key.swift */; };
+		1565201B1F441C83000DB4E9 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */; };
+		1565203C1F4472C3000DB4E9 /* PickGooglePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565203B1F4472C3000DB4E9 /* PickGooglePhotoViewController.swift */; };
+		1565203E1F44761F000DB4E9 /* PickGooglePhotoTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565203D1F44761F000DB4E9 /* PickGooglePhotoTableViewDelegate.swift */; };
+		156520411F44782A000DB4E9 /* GradientPick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156520401F44782A000DB4E9 /* GradientPick.swift */; };
+		156520431F44799B000DB4E9 /* PickGooglePhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156520421F44799B000DB4E9 /* PickGooglePhotoTableViewCell.swift */; };
+		15B395261F43E1E300F7C1DE /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B395251F43E1E300F7C1DE /* LeftViewController.swift */; };
 		15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */; };
 		15B9E2031F32058D004FE3B6 /* GradientFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */; };
 		15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */; };
@@ -42,41 +38,38 @@
 		15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC4331F289C3D001DF19A /* MainViewController.swift */; };
 		15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45C1F28D272001DF19A /* CalendarCell.swift */; };
 		15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */; };
-		15F8CCC31F2B376C004F1A0A /* EverydayEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */; };
-		15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */; };
-		15F8CCC91F2B6610004F1A0A /* JTAppleCalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCC81F2B6610004F1A0A /* JTAppleCalendarDelegate.swift */; };
-		15F8CCCB1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8CCCA1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift */; };
+		15EFF7371F4D7DA300AAA940 /* LeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */; };
+		15EFF7391F4D843400AAA940 /* CheckedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF7381F4D843400AAA940 /* CheckedViewController.swift */; };
+		15EFF73B1F4D8D4300AAA940 /* CheckedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */; };
+		15FAB37E1F654F0700FCF4BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15FAB37D1F654F0700FCF4BD /* GoogleService-Info.plist */; };
+		15FAB3821F654F7500FCF4BD /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FAB3811F654F7500FCF4BD /* Key.swift */; };
+		15FAB3841F654FAA00FCF4BD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15FAB3831F654FAA00FCF4BD /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		013C5C7BAA191E40B9F76C83 /* Pods-StepByStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.debug.xcconfig"; sourceTree = "<group>"; };
-		152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventTableViewCell.swift; sourceTree = "<group>"; };
-		152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventTableView.swift; sourceTree = "<group>"; };
 		152B3A341F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
-		152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		152B3A381F2DAF51004FAC2D /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		152B3A3A1F2DF338004FAC2D /* hideKeyboard&alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "hideKeyboard&alert.swift"; sourceTree = "<group>"; };
-		152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepByStep.entitlements; sourceTree = "<group>"; };
 		152B3A421F2EF881004FAC2D /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
-		152B3A641F2F335F004FAC2D /* fetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fetchManager.swift; path = ../fetchManager.swift; sourceTree = "<group>"; };
-		152C7E591F2779C7004E6E8C /* StepByStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepByStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		152B3A641F2F335F004FAC2D /* FetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchManager.swift; path = ../FetchManager.swift; sourceTree = "<group>"; };
+		152C7E591F2779C7004E6E8C /* Card Your Date!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Your Date!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C7E611F2779C7004E6E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		152C7E641F2779C7004E6E8C /* StepByStep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StepByStep.xcdatamodel; sourceTree = "<group>"; };
 		152C7E661F2779C7004E6E8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		152C7E691F2779C7004E6E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		152C7E6B1F2779C7004E6E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		152C7E711F277EF2004E6E8C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		152C7E731F277F11004E6E8C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		152C7E751F278117004E6E8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = StepByStep/MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		153223AE1F407FA00044B0BF /* EditEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEventViewController.swift; path = StepByStep/EditEventViewController.swift; sourceTree = "<group>"; };
-		153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayTableViewController.swift; sourceTree = "<group>"; };
-		153A45D11F3EC99500636223 /* FetchTodayListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchTodayListManager.swift; sourceTree = "<group>"; };
-		153DEB3C1F38709600804B48 /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
-		153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
-		154EF1DE1F35C1B300881D69 /* key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = key.swift; sourceTree = "<group>"; };
+		1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuViewController.swift; path = StepByStep/SlideMenuViewController.swift; sourceTree = "<group>"; };
+		1565203B1F4472C3000DB4E9 /* PickGooglePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGooglePhotoViewController.swift; sourceTree = "<group>"; };
+		1565203D1F44761F000DB4E9 /* PickGooglePhotoTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGooglePhotoTableViewDelegate.swift; sourceTree = "<group>"; };
+		156520401F44782A000DB4E9 /* GradientPick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientPick.swift; sourceTree = "<group>"; };
+		156520421F44799B000DB4E9 /* PickGooglePhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGooglePhotoTableViewCell.swift; sourceTree = "<group>"; };
+		15B395251F43E1E300F7C1DE /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftViewController.swift; path = StepByStep/LeftViewController.swift; sourceTree = "<group>"; };
 		15B9E1FB1F31D5EB004FE3B6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		15B9E2021F32058D004FE3B6 /* GradientFavorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientFavorite.swift; sourceTree = "<group>"; };
 		15B9E2041F32061E004FE3B6 /* FavoriteTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -87,10 +80,12 @@
 		15EDC4331F289C3D001DF19A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = StepByStep/MainViewController.swift; sourceTree = "<group>"; };
 		15EDC45C1F28D272001DF19A /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		15EDC45E1F28D420001DF19A /* PickEndDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickEndDateViewController.swift; sourceTree = "<group>"; };
-		15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EverydayEventViewController.swift; sourceTree = "<group>"; };
-		15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCalendarCell.swift; sourceTree = "<group>"; };
-		15F8CCC81F2B6610004F1A0A /* JTAppleCalendarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTAppleCalendarDelegate.swift; sourceTree = "<group>"; };
-		15F8CCCA1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTAppleCalendarDatasource.swift; sourceTree = "<group>"; };
+		15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftTableViewCell.swift; sourceTree = "<group>"; };
+		15EFF7381F4D843400AAA940 /* CheckedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedViewController.swift; sourceTree = "<group>"; };
+		15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedTableViewCell.swift; sourceTree = "<group>"; };
+		15FAB37D1F654F0700FCF4BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		15FAB3811F654F7500FCF4BD /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		15FAB3831F654FAA00FCF4BD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepByStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */,
-				152C7E6B1F2779C7004E6E8C /* Info.plist */,
-				152C7E751F278117004E6E8C /* GoogleService-Info.plist */,
+				15FAB37D1F654F0700FCF4BD /* GoogleService-Info.plist */,
+				15FAB3831F654FAA00FCF4BD /* Info.plist */,
 				152C7E661F2779C7004E6E8C /* Assets.xcassets */,
 			);
 			name = Resource;
@@ -131,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				152C7E5B1F2779C7004E6E8C /* StepByStep */,
-				15F8CCC41F2B3777004F1A0A /* EverydayEventView */,
 				152C7E5A1F2779C7004E6E8C /* Products */,
 				141C97B58E404B69F4F80D53 /* Pods */,
 				B07CFF51F7AD773675CB3A1E /* Frameworks */,
@@ -141,7 +135,7 @@
 		152C7E5A1F2779C7004E6E8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				152C7E591F2779C7004E6E8C /* StepByStep.app */,
+				152C7E591F2779C7004E6E8C /* Card Your Date!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,16 +146,16 @@
 				152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */,
 				152B3A411F2EF881004FAC2D /* Task.xcdatamodeld */,
 				152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */,
-				154EF1DE1F35C1B300881D69 /* key.swift */,
 				152B3A3A1F2DF338004FAC2D /* hideKeyboard&alert.swift */,
-				152B3A641F2F335F004FAC2D /* fetchManager.swift */,
+				15FAB3811F654F7500FCF4BD /* Key.swift */,
+				152B3A641F2F335F004FAC2D /* FetchManager.swift */,
 				15EDC4381F28BAAE001DF19A /* Signup */,
 				15EDC4391F28BABE001DF19A /* Login */,
+				1565203A1F44720B000DB4E9 /* SettingView */,
 				15EDC43B1F28BB04001DF19A /* MainView */,
 				15EDC4601F28DACB001DF19A /* PickEndDateView */,
+				1565203F1F447650000DB4E9 /* PickGooglePhotoView */,
 				15B9E1F61F30C817004FE3B6 /* FavoriteView */,
-				153DEB3E1F3889E900804B48 /* DailyView */,
-				15F309551F3DFD00008FBDA2 /* TodayView */,
 				152C7E601F2779C7004E6E8C /* Main.storyboard */,
 				152C7E681F2779C7004E6E8C /* LaunchScreen.storyboard */,
 				152B3A311F2C2E33004FAC2D /* Resource */,
@@ -169,13 +163,28 @@
 			path = StepByStep;
 			sourceTree = "<group>";
 		};
-		153DEB3E1F3889E900804B48 /* DailyView */ = {
+		1565203A1F44720B000DB4E9 /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
-				153DEB3C1F38709600804B48 /* DailyViewController.swift */,
-				153DEB3F1F388A2100804B48 /* DailyTableViewCell.swift */,
+				1565201A1F441C83000DB4E9 /* SlideMenuViewController.swift */,
+				15B395251F43E1E300F7C1DE /* LeftViewController.swift */,
+				15EFF7381F4D843400AAA940 /* CheckedViewController.swift */,
+				15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */,
+				15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */,
 			);
-			name = DailyView;
+			name = SettingView;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1565203F1F447650000DB4E9 /* PickGooglePhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				1565203B1F4472C3000DB4E9 /* PickGooglePhotoViewController.swift */,
+				1565203D1F44761F000DB4E9 /* PickGooglePhotoTableViewDelegate.swift */,
+				156520421F44799B000DB4E9 /* PickGooglePhotoTableViewCell.swift */,
+				156520401F44782A000DB4E9 /* GradientPick.swift */,
+			);
+			name = PickGooglePhotoView;
 			sourceTree = "<group>";
 		};
 		15B9E1F61F30C817004FE3B6 /* FavoriteView */ = {
@@ -240,39 +249,6 @@
 			name = PickEndDateView;
 			sourceTree = "<group>";
 		};
-		15F309551F3DFD00008FBDA2 /* TodayView */ = {
-			isa = PBXGroup;
-			children = (
-				153A45CB1F3EBC6A00636223 /* TodayTableViewController.swift */,
-				153A45D11F3EC99500636223 /* FetchTodayListManager.swift */,
-			);
-			name = TodayView;
-			sourceTree = "<group>";
-		};
-		15F8CCC41F2B3777004F1A0A /* EverydayEventView */ = {
-			isa = PBXGroup;
-			children = (
-				15F8CCC71F2B658E004F1A0A /* JTAppleCalendar */,
-				15F8CCC51F2B60C8004F1A0A /* EventCalendarCell.swift */,
-				152B3A3C1F2E0081004FAC2D /* TextFieldDelegate.swift */,
-				152B3A2F1F2C2DB8004FAC2D /* EverydayEventTableView.swift */,
-				152B3A2D1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift */,
-				15F8CCC21F2B376C004F1A0A /* EverydayEventViewController.swift */,
-			);
-			name = EverydayEventView;
-			path = StepByStep;
-			sourceTree = "<group>";
-		};
-		15F8CCC71F2B658E004F1A0A /* JTAppleCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				152B3A361F2D8C70004FAC2D /* CalendarHeader.swift */,
-				15F8CCCA1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift */,
-				15F8CCC81F2B6610004F1A0A /* JTAppleCalendarDelegate.swift */,
-			);
-			name = JTAppleCalendar;
-			sourceTree = "<group>";
-		};
 		B07CFF51F7AD773675CB3A1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,9 +260,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		152C7E581F2779C6004E6E8C /* StepByStep */ = {
+		152C7E581F2779C6004E6E8C /* Card Your Date! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "StepByStep" */;
+			buildConfigurationList = 152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card Your Date!" */;
 			buildPhases = (
 				92BFA5E2E1ED27DCCA34DE00 /* [CP] Check Pods Manifest.lock */,
 				152C7E551F2779C6004E6E8C /* Sources */,
@@ -294,14 +270,16 @@
 				152C7E571F2779C6004E6E8C /* Resources */,
 				3D054B2298E4C8C9AC329547 /* [CP] Embed Pods Frameworks */,
 				88D2557AA12BFE1194A4887B /* [CP] Copy Pods Resources */,
+				156B904B1F481DAC000772EB /* ShellScript */,
+				15FAB3751F64EF4700FCF4BD /* Swiftlint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = StepByStep;
+			name = "Card Your Date!";
 			productName = StepByStep;
-			productReference = 152C7E591F2779C7004E6E8C /* StepByStep.app */;
+			productReference = 152C7E591F2779C7004E6E8C /* Card Your Date!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -342,7 +320,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				152C7E581F2779C6004E6E8C /* StepByStep */,
+				152C7E581F2779C6004E6E8C /* Card Your Date! */,
 			);
 		};
 /* End PBXProject section */
@@ -353,8 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				152C7E6A1F2779C7004E6E8C /* LaunchScreen.storyboard in Resources */,
+				15FAB37E1F654F0700FCF4BD /* GoogleService-Info.plist in Resources */,
 				152C7E671F2779C7004E6E8C /* Assets.xcassets in Resources */,
-				152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */,
+				15FAB3841F654FAA00FCF4BD /* Info.plist in Resources */,
 				152C7E621F2779C7004E6E8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +341,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		156B904B1F481DAC000772EB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 54f44d1f1d19f45e71f3edc4e3a95d4c87ee82ad 72c28bc081ac5273a5a4bbc3fe5fbf9971c4d5d2ea5b84e5056a43c722252b61";
+		};
+		15FAB3751F64EF4700FCF4BD /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		3D054B2298E4C8C9AC329547 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,39 +420,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				153A45D21F3EC99500636223 /* FetchTodayListManager.swift in Sources */,
 				152B3A3B1F2DF338004FAC2D /* hideKeyboard&alert.swift in Sources */,
-				153A45CC1F3EBC6A00636223 /* TodayTableViewController.swift in Sources */,
+				1565203E1F44761F000DB4E9 /* PickGooglePhotoTableViewDelegate.swift in Sources */,
 				15EDC4341F289C3D001DF19A /* MainViewController.swift in Sources */,
 				15EDC45D1F28D272001DF19A /* CalendarCell.swift in Sources */,
-				152B3A371F2D8C70004FAC2D /* CalendarHeader.swift in Sources */,
 				152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */,
-				15F8CCCB1F2B6808004F1A0A /* JTAppleCalendarDatasource.swift in Sources */,
 				152B3A391F2DAF51004FAC2D /* Gradient.swift in Sources */,
-				15F8CCC31F2B376C004F1A0A /* EverydayEventViewController.swift in Sources */,
-				152B3A301F2C2DB8004FAC2D /* EverydayEventTableView.swift in Sources */,
 				15B9E2031F32058D004FE3B6 /* GradientFavorite.swift in Sources */,
 				15E8BFF61F2A102B00458733 /* JTAppleCalendarViewDataSource.swift in Sources */,
-				154EF1DF1F35C1B300881D69 /* key.swift in Sources */,
+				1565201B1F441C83000DB4E9 /* SlideMenuViewController.swift in Sources */,
 				15E8BFF81F2A106E00458733 /* JTAppleCalendarViewDelegate.swift in Sources */,
-				153DEB3D1F38709600804B48 /* DailyViewController.swift in Sources */,
 				152B3A351F2D8894004FAC2D /* CalendarHeaderCollectionReusableView.swift in Sources */,
-				152B3A651F2F335F004FAC2D /* fetchManager.swift in Sources */,
+				152B3A651F2F335F004FAC2D /* FetchManager.swift in Sources */,
 				15C94E061F3C05D0003C2A97 /* FavTableViewCell.swift in Sources */,
+				15EFF7371F4D7DA300AAA940 /* LeftTableViewCell.swift in Sources */,
 				15B9E1FC1F31D5EB004FE3B6 /* FavoriteViewController.swift in Sources */,
-				153DEB401F388A2100804B48 /* DailyTableViewCell.swift in Sources */,
 				153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */,
 				152B3A431F2EF881004FAC2D /* Task.xcdatamodeld in Sources */,
-				152B3A2E1F2B82DA004FAC2D /* EverydayEventTableViewCell.swift in Sources */,
-				15F8CCC61F2B60C8004F1A0A /* EventCalendarCell.swift in Sources */,
+				15EFF7391F4D843400AAA940 /* CheckedViewController.swift in Sources */,
 				152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */,
+				156520431F44799B000DB4E9 /* PickGooglePhotoTableViewCell.swift in Sources */,
+				15EFF73B1F4D8D4300AAA940 /* CheckedTableViewCell.swift in Sources */,
 				152C7E651F2779C7004E6E8C /* StepByStep.xcdatamodeld in Sources */,
+				1565203C1F4472C3000DB4E9 /* PickGooglePhotoViewController.swift in Sources */,
 				15EDC45F1F28D420001DF19A /* PickEndDateViewController.swift in Sources */,
-				152B3A3D1F2E0081004FAC2D /* TextFieldDelegate.swift in Sources */,
 				152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */,
 				15B9E2051F32061E004FE3B6 /* FavoriteTableViewDelegate.swift in Sources */,
 				152C7E5D1F2779C7004E6E8C /* AppDelegate.swift in Sources */,
-				15F8CCC91F2B6610004F1A0A /* JTAppleCalendarDelegate.swift in Sources */,
+				156520411F44782A000DB4E9 /* GradientPick.swift in Sources */,
+				15B395261F43E1E300F7C1DE /* LeftViewController.swift in Sources */,
+				15FAB3821F654F7500FCF4BD /* Key.swift in Sources */,
 				15B9E2071F320653004FE3B6 /* FavoriteAutoCompleted.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +583,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = francis.StepByStep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -595,6 +599,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = francis.StepByStep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -610,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "StepByStep" */ = {
+		152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card Your Date!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				152C7E6F1F2779C7004E6E8C /* Debug */,
