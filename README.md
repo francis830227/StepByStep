@@ -18,28 +18,28 @@
 
 ##截圖
 
-* **登入 & 註冊畫面**
-![](Screenshot/signup.png)![](Screenshot/login.png)
+* **登入 & 註冊畫面**  
+![](Screenshot/signup.png)  ![](Screenshot/login.png)
 
-* **主畫面**  
-沒有事件時![](Screenshot/mainEmpty.png)  
-有事件時![](Screenshot/main.png)
+* **主畫面**   
+![](Screenshot/mainEmpty.png) 
+![](Screenshot/main.png)
 
 * **新增事件**  
 ![](Screenshot/pick.png)
 
-* **修改事件**
+* **修改事件**  
 ![](Screenshot/edit.png)
 
-* **側拉選單**
+* **側拉選單**  
 ![](Screenshot/slideMenu.png)
 
 * **已完成清單**  
-若事件已完成可從主畫面移至此清單
+若事件已完成可從主畫面移至此清單  
 ![](Screenshot/checked.png)
 
 * **地點清單**  
-可搜尋地點得到地址、圖片，並可把圖片設成卡片背景圖片
+可搜尋地點得到地址、圖片，並可把圖片設成卡片背景圖片  
 ![](Screenshot/placeEmpty.png)
 ![](Screenshot/place.png)
 
