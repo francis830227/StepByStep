@@ -1,2 +1,3 @@
-key.swift
-GoogleService-Info.plist
+Key.swift
+
+*.plist
