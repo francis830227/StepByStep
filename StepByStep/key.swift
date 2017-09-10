@@ -8,4 +8,4 @@
 
 import Foundation
 
-let placesKey = "AIzaSyA2SAESJAo7CB1Z0IBqH4dGrr0WQHWefxA"
+let placesKey = "AIzaSyB2UGOeRyGKikXvzAk-A5UOm9JiGPPfB5Q"

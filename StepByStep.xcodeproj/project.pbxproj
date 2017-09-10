@@ -20,7 +20,6 @@
 		152C7E6A1F2779C7004E6E8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E681F2779C7004E6E8C /* LaunchScreen.storyboard */; };
 		152C7E721F277EF2004E6E8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E711F277EF2004E6E8C /* LoginViewController.swift */; };
 		152C7E741F277F11004E6E8C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E731F277F11004E6E8C /* SignupViewController.swift */; };
-		152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 152C7E751F278117004E6E8C /* GoogleService-Info.plist */; };
 		152C7E891F279B73004E6E8C /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */; };
 		153223AF1F407FA00044B0BF /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153223AE1F407FA00044B0BF /* EditEventViewController.swift */; };
 		154EF1DF1F35C1B300881D69 /* key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EF1DE1F35C1B300881D69 /* key.swift */; };
@@ -43,6 +42,7 @@
 		15EFF7371F4D7DA300AAA940 /* LeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */; };
 		15EFF7391F4D843400AAA940 /* CheckedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF7381F4D843400AAA940 /* CheckedViewController.swift */; };
 		15EFF73B1F4D8D4300AAA940 /* CheckedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */; };
+		15FAB3781F6541CA00FCF4BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15FAB3771F6541CA00FCF4BD /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +53,7 @@
 		152B3A3E1F2ED8D2004FAC2D /* StepByStep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepByStep.entitlements; sourceTree = "<group>"; };
 		152B3A421F2EF881004FAC2D /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		152B3A641F2F335F004FAC2D /* fetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fetchManager.swift; path = ../fetchManager.swift; sourceTree = "<group>"; };
-		152C7E591F2779C7004E6E8C /* Card My Date!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card My Date!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		152C7E591F2779C7004E6E8C /* Card Your Date!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Your Date!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C7E5C1F2779C7004E6E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C7E611F2779C7004E6E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		152C7E641F2779C7004E6E8C /* StepByStep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StepByStep.xcdatamodel; sourceTree = "<group>"; };
@@ -62,7 +62,6 @@
 		152C7E6B1F2779C7004E6E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		152C7E711F277EF2004E6E8C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		152C7E731F277F11004E6E8C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		152C7E751F278117004E6E8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		152C7E881F279B73004E6E8C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewCell.swift; path = StepByStep/MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		153223AE1F407FA00044B0BF /* EditEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEventViewController.swift; path = StepByStep/EditEventViewController.swift; sourceTree = "<group>"; };
 		154EF1DE1F35C1B300881D69 /* key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = key.swift; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		15EFF7361F4D7DA300AAA940 /* LeftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftTableViewCell.swift; sourceTree = "<group>"; };
 		15EFF7381F4D843400AAA940 /* CheckedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedViewController.swift; sourceTree = "<group>"; };
 		15EFF73A1F4D8D4300AAA940 /* CheckedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckedTableViewCell.swift; sourceTree = "<group>"; };
+		15FAB3771F6541CA00FCF4BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepByStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +115,7 @@
 			children = (
 				152C7E631F2779C7004E6E8C /* StepByStep.xcdatamodeld */,
 				152C7E6B1F2779C7004E6E8C /* Info.plist */,
-				152C7E751F278117004E6E8C /* GoogleService-Info.plist */,
+				15FAB3771F6541CA00FCF4BD /* GoogleService-Info.plist */,
 				152C7E661F2779C7004E6E8C /* Assets.xcassets */,
 			);
 			name = Resource;
@@ -134,7 +134,7 @@
 		152C7E5A1F2779C7004E6E8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				152C7E591F2779C7004E6E8C /* Card My Date!.app */,
+				152C7E591F2779C7004E6E8C /* Card Your Date!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,9 +259,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		152C7E581F2779C6004E6E8C /* Card My Date! */ = {
+		152C7E581F2779C6004E6E8C /* Card Your Date! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card My Date!" */;
+			buildConfigurationList = 152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card Your Date!" */;
 			buildPhases = (
 				92BFA5E2E1ED27DCCA34DE00 /* [CP] Check Pods Manifest.lock */,
 				152C7E551F2779C6004E6E8C /* Sources */,
@@ -276,9 +276,9 @@
 			);
 			dependencies = (
 			);
-			name = "Card My Date!";
+			name = "Card Your Date!";
 			productName = StepByStep;
-			productReference = 152C7E591F2779C7004E6E8C /* Card My Date!.app */;
+			productReference = 152C7E591F2779C7004E6E8C /* Card Your Date!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -319,7 +319,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				152C7E581F2779C6004E6E8C /* Card My Date! */,
+				152C7E581F2779C6004E6E8C /* Card Your Date! */,
 			);
 		};
 /* End PBXProject section */
@@ -329,9 +329,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15FAB3781F6541CA00FCF4BD /* GoogleService-Info.plist in Resources */,
 				152C7E6A1F2779C7004E6E8C /* LaunchScreen.storyboard in Resources */,
 				152C7E671F2779C7004E6E8C /* Assets.xcassets in Resources */,
-				152C7E761F278117004E6E8C /* GoogleService-Info.plist in Resources */,
 				152C7E621F2779C7004E6E8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,7 +613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card My Date!" */ = {
+		152C7E6E1F2779C7004E6E8C /* Build configuration list for PBXNativeTarget "Card Your Date!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				152C7E6F1F2779C7004E6E8C /* Debug */,
