@@ -42,11 +42,11 @@ extension UINavigationBar {
 extension CAGradientLayer {
 
     convenience init(frame: CGRect, colors: [UIColor]) {
-        
+
         self.init()
-        
+
         self.frame = frame
-        
+
         self.colors = []
         for color in colors {
 

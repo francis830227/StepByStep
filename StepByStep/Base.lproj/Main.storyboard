@@ -14,7 +14,7 @@
         <!--Login View Controller-->
         <scene sceneID="tSc-FR-zjb">
             <objects>
-                <viewController storyboardIdentifier="loginVC" id="W6I-G9-whl" customClass="LoginViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="W6I-G9-whl" customClass="LoginViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q5q-zK-kcm"/>
                         <viewControllerLayoutGuide type="bottom" id="ewG-el-DUy"/>
@@ -200,7 +200,7 @@
         <!--Left View Controller-->
         <scene sceneID="WJC-LY-bNM">
             <objects>
-                <viewController storyboardIdentifier="left" id="TvS-Vs-fvO" customClass="LeftViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="left" id="TvS-Vs-fvO" customClass="LeftViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dLn-8R-XlV"/>
                         <viewControllerLayoutGuide type="bottom" id="H2T-JN-xcz"/>
@@ -291,7 +291,7 @@
                                 <rect key="frame" x="0.0" y="267" width="375" height="400"/>
                                 <color key="backgroundColor" red="0.19214463230000001" green="0.19216534499999999" blue="0.1921273768" alpha="0.75428082190000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="leftCell" rowHeight="60" id="gfZ-8i-Kat" customClass="LeftTableViewCell" customModule="Card_My_Date_" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="leftCell" rowHeight="60" id="gfZ-8i-Kat" customClass="LeftTableViewCell" customModule="Card_Your_Date_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfZ-8i-Kat" id="OFh-Ra-PzP">
@@ -408,7 +408,7 @@
         <!--Signup View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignupViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignupViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -685,7 +685,7 @@
         <!--Main View Controller-->
         <scene sceneID="SNq-Bh-Srn">
             <objects>
-                <viewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMY-pn-IJn" customClass="MainViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMY-pn-IJn" customClass="MainViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wAs-hC-O9k"/>
                         <viewControllerLayoutGuide type="bottom" id="1my-wA-2I0"/>
@@ -704,7 +704,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionViewCell" id="dwT-xf-3v8" customClass="MainCollectionViewCell" customModule="Card_My_Date_" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionViewCell" id="dwT-xf-3v8" customClass="MainCollectionViewCell" customModule="Card_Your_Date_" customModuleProvider="target">
                                         <rect key="frame" x="40" y="0.0" width="295" height="523"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1063,7 +1063,7 @@
         <!--Edit Event View Controller-->
         <scene sceneID="FcI-3J-MeI">
             <objects>
-                <viewController storyboardIdentifier="editEvent" id="7Cb-u1-GS2" customClass="EditEventViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editEvent" id="7Cb-u1-GS2" customClass="EditEventViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uAL-ew-csI"/>
                         <viewControllerLayoutGuide type="bottom" id="4vR-AR-mMo"/>
@@ -1262,7 +1262,7 @@
         <!--Favorite Places-->
         <scene sceneID="K4a-2w-oeT">
             <objects>
-                <viewController id="KUp-SL-Tc7" customClass="FavoriteViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KUp-SL-Tc7" customClass="FavoriteViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6ZZ-AK-eDH"/>
                         <viewControllerLayoutGuide type="bottom" id="wmB-xr-Y0H"/>
@@ -1275,7 +1275,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" red="0.19213148951530457" green="0.19217148423194885" blue="0.192128986120224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="favoriteCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="154" id="OWS-pJ-S4T" customClass="FavTableViewCell" customModule="Card_My_Date_" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="favoriteCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="154" id="OWS-pJ-S4T" customClass="FavTableViewCell" customModule="Card_Your_Date_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OWS-pJ-S4T" id="fJO-Yf-7Ur">
@@ -1438,7 +1438,7 @@
         <!--Ib Calendar Data Source-->
         <scene sceneID="ZE7-2g-EF6">
             <objects>
-                <viewController storyboardIdentifier="pickDate" id="ytw-Bg-NU3" customClass="PickEndDateViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pickDate" id="ytw-Bg-NU3" customClass="PickEndDateViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rRb-Nh-eu5"/>
                         <viewControllerLayoutGuide type="bottom" id="c6b-R2-v8k"/>
@@ -1484,7 +1484,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="yax-yu-zaF" customClass="CalendarCell" customModule="Card_My_Date_" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="yax-yu-zaF" customClass="CalendarCell" customModule="Card_Your_Date_" customModuleProvider="target">
                                                         <rect key="frame" x="303" y="0.0" width="135" height="121"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1523,7 +1523,7 @@
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
-                                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="yFj-27-Zuo" customClass="CalendarHeaderCollectionReusableView" customModule="Card_My_Date_" customModuleProvider="target">
+                                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="yFj-27-Zuo" customClass="CalendarHeaderCollectionReusableView" customModule="Card_Your_Date_" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="303" height="252"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -1817,7 +1817,7 @@
         <!--Checked View Controller-->
         <scene sceneID="f9Z-fi-Hok">
             <objects>
-                <viewController id="fhe-rK-TtQ" customClass="CheckedViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fhe-rK-TtQ" customClass="CheckedViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l4n-AV-vqY"/>
                         <viewControllerLayoutGuide type="bottom" id="hz9-IQ-w07"/>
@@ -1830,7 +1830,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" red="0.19214463230000001" green="0.19216534499999999" blue="0.1921273768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CheckedCell" rowHeight="142" id="ahA-mp-lQX" customClass="CheckedTableViewCell" customModule="Card_My_Date_" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CheckedCell" rowHeight="142" id="ahA-mp-lQX" customClass="CheckedTableViewCell" customModule="Card_Your_Date_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ahA-mp-lQX" id="jYC-Na-o2f">
@@ -1979,7 +1979,7 @@
         <!--Pick a photo-->
         <scene sceneID="w0g-Ad-ivW">
             <objects>
-                <viewController storyboardIdentifier="googlephoto" id="xcQ-11-8GZ" customClass="PickGooglePhotoViewController" customModule="Card_My_Date_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="googlephoto" id="xcQ-11-8GZ" customClass="PickGooglePhotoViewController" customModule="Card_Your_Date_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sEb-pA-a6g"/>
                         <viewControllerLayoutGuide type="bottom" id="qVD-W1-KGW"/>
@@ -1992,7 +1992,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" red="0.1921314895" green="0.19217148419999999" blue="0.19212898610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pickphotoCell" id="c3C-Le-wmx" customClass="PickGooglePhotoTableViewCell" customModule="Card_My_Date_" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pickphotoCell" id="c3C-Le-wmx" customClass="PickGooglePhotoTableViewCell" customModule="Card_Your_Date_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c3C-Le-wmx" id="Upx-a6-B6s">

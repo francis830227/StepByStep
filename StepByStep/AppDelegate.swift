@@ -72,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if !granted {
                 print("UNUserNotificationCenter error")
             }
-            
         }
 
         Fabric.with([Crashlytics.self])
@@ -101,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             content.sound = UNNotificationSound.default()
 
         } else {
-            
+
             return
         }
 
@@ -120,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().delegate = self
-        
+
         UNUserNotificationCenter.current().add(request) {(error) in
 
             if error != nil {
