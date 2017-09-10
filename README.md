@@ -6,7 +6,7 @@
 * 下載此專案後，須申請 `Google Places 的 Key` 以及 `Firebase 的 .plist`方可順利執行。
 
 
-##簡介
+## 簡介
 **Card Your Date!** 是一款用卡片形式紀錄事件且有倒數功能的 iOS App，並每天提醒最近到期的事件。可以從[此處](https://itunes.apple.com/us/app/card-your-date/id1273603261)免費下載。
 
 * 串接 Google Places API 取得地點資訊
@@ -16,7 +16,7 @@
 * 使用 Swiftlint 管理程式碼習慣
 * 導入 Analytics 及 Crashlytics
 
-##截圖
+## 截圖
 
 * **登入 & 註冊畫面**  
 ![](Screenshot/signup.png)  ![](Screenshot/login.png)
@@ -43,7 +43,7 @@
 ![](Screenshot/placeEmpty.png)
 ![](Screenshot/place.png)
 
-##使用套件
+## 使用套件
 * Firebase
 * AnimatedCollectionViewLayout
 * JTAppleCalendar
