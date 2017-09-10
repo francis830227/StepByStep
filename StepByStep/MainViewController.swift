@@ -88,7 +88,6 @@ class MainViewController: UIViewController {
             layout.scrollDirection = .horizontal
 
             layout.animator = animator
-
         }
     }
 
@@ -371,8 +370,12 @@ extension MainViewController: FetchManagerDelegate {
 
         self.dates = data
 
-        guard let datesMin = dates.min() else { return }
+        let datesBiggerThanZero = dates.filter{ $0.second >= 0 }
+
+        guard let datesMin = datesBiggerThanZero.min() else { return }
+
         let delegate = UIApplication.shared.delegate as? AppDelegate
+
         delegate?.prepareNotification(datesMin, todayInt!)
 
         collectionView.reloadData()
