@@ -61,11 +61,10 @@
 * Fabric
 * Crashlytics
 
+<<<<<<< HEAD
 ## 系統需求  
 * iOS 10.3+
 * XCode 8.3.3+
-
 ## 聯絡方式
 Francis Tseng  
 [francis830227@gmail.com](francis830227@gmail.com)
-
