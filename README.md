@@ -19,8 +19,12 @@
 ## 截圖
 
 * **登入 & 註冊畫面**  
+<<<<<<< HEAD
 ![](Screenshot/signup.png)  ![](Screenshot/login.png)  
 
+=======
+![](Screenshot/signup.png)  ![](Screenshot/login.png)
+>>>>>>> changeKey
 
 * **主畫面**   
 ![](Screenshot/mainEmpty.png) 
@@ -58,7 +62,10 @@
 * Fabric
 * Crashlytics
 
+<<<<<<< HEAD
 ## 聯絡方式
 Francis Tseng  
 [francis830227@gmail.com](francis830227@gmail.com)
+=======
+>>>>>>> changeKey
 
