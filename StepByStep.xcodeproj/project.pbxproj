@@ -44,7 +44,6 @@
 		15FAB37E1F654F0700FCF4BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15FAB37D1F654F0700FCF4BD /* GoogleService-Info.plist */; };
 		15FAB3821F654F7500FCF4BD /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FAB3811F654F7500FCF4BD /* Key.swift */; };
 		15FAB3841F654FAA00FCF4BD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15FAB3831F654FAA00FCF4BD /* Info.plist */; };
-		6108CB381E96617815D6F170 /* Pods_Card_Your_Date_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8F6BB05CF763FD4DB2DF0A /* Pods_Card_Your_Date_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,11 +86,8 @@
 		15FAB37D1F654F0700FCF4BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15FAB3811F654F7500FCF4BD /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		15FAB3831F654FAA00FCF4BD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B8F6BB05CF763FD4DB2DF0A /* Pods_Card_Your_Date_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Card_Your_Date_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepByStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepByStep.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep.release.xcconfig"; sourceTree = "<group>"; };
-		C7FE03ECEA12B413301AD307 /* Pods-Card Your Date!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Card Your Date!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Card Your Date!/Pods-Card Your Date!.release.xcconfig"; sourceTree = "<group>"; };
-		D277A1A25FBABA3742813C49 /* Pods-Card Your Date!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Card Your Date!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Card Your Date!/Pods-Card Your Date!.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +96,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AEB5E429B685426A514C200 /* Pods_StepByStep.framework in Frameworks */,
-				6108CB381E96617815D6F170 /* Pods_Card_Your_Date_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +107,6 @@
 			children = (
 				013C5C7BAA191E40B9F76C83 /* Pods-StepByStep.debug.xcconfig */,
 				BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */,
-				D277A1A25FBABA3742813C49 /* Pods-Card Your Date!.debug.xcconfig */,
-				C7FE03ECEA12B413301AD307 /* Pods-Card Your Date!.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -260,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				B814837C8A0EC02FB2A5EEAA /* Pods_StepByStep.framework */,
-				1B8F6BB05CF763FD4DB2DF0A /* Pods_Card_Your_Date_.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -382,36 +374,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Card Your Date!/Pods-Card Your Date!-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AnimatedCollectionViewLayout/AnimatedCollectionViewLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
-				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnimatedCollectionViewLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Card Your Date!/Pods-Card Your Date!-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		88D2557AA12BFE1194A4887B /* [CP] Copy Pods Resources */ = {
@@ -420,16 +389,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Card Your Date!/Pods-Card Your Date!-resources.sh",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Card Your Date!/Pods-Card Your Date!-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StepByStep/Pods-StepByStep-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		92BFA5E2E1ED27DCCA34DE00 /* [CP] Check Pods Manifest.lock */ = {
@@ -438,16 +404,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Card Your Date!-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -610,7 +573,7 @@
 		};
 		152C7E6F1F2779C7004E6E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D277A1A25FBABA3742813C49 /* Pods-Card Your Date!.debug.xcconfig */;
+			baseConfigurationReference = 013C5C7BAA191E40B9F76C83 /* Pods-StepByStep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StepByStep/StepByStep.entitlements;
@@ -626,7 +589,7 @@
 		};
 		152C7E701F2779C7004E6E8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7FE03ECEA12B413301AD307 /* Pods-Card Your Date!.release.xcconfig */;
+			baseConfigurationReference = BC06CF8BA37F4C46F862A289 /* Pods-StepByStep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StepByStep/StepByStep.entitlements;

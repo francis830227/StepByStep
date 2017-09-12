@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Card_Your_Date_VersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Card_Your_Date_VersionString[];
+FOUNDATION_EXPORT double Pods_StepByStepVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_StepByStepVersionString[];
 

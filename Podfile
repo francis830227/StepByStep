@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'Card Your Date!' do
+target 'StepByStep' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
@@ -12,13 +12,13 @@ target 'Card Your Date!' do
 
   pod 'AnimatedCollectionViewLayout'
 
-  pod 'JTAppleCalendar'
+  pod 'JTAppleCalendar', '~> 7.0'
 
   pod 'IQKeyboardManagerSwift'
 
   pod 'NVActivityIndicatorView'
 
-  pod 'SkyFloatingLabelTextField'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
   pod 'GooglePlaces'
 

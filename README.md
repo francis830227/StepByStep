@@ -1,6 +1,6 @@
 # Card Your Date!
 
-![](StepByStep/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png)
+<kbd>![](StepByStep/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png)</kbd>
 
 ***
 * 下載此專案後，須申請 `Google Places 的 Key` 以及 `Firebase 的 .plist`方可順利執行。
@@ -19,25 +19,24 @@
 ## 截圖
 
 * **登入 & 註冊畫面**  
-<<<<<<< HEAD
+使用 Firebase Authentication 註冊及登入  
 ![](Screenshot/signup.png)  ![](Screenshot/login.png)  
 
-=======
-![](Screenshot/signup.png)  ![](Screenshot/login.png)
->>>>>>> changeKey
-
 * **主畫面**   
+點選下方+新增事件  
 ![](Screenshot/mainEmpty.png) 
 ![](Screenshot/main.png)
 
+* **側拉選單**  
+打開左側選單查看已完成事件及登出等  
+![](Screenshot/slideMenu.png)
+
 * **新增事件**  
+從日曆選取日期，寫上事件名稱、選擇圖片，即可新增事件    
 ![](Screenshot/pick.png)
 
 * **修改事件**  
 ![](Screenshot/edit.png)
-
-* **側拉選單**  
-![](Screenshot/slideMenu.png)
 
 * **已完成清單**  
 若事件已完成可從主畫面移至此清單  
@@ -62,10 +61,11 @@
 * Fabric
 * Crashlytics
 
-<<<<<<< HEAD
+## 系統需求  
+* iOS 10.3+
+* XCode 8.3.3+
+
 ## 聯絡方式
 Francis Tseng  
 [francis830227@gmail.com](francis830227@gmail.com)
-=======
->>>>>>> changeKey
 
