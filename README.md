@@ -57,4 +57,7 @@
 * Fabric
 * Crashlytics
 
+## 聯絡方式
+Francis Tseng
+[francis830227@gmail.com](francis830227@gmail.com)
 
