@@ -19,7 +19,8 @@
 ## 截圖
 
 * **登入 & 註冊畫面**  
-![](Screenshot/signup.png)  ![](Screenshot/login.png)
+![](Screenshot/signup.png)  ![](Screenshot/login.png)  
+
 
 * **主畫面**   
 ![](Screenshot/mainEmpty.png) 
@@ -58,6 +59,6 @@
 * Crashlytics
 
 ## 聯絡方式
-Francis Tseng
+Francis Tseng  
 [francis830227@gmail.com](francis830227@gmail.com)
 
